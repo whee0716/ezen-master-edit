@@ -1,0 +1,520 @@
+@mixin sprite-width-2x($sprite) {
+  width: nth($sprite, 5) / 2;
+}
+
+@mixin sprite-left($sprite) {
+  margin-left: nth($sprite, 5) / 2;
+}
+
+@mixin sprite-height-2x($sprite) {
+  height: nth($sprite, 6) / 2;
+}
+
+@mixin sprite-position-2x($sprite) {
+  $sprite-offset-x: nth($sprite, 3) / 2;
+  $sprite-offset-y: nth($sprite, 4) / 2;
+  background-position: convertPx($sprite-offset-x, $sprite-offset-y);
+}
+// 0px > 0 으로 치환하기
+@function convertPx($sprite-offset-x, $sprite-offset-y) {
+  @if ($sprite-offset-x == 0px) {
+    $sprite-offset-x: 0
+  }
+  @if ($sprite-offset-y == 0px) {
+    $sprite-offset-y: 0
+  }
+  @return $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-2x($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position-2x($sprite);
+  @include sprite-width-2x($sprite);
+  @include sprite-height-2x($sprite);
+  background-size: $spritesheet-width / 2 auto;
+}
+// 레티나 이미지 배경처리
+// .n1{@include ir2($btn-pltaos);}
+
+@mixin ir2($sprite){
+  background: none;
+  @include sprite-2x($sprite);
+  color: transparent;
+  font-size: 9px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+}
+
+
+// 레티나 배경이미지 상하 중앙 정렬
+@mixin ir2-center($sprite){
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: - nth($sprite, 5) / 4;
+  margin-top: - nth($sprite, 6) / 4;
+}
+// 멀티줄임말
+@mixin oell($n){
+  white-space: nowrap;
+  display: inline-block;
+  overflow: hidden;
+  height: #{$n}px;
+  text-overflow: ellipsis;
+
+}
+
+@mixin ell($n){
+  overflow: hidden;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+  -webkit-line-clamp: $n;
+}
+// 속성애니매이션
+@mixin ani($s){
+  -webkit-transition: all $s;
+  transition: all $s;
+}
+
+// 메인컬러
+$c1 : #3da5bb;
+$c2 : #4fbbd5;
+$c3 : #e86a53;
+// 클러스터 구분선 색상
+$ROOT: '../../../../../images';
+$is_card_date: #838383;
+// 폰트체
+$font : 'helvetica', 'APPLE SD Gothic Neo', 'NanumGothic', sans-serif;
+
+// 동그라미 이미지
+@mixin thumb($n){
+  width: $n;
+  height: $n;
+  border-radius: $n;
+  display: inline-block;
+  overflow: hidden;
+  font-size: 0;
+  position: relative;
+  img {
+    display: block;
+    width: $n+2;
+    height: $n+2;
+    border-radius: $n+2;
+    margin-left: -1px;
+    margin-top: -1px;
+    position: relative;
+    z-index: -1;
+  }
+}
+
+@mixin lh($n) {
+  height: #{$n}px;
+  line-height: #{$n}px;
+  display: inline-block;
+}
+
+
+@mixin hrStyle($color, $h){
+  background-color: $color;
+  display: block;
+  border: 0;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: $h;
+  border-top: 1px solid $gray;
+  border-bottom: 1px solid $gray;
+}
+
+// CSS 삼각형 만들기
+@mixin arrow($direction, $size, $color) {
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  display: inline-block;
+  @if $direction == 'up' {
+    border-left: #{$size}px solid transparent;
+    border-right: #{$size}px solid transparent;
+    border-bottom: #{$size}px solid $color;
+  }
+  @else if $direction == 'down' {
+    border-left: #{$size}px solid transparent;
+    border-right: #{$size}px solid transparent;
+    border-top: #{$size}px solid $color;
+  }
+  @else if $direction == 'right' {
+    border-top: #{$size}px solid transparent;
+    border-bottom: #{$size}px solid transparent;
+    border-left: #{$size}px solid $color;
+  }
+  @else if $direction == 'left' {
+    border-top: #{$size}px solid transparent;
+    border-bottom: #{$size}px solid transparent;
+    border-right: #{$size}px solid $color;
+  }
+}
+
+@mixin dot($v, $c){
+  width: #{$v}px;
+  height: #{$v}px;
+  border-radius: #{$v}px;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: $c;
+}
+// 클러스터 > 더보기 스타일
+@mixin vt-more($x, $y) {
+  position: absolute;
+  right: $x;
+  top: $y;
+  padding: 10px 13px;
+  .icon{
+    @include ir2($btn-more)
+  }
+}
+// 공통 모듈 > 페이징 스타일
+@mixin vt-page() {
+  .pageNav{
+    font-size: 0;
+    padding: 20px 0;
+    button{display: none;}
+    .pagenum{
+      font-size: 0;
+      margin: 0;
+      height: 8px;
+      vertical-align: top;
+    }
+    .num{
+      width: 8px;
+      height: 8px;
+      margin: 0 4px;
+      border: 1px solid $black;
+      box-sizing: border-box;
+      background: none;
+    }
+    .num.select {
+      background-color: $black;;
+    }
+  }
+}
+
+@mixin data-load($h){
+  display: block;
+  text-align: center;
+  @include lh($h);
+  position: relative;
+  border: 1px solid #dddde3;
+  background-color: #fff;
+  color: $black;
+  font-size: 14px;
+  letter-spacing: -1px;
+  &::after{
+    content: '';
+    @include ir2($arr-down);
+    vertical-align: middle;
+    position: relative;
+    right: -10px;
+    top: -1px;
+  }
+}
+
+@mixin ico-plus($w, $h, $c){
+  position: relative;
+  display: inline-block;
+  width: #{$w}px;
+  height: #{$w}px;
+  vertical-align: middle;
+  &::before{
+    content: '';
+    display: block;
+    width:  100%;
+    height: #{$h}px;
+    background-color: $c;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: #{-$h/2}px;
+  }
+  &::after{
+    content: '';
+    display: block;
+    width: #{$h}px;
+    height: 100%;
+    left: 50%;
+    margin-left: #{-$h/2}px;
+    position: absolute;
+    top: 0;
+    background-color: $c;
+  }
+}
+
+
+hr.space{
+  display: block;
+  height: 30px;
+  background: rgba(0,100,10, .1);
+  border: 0;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.ir_test{
+  //@include ir2($bg-g18);
+}
+
+
+
+#skip{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+
+#skip a{
+  position: absolute;
+  left: -999em;
+  top: 0;
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  background-color: #000;
+  color: #fff;
+}
+
+#skip a:focus, #skip a:active{
+  position: relative;
+  left: 0;
+  z-index: 999;
+  padding: 10px;
+  border: 1px dotted #ffb4db;
+}
+
+body, p, ul, li, h1, h2, h3, dl, dt, dd, figure{
+  margin: 0;
+  padding: 0;
+}
+body{
+  font-size: 14px;
+  line-height: 1.3;
+  letter-spacing: -0.05em;
+}
+a{
+  color: #000;
+  text-decoration: none;
+}
+a:active{
+  color: #666;
+}
+ul,li{
+  list-style: none;
+}
+
+
+.lozad-fade {
+  animation-name: fade;
+  animation-duration: 2s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+//vars
+$bg:#673ab7;
+$pi:3.14;
+
+//config
+$menu-items:6;
+$open-distance:105px;
+$opening-angle:$pi*2;
+
+%goo{
+  filter:url('#shadowed-goo');
+  // debug
+  //background:rgba(255,0,0,0.2);
+}
+%ball{
+  background: $c2;
+  border-radius:100%;
+  width:40px;
+  height:40px;
+  margin-left: 0;
+  position:absolute;
+  top: 0;
+  right: 0;
+  color:white;
+  text-align:center;
+  line-height:40px;
+  transform:translate3d(0,0,0);
+  transition:transform ease-out 200ms;
+}
+.menu-open{
+  display:none;
+}
+.menu-item{
+  @extend %ball;
+}
+.float{
+  $width:15px;
+  $height:2px;
+
+  width:$width;
+  height:$height;
+  background:white;
+  display:block;
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin-left:-$width/2;
+  margin-top:-$height/2;
+  transition:transform 200ms;
+}
+$hamburger-spacing:5px;
+.hamburger-1{
+  transform:translate3d(0,-$hamburger-spacing,0);
+}
+.hamburger-2{
+  transform:translate3d(0,0,0);
+}
+.hamburger-3{
+  transform:translate3d(0,$hamburger-spacing,0);
+}
+.menu-open:checked+.menu-open-button{
+  .hamburger-1{
+    transform:translate3d(0,0,0) rotate(45deg);
+  }
+  .hamburger-2{
+    transform:translate3d(0,0,0) scale(0.1,1);
+  }
+  .hamburger-3{
+    transform:translate3d(0,0,0) rotate(-45deg);
+  }
+}
+
+.float__menu--wrap{
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  width: 44px;
+  height: 44px;
+  height: 50px;
+  z-index: 100;
+  &.down{
+    opacity: 1;
+    transition: all 0.5s ease;
+  }
+  &.up{
+    opacity: 0;
+    transition: all 0.5s ease;
+  }
+  svg{
+    position: absolute;
+    left: -999em;
+  }
+  .float__menu{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    .fa-eject::before,
+    .fa-youtube-play::before,
+    .fa-envelope::before{
+      font-size: 14px;
+    }
+    .fa-facebook::before,
+    .fa-phone::before{
+      font-size: 18px;
+      position: relative;
+      top: 2px;
+    }
+    .fa-connectdevelop::before{
+      font-size: 20px;
+      position: relative;
+      top: 2px;
+    }
+  }
+  &.checked{
+    height: 400px;
+    .float__menu{
+      padding-top: 400px;
+    }
+    .menu-open-button,
+    .menu-item{
+      top: 350px;
+    }
+  }
+}
+.float__menu{
+  @extend %goo;
+  $width:100%;
+  $height:150px;
+}
+
+
+.menu-item{
+  &:hover{
+    //background-color: rgba($c1, .8);
+  }
+  @for $i from 1 through $menu-items{
+    &:nth-child(#{$i+2}){
+      transition-duration:180ms;
+    }
+  }
+  .fa{
+    font-size: 0;
+  }
+}
+
+
+.menu-open-button{
+  @extend %ball;
+  z-index:2;
+  transition-timing-function:cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  transition-duration:400ms;
+  transform:scale(1.1,1.1) translate3d(0,0,0);
+  cursor:pointer;
+}
+.menu-open-button:hover{
+  transform:scale(1.2,1.2) translate3d(0,0,0);
+}
+.menu-open:checked+.menu-open-button{
+  transition-timing-function:linear;
+  transition-duration:200ms;
+  transform:scale(0.8,0.8) translate3d(0,0,0);
+}
+
+.menu-open:checked~.menu-item{
+  //background-color: rgba($c1, .5);
+  transition-timing-function:cubic-bezier(0.165, 0.840, 0.440, 1.000);
+  @for $i from 1 through $menu-items{
+
+    &:nth-child(#{$i+2}){
+      transition-duration:500ms+(100ms*$i);
+      transform:translate3d(0,-53px*$i,0);
+    }
+  }
+}
+

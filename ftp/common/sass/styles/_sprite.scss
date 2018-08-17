@@ -1,0 +1,167 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$left-banner-name: 'left_banner';
+$left-banner-x: 0px;
+$left-banner-y: 0px;
+$left-banner-offset-x: 0px;
+$left-banner-offset-y: 0px;
+$left-banner-width: 119px;
+$left-banner-height: 83px;
+$left-banner-total-width: 278px;
+$left-banner-total-height: 247px;
+$left-banner-image: '/images/sprites/common/sprite.png?1524494017900';
+$left-banner: (0px, 0px, 0px, 0px, 119px, 83px, 278px, 247px, '/images/sprites/common/sprite.png?1524494017900', 'left_banner', );
+$left-banner-02-name: 'left_banner_02';
+$left-banner-02-x: 139px;
+$left-banner-02-y: 0px;
+$left-banner-02-offset-x: -139px;
+$left-banner-02-offset-y: 0px;
+$left-banner-02-width: 139px;
+$left-banner-02-height: 66px;
+$left-banner-02-total-width: 278px;
+$left-banner-02-total-height: 247px;
+$left-banner-02-image: '/images/sprites/common/sprite.png?1524494017900';
+$left-banner-02: (139px, 0px, -139px, 0px, 139px, 66px, 278px, 247px, '/images/sprites/common/sprite.png?1524494017900', 'left_banner_02', );
+$left-banner-03-name: 'left_banner_03';
+$left-banner-03-x: 0px;
+$left-banner-03-y: 103px;
+$left-banner-03-offset-x: 0px;
+$left-banner-03-offset-y: -103px;
+$left-banner-03-width: 139px;
+$left-banner-03-height: 66px;
+$left-banner-03-total-width: 278px;
+$left-banner-03-total-height: 247px;
+$left-banner-03-image: '/images/sprites/common/sprite.png?1524494017900';
+$left-banner-03: (0px, 103px, 0px, -103px, 139px, 66px, 278px, 247px, '/images/sprites/common/sprite.png?1524494017900', 'left_banner_03', );
+$left-close2-name: 'left_close2';
+$left-close2-x: 205px;
+$left-close2-y: 103px;
+$left-close2-offset-x: -205px;
+$left-close2-offset-y: -103px;
+$left-close2-width: 9px;
+$left-close2-height: 9px;
+$left-close2-total-width: 278px;
+$left-close2-total-height: 247px;
+$left-close2-image: '/images/sprites/common/sprite.png?1524494017900';
+$left-close2: (205px, 103px, -205px, -103px, 9px, 9px, 278px, 247px, '/images/sprites/common/sprite.png?1524494017900', 'left_close2', );
+$left-logo2-name: 'left_logo2';
+$left-logo2-x: 0px;
+$left-logo2-y: 189px;
+$left-logo2-offset-x: 0px;
+$left-logo2-offset-y: -189px;
+$left-logo2-width: 124px;
+$left-logo2-height: 58px;
+$left-logo2-total-width: 278px;
+$left-logo2-total-height: 247px;
+$left-logo2-image: '/images/sprites/common/sprite.png?1524494017900';
+$left-logo2: (0px, 189px, 0px, -189px, 124px, 58px, 278px, 247px, '/images/sprites/common/sprite.png?1524494017900', 'left_logo2', );
+$left-open-name: 'left_open';
+$left-open-x: 159px;
+$left-open-y: 103px;
+$left-open-offset-x: -159px;
+$left-open-offset-y: -103px;
+$left-open-width: 26px;
+$left-open-height: 44px;
+$left-open-total-width: 278px;
+$left-open-total-height: 247px;
+$left-open-image: '/images/sprites/common/sprite.png?1524494017900';
+$left-open: (159px, 103px, -159px, -103px, 26px, 44px, 278px, 247px, '/images/sprites/common/sprite.png?1524494017900', 'left_open', );
+$menu-close-bullet-name: 'menu_close_bullet';
+$menu-close-bullet-x: 262px;
+$menu-close-bullet-y: 103px;
+$menu-close-bullet-offset-x: -262px;
+$menu-close-bullet-offset-y: -103px;
+$menu-close-bullet-width: 8px;
+$menu-close-bullet-height: 7px;
+$menu-close-bullet-total-width: 278px;
+$menu-close-bullet-total-height: 247px;
+$menu-close-bullet-image: '/images/sprites/common/sprite.png?1524494017900';
+$menu-close-bullet: (262px, 103px, -262px, -103px, 8px, 7px, 278px, 247px, '/images/sprites/common/sprite.png?1524494017900', 'menu_close_bullet', );
+$menu-open-bullet-name: 'menu_open_bullet';
+$menu-open-bullet-x: 234px;
+$menu-open-bullet-y: 103px;
+$menu-open-bullet-offset-x: -234px;
+$menu-open-bullet-offset-y: -103px;
+$menu-open-bullet-width: 8px;
+$menu-open-bullet-height: 7px;
+$menu-open-bullet-total-width: 278px;
+$menu-open-bullet-total-height: 247px;
+$menu-open-bullet-image: '/images/sprites/common/sprite.png?1524494017900';
+$menu-open-bullet: (234px, 103px, -234px, -103px, 8px, 7px, 278px, 247px, '/images/sprites/common/sprite.png?1524494017900', 'menu_open_bullet', );
+$spritesheet-width: 278px;
+$spritesheet-height: 247px;
+$spritesheet-image: '/images/sprites/common/sprite.png?1524494017900';
+$spritesheet-sprites: ($left-banner, $left-banner-02, $left-banner-03, $left-close2, $left-logo2, $left-open, $menu-close-bullet, $menu-open-bullet, );
+$spritesheet: (278px, 247px, '/images/sprites/common/sprite.png?1524494017900', $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

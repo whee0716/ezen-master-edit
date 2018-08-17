@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+@@include("./inc/head.html")
+</head>
+<body>
+<div id="wrapping">
+    @@include("./inc/aside.html")
+    <div id="wrap">
+        @@include("./inc/header.html")
+        <div id="re-container">
+            <div class="pp-wrap">
+                <h2 class="subtitle"><span class="tit--portfolio">캠퍼스 안내</span></h2>
+                <div class="tab swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="item swiper-slide"><a href="#">웹디자인/웹퍼블리셔</a></div>
+                        <div class="item swiper-slide"><a href="#">출판편집</a></div>
+                        <div class="item swiper-slide"><a href="#">영상편집</a></div>
+                        <div class="item swiper-slide"><a href="#">건축인테리어</a></div>
+                        <div class="item swiper-slide"><a href="#">제품/기계설계</a></div>
+                        <div class="item swiper-slide"><a href="#">3D프린팅</a></div>
+                    </div>
+                </div>
+
+                <div class="list-wrap">
+                <figure class="item">
+                    <a href="portfolio_read.asp?sc=&amp;idx=1131">
+                        <img src="http://www.ezenac.co.kr/upload/community/portfolio/2018/2018041710410946884368046.jpg" alt="">
+                        <figcaption class="caption">Fig1. MDN 로고</figcaption>
+                    </a>
+                </figure>
+                <figure class="item">
+                    <a href="portfolio_read.asp?sc=&amp;idx=1131">
+                        <img src="http://www.ezenac.co.kr/upload/community/portfolio/2018/2018041710410946884368046.jpg" alt="">
+                        <figcaption class="caption">Fig1. MDN 로고</figcaption>
+                    </a>
+                </figure>
+                <button class="btn waves-effect waves-light" type="submit" name="action">
+                    더보기 <i class="fa fa-angle-down"></i>
+                </button>
+                </div>
+
+
+            </div>
+
+
+
+            @@include("./inc/footer.html")
+        </div>
+    </div>
+    @@include("./inc/float.html")
+</div>
+
+
+
+
+
+
+<script>
+    var GNB = 3;
+
+    var tab = new Swiper('.tab', {
+        slidesPerView: 2,
+        spaceBetween: 0,
+        loop: true,
+        centeredSlides: true,
+        on: {
+            slideChange: function(){
+                //this.snapIndex
+                $(this.wrapperEl).find('.item').removeClass('on').eq(this.snapIndex).addClass('on')
+            }
+        }
+    });
+</script>
+</body>
+</html>

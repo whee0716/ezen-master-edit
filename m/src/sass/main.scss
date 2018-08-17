@@ -1,0 +1,218 @@
+@import "styles/sprite";
+@import "styles/var";
+
+
+.slider__hor{
+  img{
+    margin: 0 auto;
+    max-width: 450px;
+    width: 100%;
+    display: block;
+  }
+}
+
+
+.portfolio{
+  background-color: $c1;
+  position: relative;
+  padding: 20px 0;
+  .swiper-slide{
+    color: transparent;
+  }
+  h2{
+    @include ir2($m-portfolio-title);
+    height: 17px;
+    margin-left: 13px;
+  }
+  .portfolio--more{
+    color: white;
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    font-size: 13px;
+    span{
+      @include ico-plus(10, 2, white);
+      margin-right: 5px;
+    }
+  }
+  .swiper-container{
+    margin-top: 20px;
+  }
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 230px;
+    height: 180px;
+  }
+}
+
+.special__course{
+  padding-bottom: 20px;
+  h2{
+    margin: 20px 13px 15px 13px;
+    @include ir2($special-course-title);
+  }
+
+  .swiper-slide{
+    width: 156px;
+    display: block;
+    height: 217px;
+    img{
+      display: block;
+      width: 156px;
+      height: 217px;
+    }
+  }
+  .swiper-container-3d{
+    .swiper-slide-shadow-right,
+    .swiper-slide-shadow-left{
+      background: none;
+    }
+  }
+}
+
+.teacher__slide{
+  position: relative;
+  background-color: #f0f0f0;
+  .swiper-slide img{
+    display: block;
+    margin: 0 auto;
+    max-width: 450px;
+    width: 100%
+  }
+  .swiper-button-prev{
+    @include ir2($m-teacher-left-arrow)
+  }
+  .swiper-button-next{
+    @include ir2($m-teacher-right-arrow)
+  }
+  .teacherText {
+    position: absolute;
+    bottom: 70px;
+    right: -15px;
+    font-size: 14px;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+    z-index: 100;
+    font-size: 14px;
+  }
+  .teacher__slide--more{
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 10;
+    font-size: 13px;
+    span{
+      @include ico-plus(10, 2, black);
+      margin-right: 5px;
+    }
+  }
+}
+
+.epilogue{
+  position: relative;
+  .bg{
+    display: block;
+    width: 100%;
+  }
+  .wrapping{
+    position: absolute;
+    right: 10px;
+    top: 56%;
+    width: 65.2%;
+  }
+  .epilogue__write{
+    text-align: left;
+    color: #fffdef;
+    .h{
+      strong{
+        color: $c2;
+        margin-right: 5px;
+        font-size: 14px;
+      }
+
+      @include ell(1);
+      margin-bottom: 10px;
+    }
+    .cont{
+      line-height: 1.4;
+      font-size: 12px;
+      @include ell(3);
+    }
+  }
+  .swiper-pagination{
+    text-align: center;
+    display: block;
+    width: 100%;
+    font-size: 0;
+    left: 0;
+    bottom: -30%;
+  }
+  .swiper-pagination-bullet{
+    background-color: #fff;
+    margin: 0 3px;
+  }
+}
+
+.campusinfo{
+  background-color: #ededed;
+  .image{
+    padding: 24px;
+    background-color: #fff;
+  }
+  img{
+    display: block;
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+  }
+  .list{
+    text-align: center;
+  }
+  .tit{
+    @include ir2($campus-info-title);
+    margin-top: 24px;
+  }
+  .cell{
+    font-size: 0;
+    padding: 15px 10px;
+    > a{
+      font-size: 12px;
+      display: inline-block;
+      width: 90px;
+      margin: 0 5px;
+      color: #666;
+      @include lh(24)
+    }
+  }
+}
+
+
+
+@media (max-width:320px) {
+  .epilogue{
+    .epilogue__write{
+    .h, .cont{
+      font-size: 12px;}
+    }
+  }
+}
+
+#test > .swiper-wrapper{
+  display: block;
+}
+#test > .swiper-wrapper > .swiper-slide{
+  display: block;
+  height: auto;
+}
+
+
+
+
+
+

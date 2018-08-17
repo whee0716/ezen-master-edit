@@ -1,0 +1,178 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$class-information-title-name: 'class_information_title';
+$class-information-title-x: 654px;
+$class-information-title-y: 232px;
+$class-information-title-offset-x: -654px;
+$class-information-title-offset-y: -232px;
+$class-information-title-width: 366px;
+$class-information-title-height: 81px;
+$class-information-title-total-width: 1049px;
+$class-information-title-total-height: 583px;
+$class-information-title-image: '/images/sprites/curriculum/sprite.png';
+$class-information-title: (654px, 232px, -654px, -232px, 366px, 81px, 1049px, 583px, '/images/sprites/curriculum/sprite.png', 'class_information_title', );
+$curri-folder-title-name: 'curri_folder_title';
+$curri-folder-title-x: 0px;
+$curri-folder-title-y: 232px;
+$curri-folder-title-offset-x: 0px;
+$curri-folder-title-offset-y: -232px;
+$curri-folder-title-width: 634px;
+$curri-folder-title-height: 148px;
+$curri-folder-title-total-width: 1049px;
+$curri-folder-title-total-height: 583px;
+$curri-folder-title-image: '/images/sprites/curriculum/sprite.png';
+$curri-folder-title: (0px, 232px, 0px, -232px, 634px, 148px, 1049px, 583px, '/images/sprites/curriculum/sprite.png', 'curri_folder_title', );
+$epilogue-title-name: 'epilogue_title';
+$epilogue-title-x: 386px;
+$epilogue-title-y: 502px;
+$epilogue-title-offset-x: -386px;
+$epilogue-title-offset-y: -502px;
+$epilogue-title-width: 364px;
+$epilogue-title-height: 79px;
+$epilogue-title-total-width: 1049px;
+$epilogue-title-total-height: 583px;
+$epilogue-title-image: '/images/sprites/curriculum/sprite.png';
+$epilogue-title: (386px, 502px, -386px, -502px, 364px, 79px, 1049px, 583px, '/images/sprites/curriculum/sprite.png', 'epilogue_title', );
+$facebook-icon-name: 'facebook_icon';
+$facebook-icon-x: 654px;
+$facebook-icon-y: 333px;
+$facebook-icon-offset-x: -654px;
+$facebook-icon-offset-y: -333px;
+$facebook-icon-width: 30px;
+$facebook-icon-height: 30px;
+$facebook-icon-total-width: 1049px;
+$facebook-icon-total-height: 583px;
+$facebook-icon-image: '/images/sprites/curriculum/sprite.png';
+$facebook-icon: (654px, 333px, -654px, -333px, 30px, 30px, 1049px, 583px, '/images/sprites/curriculum/sprite.png', 'facebook_icon', );
+$job-process-name: 'job_process';
+$job-process-x: 0px;
+$job-process-y: 0px;
+$job-process-offset-x: 0px;
+$job-process-offset-y: 0px;
+$job-process-width: 1049px;
+$job-process-height: 212px;
+$job-process-total-width: 1049px;
+$job-process-total-height: 583px;
+$job-process-image: '/images/sprites/curriculum/sprite.png';
+$job-process: (0px, 0px, 0px, 0px, 1049px, 212px, 1049px, 583px, '/images/sprites/curriculum/sprite.png', 'job_process', );
+$job-process-title-name: 'job_process_title';
+$job-process-title-x: 0px;
+$job-process-title-y: 400px;
+$job-process-title-offset-x: 0px;
+$job-process-title-offset-y: -400px;
+$job-process-title-width: 465px;
+$job-process-title-height: 82px;
+$job-process-title-total-width: 1049px;
+$job-process-title-total-height: 583px;
+$job-process-title-image: '/images/sprites/curriculum/sprite.png';
+$job-process-title: (0px, 400px, 0px, -400px, 465px, 82px, 1049px, 583px, '/images/sprites/curriculum/sprite.png', 'job_process_title', );
+$more-bg-name: 'more_bg';
+$more-bg-x: 704px;
+$more-bg-y: 333px;
+$more-bg-offset-x: -704px;
+$more-bg-offset-y: -333px;
+$more-bg-width: 11px;
+$more-bg-height: 8px;
+$more-bg-total-width: 1049px;
+$more-bg-total-height: 583px;
+$more-bg-image: '/images/sprites/curriculum/sprite.png';
+$more-bg: (704px, 333px, -704px, -333px, 11px, 8px, 1049px, 583px, '/images/sprites/curriculum/sprite.png', 'more_bg', );
+$portfolio-title-name: 'portfolio_title';
+$portfolio-title-x: 0px;
+$portfolio-title-y: 502px;
+$portfolio-title-offset-x: 0px;
+$portfolio-title-offset-y: -502px;
+$portfolio-title-width: 366px;
+$portfolio-title-height: 81px;
+$portfolio-title-total-width: 1049px;
+$portfolio-title-total-height: 583px;
+$portfolio-title-image: '/images/sprites/curriculum/sprite.png';
+$portfolio-title: (0px, 502px, 0px, -502px, 366px, 81px, 1049px, 583px, '/images/sprites/curriculum/sprite.png', 'portfolio_title', );
+$sns-review-title-name: 'sns_review_title';
+$sns-review-title-x: 485px;
+$sns-review-title-y: 400px;
+$sns-review-title-offset-x: -485px;
+$sns-review-title-offset-y: -400px;
+$sns-review-title-width: 444px;
+$sns-review-title-height: 82px;
+$sns-review-title-total-width: 1049px;
+$sns-review-title-total-height: 583px;
+$sns-review-title-image: '/images/sprites/curriculum/sprite.png';
+$sns-review-title: (485px, 400px, -485px, -400px, 444px, 82px, 1049px, 583px, '/images/sprites/curriculum/sprite.png', 'sns_review_title', );
+$spritesheet-width: 1049px;
+$spritesheet-height: 583px;
+$spritesheet-image: '/images/sprites/curriculum/sprite.png';
+$spritesheet-sprites: ($class-information-title, $curri-folder-title, $epilogue-title, $facebook-icon, $job-process, $job-process-title, $more-bg, $portfolio-title, $sns-review-title, );
+$spritesheet: (1049px, 583px, '/images/sprites/curriculum/sprite.png', $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

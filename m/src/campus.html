@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+@@include("./inc/head.html")
+</head>
+<body>
+<div id="wrapping">
+    @@include("./inc/aside.html")
+    <div id="wrap">
+        @@include("./inc/header.html")
+        <div id="re-container">
+            <h2 class="subtitle"><span class="tit--campusinfo">캠퍼스 안내</span></h2>
+            <p class="tit--parag">1등의 자부심과 책임감으로 만든 EZEN Campus</p>
+
+            <div class="tab swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="item swiper-slide"><a href="#">Slide 1</a></div>
+                    <div class="item swiper-slide"><a href="#">Slide 2</a></div>
+                    <div class="item swiper-slide"><a href="#">Slide 3</a></div>
+                    <div class="item swiper-slide"><a href="#">Slide 4</a></div>
+                    <div class="item swiper-slide"><a href="#">Slide 5</a></div>
+                    <div class="item swiper-slide"><a href="#">Slide 6</a></div>
+                    <div class="item swiper-slide"><a href="#">Slide 7</a></div>
+                    <div class="item swiper-slide"><a href="#">Slide 8</a></div>
+                    <div class="item swiper-slide"><a href="#">Slide 9</a></div>
+                    <div class="item swiper-slide"><a href="#">Slide 10</a></div>
+                </div>
+            </div>
+
+            <div class="frm--daumMap">
+
+            </div>
+
+            <ul class="list__table">
+                <li>
+                    <span class="dt">전화</span>
+                    <span class="dd"><a href="tel:02-532-6500">02-532-6500</a></span>
+                </li>
+                <li>
+                    <span class="dt">주소</span>
+                    <span class="dd">강남역10번출구150M직진 &gt; 스킨푸드옆 아리따움건물13층 또는 신논현역6번출구50M직진 &gt; 아리따움건물13층</span>
+                </li>
+                <li>
+                    <span class="dt">팩스</span>
+                    <span class="dd">02-532-6508</span>
+                </li>
+            </ul>
+
+            <div class="swiper-container" id="inner">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="http://www.ezenac.co.kr/upload/campus/photo/2017/2017080818394274738252314.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="http://www.ezenac.co.kr/upload/campus/photo/2017/2017080818394274738252314.jpg" alt=""></div>
+                </div>
+                <!-- Add Arrows -->
+                <div class="fa fa-angle-left"></div>
+                <div class="fa fa-angle-right"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+            @@include("./inc/footer.html")
+        </div>
+    </div>
+    @@include("./inc/float.html")
+</div>
+
+
+
+
+
+
+<script>
+    var GNB = 0;
+    var tab = new Swiper('.tab', {
+        slidesPerView: 4,
+        spaceBetween: 0,
+        loop: true,
+        centeredSlides: true,
+        on: {
+            slideChange: function(){
+                //this.snapIndex
+                $(this.wrapperEl).find('.item').removeClass('on').eq(this.snapIndex).addClass('on')
+            }
+        }
+    });
+
+    var inner = new Swiper('#inner', {
+        loop: true,
+        navigation: {
+            nextEl: '.fa-angle-left',
+            prevEl: '.fa-angle-right'
+        },
+        pagination: {
+            el: '#inner .swiper-pagination'
+        }
+    });
+</script>
+</body>
+</html>

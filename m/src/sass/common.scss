@@ -1,0 +1,5027 @@
+@import "styles/sprite";
+@import "styles/var";
+// Color
+@import "components/color-variables";
+@import "components/color-classes";
+// Variables;
+@import "components/variables";
+@import "components/_waves.scss";
+// component
+@import "components/global";
+
+$radio-empty-color: $c1;
+$radio-fill-color: $c1;
+
+
+@import "components/buttons";
+@import "components/forms/input-fields";
+@import "components/forms/_radio-buttons.scss";
+@import "components/forms/checkboxes";
+
+
+html, body {
+  position: relative;
+  height: 100%;
+}
+table{
+  table-layout: fixed;
+}
+::placeholder{
+  font-size: 13px;
+}
+[type="radio"]:not(:checked)+span,
+[type="radio"]:checked+span {
+  padding-left: 23px;
+  font-size: 12px;
+  line-height: 1.4;
+  height: 19px;
+}
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after {
+  border: 1px solid #26a69a;
+}
+[type="radio"]+span:before, [type="radio"]+span:after {
+  width: 12px;
+  height: 12px;
+}
+[type="radio"]:not(:checked)+span:before,
+[type="radio"]:not(:checked)+span:after {
+  border: 1px solid #3da5bb;
+}
+.help{
+  color: #666;
+  font-size: 11px;
+}
+
+th, td{
+  padding: 0;
+}
+input[type="text"],input[type="tel"]{
+  text-indent: 10px;
+}
+.btn, .btn-large, .btn-small{
+  letter-spacing: -0.05em;
+}
+iframe{
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+[type="checkbox"]+span:not(.lever){
+  padding-left: 24px;
+  line-height: 22px;
+  font-size: 13px;
+}
+input,
+select{
+  font-size: 13px;
+  background: none;
+  -webkit-appearance: none;
+}
+textarea{
+  border: 1px solid #ccc;
+  padding: 5px;
+  line-height: 1.5;
+  font-size: 15px;
+}
+caption{
+  display: none;
+}
+// reset
+nav{
+  background: none;
+  box-shadow: none
+}
+.btn:active{
+  color: black;
+}
+
+
+// Layout
+#wrap{
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  z-index: 20;
+  transition: all 0.4s 0s ease;
+  background-color: #fff;
+}
+// Header > sidemenu button
+.menu-button {
+  display: block;
+  background: none;
+  border: 0;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+  transform: scale(0.5);
+  .bar {
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 5px;
+    margin: 10px auto;
+    background-color: #fff;
+    border-radius: 1px;
+    -webkit-transition: .3s;
+    transition: .3s;
+  }
+  .bar:nth-of-type(1) {margin-top: 0px;}
+  .bar:nth-of-type(3) {margin-bottom: 0px;}
+  &:active .bar:nth-of-type(1) {
+    -webkit-transform: translateY(1.5px) rotate(-4.5deg);
+    -ms-transform: translateY(1.5px) rotate(-4.5deg);
+    transform: translateY(1.5px) rotate(-4.5deg);
+  }
+  &:active .bar:nth-of-type(2) {
+    opacity: .9;
+  }
+  &:active .bar:nth-of-type(3) {
+    -webkit-transform: translateY(-1.5px) rotate(4.5deg);
+    -ms-transform: translateY(-1.5px) rotate(4.5deg);
+    transform: translateY(-1.5px) rotate(4.5deg);
+  }
+}
+
+
+#re-container{
+  .swiper-pagination{
+    color: transparent;
+  }
+  .swiper-pagination-bullet-active{
+    width: 20px;
+    border-radius: 5px;
+    background-color: $c1;
+    transition: all 300ms 0s ease;
+  }
+}
+
+
+
+// 활성화
+.cross{
+  position: relative;
+  overflow: hidden;
+  #side-menu {
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+  // 플로팅버튼 감춤
+  .float__menu--wrap.down,
+  .float__menu--wrap{
+    transition: all .2s 0s ease;
+    opacity: 0;
+  }
+
+  #wrapping{
+    overflow: hidden;
+  }
+  .float__menu--wrap{
+    opacity: 0;
+  }
+  #wrap{
+    box-shadow: -1px 0px 18px #ccc;
+    transform: translate3d(320px, 0, 0);
+    &::before{
+      content: '';
+      position: absolute;
+      width: 1px;
+      height: 100%;
+      left: 0;
+      top: 0;
+      z-index: 100;
+      background-color: #ccc;
+    }
+  }
+  .menu-button .bar:nth-of-type(1) {
+    -webkit-transform: translateY(15px) rotate(-45deg);
+    -ms-transform: translateY(15px) rotate(-45deg);
+    transform: translateY(15px) rotate(-45deg);
+  }
+  .menu-button .bar:nth-of-type(2) {
+    opacity: 0;
+  }
+  .menu-button .bar:nth-of-type(3) {
+    -webkit-transform: translateY(-15px) rotate(45deg);
+    -ms-transform: translateY(-15px) rotate(45deg);
+    transform: translateY(-15px) rotate(45deg);
+  }
+  .menu-button:active .bar:nth-of-type(1) {
+    -webkit-transform: translateY(13.5px) rotate(-40.5deg);
+    -ms-transform: translateY(13.5px) rotate(-40.5deg);
+    transform: translateY(13.5px) rotate(-40.5deg);
+  }
+  .menu-button:active .bar:nth-of-type(2) {
+    opacity: .1;
+  }
+  .menu-button:active .bar:nth-of-type(3) {
+    -webkit-transform: translateY(-13.5px) rotate(40.5deg);
+    -ms-transform: translateY(-13.5px) rotate(40.5deg);
+    transform: translateY(-13.5px) rotate(40.5deg);
+  }
+}
+
+
+
+#re-gnb{
+  border-top: 1px solid rgba(#ccc, .2);
+  background-color: #000;
+  font-size: 0;
+  position: relative;
+  a{
+    color: #8a8b97;
+    font-size: 16px;
+    width: 25%;
+    text-align: center;
+    @include lh(40);
+  }
+  &::after{
+    content: '';
+    display: block;
+    width: 25%;
+    height: 2px;
+    background-color: $c2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate3d(-100%, 0, 0);
+    transition: all 0.3s 0s ease;
+  }
+  &.active0::after{transform: translate3d(0, 0, 0);}
+  &.active1::after{transform: translate3d(100%, 0, 0);}
+  &.active2::after{transform: translate3d(200%, 0, 0);}
+  &.active3::after{transform: translate3d(300%, 0, 0);}
+}
+
+// 좌측
+#side-menu{
+  position: absolute;
+  width: 320px;
+  z-index: 10;
+  background: #fff;
+  height: 100%;
+
+  .banner{}
+  .ezen{@include ir2($l-menu-img1)}
+  .side-menu__banner{
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: #f4f2f1;
+  }
+  .side-menu__menulist{
+    padding: 10px 0 50px 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    box-sizing: border-box;
+    > ul {
+      height: 100%;
+      overflow: auto;
+    }
+  }
+}
+
+.side-menu__banner{
+  overflow: hidden;
+  width: 69px;
+
+  img{
+    display: block;
+    width: 69px;
+  }
+  > a{
+    display: block;
+  }
+  .close{
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    height: 50px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+  .join{@include ir2($l-menu-img6)}
+  .camp{@include ir2($l-menu-img4)}
+  .kigan{@include ir2($l-menu-img5)}
+}
+.side-menu__menulist{
+  width: 226px;
+  &::before{
+    content: '';
+    @include ir2($l-menu-logo)
+  }
+  >ul >li{
+    border-bottom: 1px solid #e5e5e5;
+  }
+  .item,
+  .items{
+    display: block;
+    color: #9b9b9b;
+    margin: 13px 0 11px;
+    position: relative;
+    font-size: 15px;
+    color: #666;
+    &::before{
+      content: '';
+      margin-right: 5px;
+      @include dot(3, #9b9b9b)
+    }
+    &::after{
+      content: '';
+      position: absolute;
+      right: 15px;
+      top: 8px;
+      transition: all 0.3s 0s ease;
+      @include ir2($r-box-down-arr)
+    }
+    &.active{
+      &::after{
+        transform: rotate(180deg)
+      }
+    }
+  }
+  .item::after{
+    display: none;
+  }
+  .depth2{
+    padding: 10px 20px;
+    display: none;
+    border-top: 1px solid #efefef;
+    a{
+      display: block;
+      font-size: 13px;
+      margin: 5px 0;
+      color: #9b9b9b;
+      @include ell(1);
+    }
+  }
+}
+.rolling-date{
+  width:103px;
+  color: #fff;
+  height: 22px;
+  position: absolute;
+  right: 12px;
+  top: 22px;
+  overflow: hidden;
+  font-size: 12px;
+  time{
+    color: $c1;
+    margin-left: 5px;
+  }
+}
+
+// header
+#re-header{
+  position: relative;
+  background-color: #26262d;
+  z-index: 200;
+  #logo{
+    text-align: center;
+    background-color: #000;
+    a{@include ir2($m-main-logo)}
+  }
+}
+
+// footer
+#re-footer{
+  background-color: #3e3e3e;
+  text-align: center;
+  overflow: hidden;
+  .logo{
+    margin: 20px 0;
+    @include ir2($m-footer-logo2)
+  }
+  .addr{
+    color: #7e7e7e;
+    font-size: 10px;
+    line-height: 1.5;
+    .p{
+      display: inline-block;
+      margin:0 5px;
+    }
+    .copy{
+      opacity: .5;
+      margin: 10px 0 20px 0;
+    }
+  }
+  .link-pc{
+    background-color: #fff;
+    color: #7e7e7e;
+    @include lh(40);
+    display: block;
+    font-size: 13px;
+  }
+}
+// scroll header fixed
+.head-fixed{
+  #re-header{
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 300;
+    transition: all 0.4s 0s ease;
+    &.down{
+      opacity: 1;
+    }
+    &.up{
+      opacity: 0;
+      z-index: -1;
+    }
+  }
+  #re-container{
+    padding-top: 90px;
+  }
+}
+
+
+// container
+#re-container{
+  text-align: left;
+}
+
+.float__footbanner{
+  font-size: 0;
+  .fa{
+    font-size: 21px;
+    vertical-align: middle;
+  }
+  .qna{
+    background-color: black;
+  }
+  .qna, .tel{
+    display: inline-block;
+    width: 50%;
+    font-weight: 600;
+    font-size: 14px;
+    color: white;
+    text-align: center;
+    font-style: italic;
+    @include lh(50)
+  }
+  .tel{
+    background-color: $c3;
+  }
+}
+
+.foot__link{
+  font-size: 0;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #2a2c38;
+  text-align: center;
+  background: #363636;
+
+  a{
+    display: inline-block;
+    font-size: 12px;
+    color: #858585;
+    padding: 15px 6px;
+    position: relative;
+    &:first-child {
+      &::before{
+        display: none;
+      }
+    }
+    &::before{
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 17px;
+      height: 10px;
+      width: 1px;
+      display: block;
+      background-color: #858585;
+    }
+  }
+}
+
+
+// subtitleList
+.subtitle{
+  text-align: center;
+  font-size: 0;
+  padding: 30px 0 10px 0;
+}
+
+.tit--parag{
+  font-size: 11px;
+  text-align: center;
+  color: #999;
+}
+// @@타이틀 subtitleList > title
+.tit--campusinfo{
+  @include ir2($tit-campusinfo);
+}
+.tit--unemployed{
+  @include ir2($unemployed-title);
+}
+.tit--employed{
+  @include ir2($employed-title);
+}
+.tit--portfolio{
+  @include ir2($tit-pf);
+}
+.tit--class-information{
+  @include ir2($class-information-title);
+}
+.tit--curri-img01{
+  @include ir2($curri-img01-new);
+}
+.tit--ep-title{
+  @include ir2($ep-title);
+}
+.tit--sns-review{
+  @include ir2($sns-review-title);
+}
+.tit--counsel-title{
+  @include ir2($tit-onlinecoun)
+}
+.tit--company_edu-title{
+  @include ir2($company-edu-title)
+}
+.tit--cert_info_title{
+  @include ir2($cert-info-title)
+}
+.tit--notice{
+  @include ir2($announce_title)
+}
+.tit--eplg{
+  @include ir2($tit_eplg)
+}
+.tit--qna{
+  @include ir2($tit-qna)
+}
+.tit--phg{
+  @include ir2($tit-pg);
+}
+// 브랜드
+.tit--brand{
+  @include ir2($brandstory-title);
+}
+// 연헉
+.tit--hist{
+  @include ir2($history-title);
+}
+// CIBI
+.tit--cbi{
+  @include ir2($history-title);
+}
+// 개취방
+.tit--term{
+  @include ir2($tit-term);
+}
+// 직장인 수정신청
+.tit--salaryman{
+  @include ir2($tit-salaryman)
+}
+// 교습비
+.tit--fee{
+  @include ir2($tit-fee)
+}
+.tit--unemployed_title_new{
+  @include ir2($unemployed-title-new)
+}
+// @@stit
+.tit--ss{
+  position: relative;
+  font-size: 14px;
+  padding: 7px 0;
+  margin: 0 13px;
+  &::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 30px;
+    height: 3px;
+    background-color: #000;
+    display: block;
+    top: 0;
+  }
+}
+
+// blind
+.blind--black{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0, 0.3);
+  z-index: 100;
+}
+/*
+COMPONENT
+ */
+.agree{
+  text-align: left;
+  display: block;
+  margin: 0 13px;
+  input{}
+
+  [type="checkbox"]+span:not(.lever):before,
+  [type="checkbox"]:not(.filled-in)+span:not(.lever):after{
+    //margin-top: 4px;
+  }
+
+  span{
+    font-size: 13px;
+    height: 30px;
+    color: #666;
+  }
+}
+// 로딩바 표현
+.frame__wrap{
+  position: relative;
+  font-size: 24px;
+  text-align: center;
+  iframe{
+    width: 100%;
+    display: block;
+    position: relative;
+    z-index: 3;
+  }
+
+  &::before{
+    content: '\f021';
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+    position: absolute;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    left: 50%;
+    top: 50%;
+    margin: -20px 0 0 -20px;
+    animation: pulse 2s infinite ease;
+  }
+}
+
+.item__list--title{
+  margin: 0 13px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+}
+.item__list{
+  margin: 10px 13px;
+  .item{
+    > label{
+      display: block;
+      padding: 1px 0;
+    }
+    [type="checkbox"].filled-in:not(:checked) + span:not(.lever):after{
+      margin-top: 2px;
+      transition:  all 0.1s 0s ease;
+      transform: scale(0.6);
+    }
+    [type="checkbox"].filled-in:checked+span:not(.lever):after{
+      margin-top: 3px;
+      transform: scale(0.8);
+    }
+    [type="checkbox"].filled-in:checked+span:not(.lever):before{
+      top: 4px;
+      width: 8px;
+      height: 11px;
+    }
+    input + span{
+      font-size: 12px;
+      padding-left: 25px;
+      color: #666;
+    }
+  }
+}
+
+
+
+.cm--tit--parag{
+  margin: 10px 13px 30px;
+  font-size: 11px;
+  text-align: center;
+  color: #999;
+}
+
+
+// @@탭스타일
+.tab{
+  border-top: 1px solid #eaeaea;
+  &::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    display: block;
+    background-color: #ccc;
+    left: 0;
+    bottom: 1px;
+    z-index: -1;
+  }
+
+  &.swiper-container{margin: 20px 0}
+  .item{
+    $c: #ccc;
+    width: 80px;
+    text-align: center;
+    position: relative;
+    font-size: 13px;
+    > a{
+      display: block;
+      @include lh(36)
+    }
+
+    &::after{
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 3px;
+      display: block;
+      background-color: $c2;
+      transition: all 0.3s 0s ease;
+    }
+    &.on::after{
+      width: 100%;
+    }
+  }
+  .swiper-pagination{
+    position: relative;
+  }
+}
+.tab--s1{
+  margin: 0 13px;
+  font-size: 0;
+  overflow: hidden;
+  height: 50px;
+  .item{
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    -webkit-appearance: none;
+    border-radius: 0;
+    background-color: #efefef;
+    border: 1px solid #ccc;
+    border-right: 0;
+    position: relative;
+    height: 50px;
+    vertical-align: top;
+
+    &:last-child{
+      border-right: 1px solid rgba(40,44,42,0.1);
+    }
+    &::after{
+      content: '';
+      position: absolute;
+      width: 0;
+      display: block;
+      left: 0;
+      top: -1px;
+
+      background-color: $c2;
+      height: 3px;
+      transition: all 0.2s 0s ease;
+    }
+    &.on{
+      background-color: #fff;
+      border-bottom: 0;
+      &::after{
+        width: 100%;
+      }
+    }
+  }
+  &.n2{
+    .item{width: 50%;}
+  }
+  &.n3{
+    .item{width: 33%;}
+    .item:nth-child(2){width: 34%;}
+  }
+}
+// tab
+.tab--s2{
+  $v: 20px;
+  font-size: 0;
+  overflow: hidden;
+  button{
+    position: relative;
+    overflow: hidden;
+    border: 0;
+    height: 64px;
+    background-color: #ccc;
+    font-size: 14px;
+    font-weight: 600;
+    &:first-child{
+      border-top-left-radius: $v;
+      border-bottom-left-radius: $v;
+    }
+    &:last-child{
+      border-top-right-radius: $v;
+      border-bottom-right-radius: $v;
+    }
+    &.on{
+      span{
+        position: relative;
+        z-index: 3;
+        color: #fff;
+      }
+      &::before{
+        transition: all 0.4s 0s ease;
+        width: 100%;
+      }
+    }
+    &::before{
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 100%;
+      left: 0;
+      display: block;
+      background-color: $c1;
+      top: 0;
+      z-index: -1;
+    }
+  }
+  &.n2 button{width:50%}
+  &.n3{
+    button{width:33%}
+    button:nth-child(2){
+      width: 34%;
+    }
+  }
+}
+// 테이블스타일
+.list__table{
+  margin: 0 13px;
+  $space: 15px;
+  li{
+    position: relative;
+    padding: $space 0 $space 50px;
+    border-bottom: 1px solid #ccc;
+    font-size: 13px;
+  }
+  .dd{
+    display: block;
+    line-height: 1.4;
+  }
+  .dt{
+    position: absolute;
+    left: 0;
+    top: $space;
+    line-height: 1.4;
+    color: #666;
+  }
+}
+// 캠퍼스정보 >  캠퍼스전경슬라이드
+#inner{
+  margin: 30px 13px;
+  position: relative;
+  img{
+    display: block;
+    width: 100%;
+  }
+  .swiper-pagination{
+    position: relative;
+    padding: 5px 0;
+    bottom: 0;
+  }
+  .fa{
+    padding: 10px;
+    font-size: 28px;
+    top: 35%;
+    position: absolute;
+    z-index: 30;
+    background-color: #fff;
+  }
+  .fa-angle-left{
+    left: 0;
+
+  }
+  .fa-angle-right{
+    right: 0;
+  }
+}
+
+#frm--daumMap img{
+  width: 100%;
+}
+.img__link{
+  overflow: hidden;
+  > a{
+    display: block;
+    float: left;
+    img{
+      display: block;
+      width: 100%;
+    }
+  }
+  &.n2 a{width: 50%;}
+}
+// 버튼 2개, 3개 나란히
+.btn--wrap{
+  overflow: hidden;
+  .btn{
+    width: 100%;
+  }
+  .fa{
+    font-size: 14px;
+  }
+  &.n2{
+    .btn{width: 48%;}
+    .btn:first-child{float: left;}
+    .btn:last-child{float: right;}
+  }
+}
+// 이미지 + 텍스트형 리스트
+.thumb--list{
+  margin: 0 13px;
+  border-top: 1px solid #000;
+  a{
+    display: block;
+  }
+  li{
+    position: relative;
+    padding: 10px 0 10px 100px;
+    border-bottom: 1px solid #ccc;
+  }
+  & + .btn--wrap{
+    margin: 20px 13px 30px;
+  }
+  .frame__wrap{
+    position: relative;
+    display: block;
+    min-height: 40px;
+    &::before{
+      font-size: 11px;
+    }
+    &::after{
+      content: '';
+      position: absolute;
+      left:0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      border: 1px solid #000;
+      opacity: .2;;
+      box-sizing: border-box;
+      z-index: 10;
+    }
+
+    img{
+      display: block;
+      width: 90px;
+      position: relative;
+      z-index: 3;
+    }
+    width: 90px;
+    position: absolute;
+    left: 0;
+    top: 15px;
+  }
+  .subj{
+    @include ell(1);
+    margin-bottom: 10px;
+  }
+  .context{
+    @include ell(3);
+    font-size: 12px;
+    line-height: 1.5;
+    color: #666;
+  }
+}
+
+
+// @@MENU02 m/dist/addcurri.html
+.addcurri{
+  margin: 30px 13px;
+  position: relative;
+  .select--wrap{
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .fa-plus{
+    font-size: 20px;
+    transition: all 0.3s 0s ease;
+    transform: rotate(360deg);
+    &.on{
+      transform: rotate(180deg);
+      line-height: 38px;
+    }
+  }
+  .select__underline{
+    font-size: 22px;
+    font-weight: bold;
+    -webkit-appearance: none;
+    border-radius: 0;
+    background-color: white;
+  }
+  .menulist{
+    margin: 20px 0;
+    min-height: 351px;
+    overflow: hidden;
+
+    > ul > li {
+      border-bottom: 1px solid #000;
+      transform:translate3d(100%, 0, 0);
+
+      > a{
+        position: relative;
+        display: block;
+        padding: 10px 0;
+      }
+
+      &.depth2{
+        &::after{
+          content: '';
+          position: absolute;
+          right: 8px;
+          top: 16px;
+          transition: all 0.3s 0s ease;
+          @include ir2($r-box-down-arr)
+        }
+        &.active{
+          > a{
+            font-weight: bold;
+          }
+          &::after{
+            transform: rotate(180deg)
+          }
+        }
+      }
+      &.depth1 {
+        &::after {
+          content: '';
+          position: absolute;
+          right: 8px;
+          top: 16px;
+          transform: rotate(270deg);
+          @include ir2($r-box-down-arr)
+        }
+      }
+      $menu-items: 9;
+
+      @for $i from 1 through $menu-items{
+        &.on:nth-child(#{$i}){
+          transition-delay: 500ms+(100ms*$i);
+          transition-duration: 200ms+(100ms*$i);
+          transform:translate3d(0, 0, 0);
+        }
+      }
+
+    }
+
+    > ul > li > ul{
+      display: none;
+      > li.item {
+        border-top: 1px solid #ccc;
+        font-size: 0;
+        padding-left: 20px;
+        position: relative;
+        &::before{
+          content: '';
+          display: block;
+          border-radius: 100%;
+          width: 4px;
+          height: 4px;
+          position: absolute;
+          left: 5px;
+          top: 15px;
+          background-color: #666;
+        }
+        a{
+          width: 100%;
+          @include oell(30);
+          line-height: 30px;
+          font-size: 13px;
+        }
+
+      }
+      .s-tit{
+        display: block;
+        padding: 10px 0;
+        text-indent: 5px;
+        color: #fff;
+
+        background: -webkit-linear-gradient(top, rgb(94, 165, 183) 30%, rgb(49, 159, 182) 100%);
+
+        &.goBtn{
+          margin: 1px 0;
+          position: relative;
+          > a{
+            display: block;
+            position: relative;
+            z-index: 3;
+            color: #fff;
+          }
+          &::after{
+            content: "\f101";
+            font: normal normal normal 24px/1 FontAwesome;
+            position: absolute;
+            right: 10px;
+            top: 7px;
+          }
+        }
+        // S-tit END
+      }
+    }
+  }
+}
+.select__box{
+  border: 1px solid #ccc;
+  width: 100%;
+  height: 40px;
+  text-indent: 10px;
+}
+
+.select__underline{
+  height: 40px;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #000;
+}
+.select--wrap{
+  margin: 0 13px;
+  position: relative;
+  select{
+    border-radius: 0;
+  }
+  .fa{
+    display: block;
+    line-height: 42px;
+    position: absolute;
+    width: 30px;
+    text-align: center;
+    height: 38px;
+    font-size: 24px;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  }
+}
+// @@ MENU03
+.support {
+   .caution{
+     font-size: 12px;
+     color: $c3;
+     padding-left: 20px;
+     margin: 10px 13px;
+     background: url('//ezenac.co.kr/m/images/p_em_bg.png') no-repeat 0 center;
+   }
+   .search--form{
+    .ss-tit{
+      margin-left: 13px;
+    }
+  }
+
+  .select__underline {
+    font-size: 16px;
+  }
+  .tit--parag {
+    margin: 10px 0 30px 0;
+  }
+  .tab--s1 {
+    margin: 10px 13px 30px 13px;
+    overflow: hidden;
+  }
+  .tab-cnt {
+    margin: 0 13px;
+    display: none;
+    > h4 {
+      text-align: center;
+      font-size: 17px;
+    }
+  }
+  .box.bg1 + .btn-wrap {
+    text-align: center;
+    margin: 20px 0 30px 0;
+    .waves-black {
+      background-color: #4c4c4c;
+      &:active {
+        color: #fff;
+      }
+    }
+    .waves-cyan {
+      background-color: $c1;
+      &:active {
+        color: #fff;
+      }
+    }
+  }
+  #cont1 {
+    display: block;
+  }
+  #cont2 {
+    .parag + .parag {
+      margin: 20px 0;
+    }
+    .space {
+      padding-bottom: 30px;
+    }
+    .lozad + .parag {
+      margin: 15px 0 20px 0;
+    }
+    .down {
+      width: 72px;
+      height: 15px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+  #cont3 {
+    .parag + .parag {
+      margin: 10px 0;
+    }
+    .m-color {
+      font-size: 14px;
+      color: $c1;
+      position: relative;
+      padding: 20px 0 10px 0;
+
+    }
+    .btn--link + .parag {
+      margin: 50px 0 20px 0;
+      color: #000;
+    }
+    img {
+      display: block;
+      width: 100%;
+    }
+    .txt--cyan + .parag {
+      text-align: left;
+      line-height: 1.5;
+    }
+    .box.bg2 {
+      .parag:last-child {
+        text-align: left;
+        line-height: 1.5;
+      }
+    }
+    .btn + .box {
+      margin-top: 30px;
+    }
+  }
+  .img__link {
+    margin-bottom: 20px;
+  }
+  // 본문내용
+  .box {
+    background-color: #f1f1f1;
+    margin: 0 -13px;
+    padding: 0 13px;
+    overflow: hidden;
+    &.bg1 {
+      background: url('http://www.ezenac.co.kr/m/images/unempSupport3Bg.jpg');
+      padding-bottom: 30px;
+      overflow: hidden;
+    }
+    &.bg2 {
+      background: url('http://www.ezenac.co.kr/m/images/unempSupport2Bg.jpg');
+      padding-bottom: 30px;
+      overflow: hidden;
+      text-align: center;
+      strong {
+        display: block;
+        color: $c2;
+        text-align: center;
+        margin: 20px 0 10px;
+      }
+    }
+
+    // step
+    &.step {
+      padding-bottom: 20px;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
+  .radio{
+    label{ display: block;}
+    [type="radio"]+span{
+      padding-left: 20px;
+    }
+    [type="radio"]+span:before, [type="radio"]+span:after {
+      margin-top: 7px;
+    }
+  }
+
+  .table__linear {
+    input[type="text"], input[type="tel"]{
+      width: 95%;
+    }
+  }
+
+  .table__left {
+    overflow: auto;
+    table {
+      min-width: 500px;
+    }
+    th {
+      width: 90px;
+    }
+  }
+  .ss-tit {
+    margin: 30px 0 20px 0;
+    > span {
+      position: relative;
+      display: inline-block;
+      padding-left: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #000;
+      &::before {
+        content: '';
+        display: block;
+        width: 3px;
+        height: 70%;
+        background-color: #000;
+        left: 0;
+        top: 13%;
+        position: absolute;
+      }
+    }
+    .sub {
+      color: #999;
+      margin-left: 5px;
+      font-size: 14px;
+      vertical-align: bottom;
+    }
+  }
+  img + .parag {
+    font-size: 12px;
+    margin: 20px 0;
+    font-weight: bold;
+  }
+
+  .parag {
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+  }
+  .parag + .box {
+    margin-top: 30px;
+  }
+
+  .txt--red {
+    color: #fd4427;
+  }
+  .txt--cyan {
+    color: $c2;
+  }
+
+  .wrap {
+    padding: 10px;
+    line-height: 1.4;
+  }
+  .ss-tit + .box.count {
+    margin-top: 0;
+  }
+  .box.count {
+    margin: 30px 0 0 0;
+    padding: 0;
+    dt {
+      position: relative;
+      font-size: 16px;
+      padding-left: 40px;
+      font-weight: bold;
+      margin: 0;
+      height: 40px;
+      line-height: 40px;
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        border: 2px solid #000;
+        width: 30px;
+        height: 30px;
+        box-sizing: border-box;
+        text-align: center;
+        line-height: 28px;
+        font-size: 18px;
+        display: block;
+      }
+    }
+    $cnt: 9;
+
+    @for $i from 1 through $cnt {
+      //&.on:nth-child(#{$i}){
+
+      .n#{$i}::before {
+        content: '0#{$i}';
+      }
+    }
+
+    dd {
+      position: relative;
+      padding-left: 10px;
+      margin: 10px 10px 10px 20px;
+      color: #666;
+      &::before {
+        content: '-';
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      &:last-child {
+        margin-bottom: 30px;
+      }
+      &.imp {
+        background-color: #666;
+        color: #fff;
+        font-size: 15px;
+        padding: 5px 10px;
+        display: inline-block;
+        margin: 10px 0 0 20px;
+      }
+      &.imp::before {
+        display: none;
+      }
+    }
+
+  }
+  .count.gray + .noti {
+    text-align: right;
+    margin: 10px 0;
+    font-size: 12px;
+  }
+  .cc-map {
+    position: relative;
+    background: url("//ezenac.co.kr/m/images/curriculum/employed/unemployed_support_step_back.jpg");
+    overflow: hidden;
+    margin-top: 30px;
+    .img {
+      position: relative;
+      font-size: 0;
+      padding: 10px 0 30px;
+      display: block;
+      img {
+        Width: 100%;
+      }
+    }
+    .ss-tit {
+      margin-bottom: 10px;
+      span {
+        color: #fff
+      }
+      span::before {
+        background-color: #fff;
+      }
+    }
+
+    ol {
+      position: absolute;
+      left: -999em;
+    }
+  }
+  .tab-cnt {
+    display: none;
+  }
+  .gray2 {
+    background-color: #e2e2e2;
+    .step-cell3 {
+      margin: 20px 0 30px -5px;
+    }
+  }
+  .step {
+    background-color: #e2e2e2;
+    margin: 0 -13px;
+    padding: 0 13px;
+    overflow: hidden;
+    dl {
+      margin-bottom: 20px;
+      border-radius: 15px 15px 0 0;
+      border: 1px solid #bebebe;
+      background-color: #fff;
+    }
+    dt {
+      font-size: 16px;
+      border-radius: 10px;
+      padding: 10px 0;
+      text-align: center;
+      color: #fff;
+      margin: -1px -1px 0 -1px;
+    }
+    dd {
+      margin: 15px 10%;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #e1e1e1;
+      font-size: 14px;
+      color: #666;
+      line-height: 1.65;
+      text-align: center;
+      word-break: keep-all;
+      &:last-child {
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
+    }
+    .cyan {
+      border: 1px solid #139aba;
+      background-color: #139aba;
+    }
+    .blue2 {
+      border: 1px solid #004889;
+      background-color: #004889;
+    }
+    .black2 {
+      border: 1px solid #000;
+      background-color: #333;
+    }
+  }
+  .text-box {
+    h5 {
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 8px;
+      padding-left: 10px;
+    }
+    li {
+      margin-left: 20px;
+      font-size: 14px;
+      color: #666666;
+      word-break: keep-all;
+      word-wrap: break-word;
+      line-height: 1.66;
+      margin-bottom: 5px;
+      position: relative;
+      padding-left: 10px;
+      &::before {
+        content: '-';
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+    }
+    .noti {
+      padding-left: 10px;
+      font-size: 11px;
+      color: #666;
+      margin-left: 20px;
+    }
+    &:last-child {
+      margin-bottom: 40px;
+    }
+  }
+
+  .tab--s2 {
+    margin: 30px 13px;
+  }
+  .page-tab {
+    margin: 0 -13px;
+    height: 60px;
+    overflow: visible;
+    .item {
+      overflow: visible;
+      height: 60px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #aaa;
+      &.on {
+        color: $c3
+      }
+    }
+    .item::after {
+      height: 5px;
+      background-color: $c3;
+    }
+  }
+  .search--form .btn-wrap {
+    margin: 20px 13px;
+    a {
+      width: 100%;
+    }
+    a:hover, a:active {
+      color: #fff;
+    }
+  }
+  .btn-ez-wrap {
+    text-align: center;
+  }
+  .btn-ez {
+    position: relative;
+    display: inline-block;
+    margin: 30px auto;
+    color: #139aba;
+    font-size: 13px;
+    font-weight: 400;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    background: rgb(255, 255, 255);
+    background: -moz-linear-gradient(top, rgb(255, 255, 255) 0%, rgb(245, 245, 245) 70%, rgb(245, 245, 245) 70%);
+    background: -webkit-linear-gradient(top, rgb(255, 255, 255) 0%, rgb(245, 245, 245) 70%, rgb(245, 245, 245) 70%);
+    background: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(245, 245, 245) 70%, rgb(245, 245, 245) 70%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f5f5f5', GradientType=0);
+    padding: 7px 28px 7px 14px;
+    letter-spacing: -1px;
+    &::after {
+      content:'';
+      position: absolute;
+      @include arrow('right', 6, #139aba);
+      font-size: 11px;
+      right: 12px;
+      top: 10px;
+    }
+  }
+  .blet {
+    margin: 10px 0;
+    .txt--cyan::before {
+      background-color: $c2;
+    }
+    strong::before {
+      content: '';
+      vertical-align: middle;
+      display: inline-block;
+      width: 3px;
+      height: 3px;
+      border-radius: 3px;
+      background-color: #000;
+      margin-right: 5px;
+    }
+    .item {
+      display: block;
+      font-weight: normal;
+      margin: 10px 0;
+      padding-left: 10px;
+      position: relative;
+      &::before {
+        position: absolute;
+        left: 0;
+        top: 8px;
+      }
+    }
+  }
+  .ani {
+    background: url('//ezenac.co.kr/m/images/curriculum/employed/empsupport_tab_content_deco01.jpg') right bottom no-repeat;
+    height: 140px;
+    background-size: auto 113px;
+  }
+  .black-side {
+    background: url('//ezenac.co.kr/m/images/curriculum/employed/employed_conter_back.jpg') repeat-x center center;
+    background-size: cover;
+    margin-top: 30px;
+    padding-bottom: 20px;
+    .noti {
+      font-size: 11px;
+      margin: 15px 0;
+      color: #666;
+    }
+    & + .cc-map {
+      margin-top: 0;
+    }
+    .btn-download {
+      position: relative;
+      display: inline-block;
+      background-image: url('//ezenac.co.kr/m/images/curriculum/employed/employed_btn_download_back.png');
+      background-size: 100% 100%;
+      color: #fff;
+      font-size: 14.5px;
+      padding: 15px 44px 15px 20px;
+      margin: 20px 0;
+      text-align: center;
+      letter-spacing: -1.5px;
+      line-height: 1;
+      &::after {
+        content: '';
+        @include arrow('right', 6, white);
+        position: absolute;
+        top: 15px;
+        right: 21px;
+      }
+    }
+  }
+  .ss-tit + .parag2 {
+    margin-top: -10px;
+  }
+  .parag2 {
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.5;
+    & + .noti {
+      font-size: 12px;
+      margin-top: 10px;
+    }
+  }
+  .center-inner {
+    max-width: 640px;
+    margin: 30px auto;
+    text-align: center;
+    box-sizing: border-box;
+    a:link {
+      display: inline-block;
+      font-weight: 600;
+      font-size: 14.5px;
+      color: #fff;
+      text-align: center;
+      margin: 0 3px 3px 3px;
+      letter-spacing: -1px;
+    }
+    .btn-employed {
+      background: linear-gradient(to bottom, rgb(19, 154, 186) 1%, rgb(17, 140, 170) 100%);
+      padding: 9px 33px 10px 13px;
+      border-radius: 25px;
+      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.16), inset 0px -2px 2px rgba(0, 0, 0, 0.4);
+      color: #fff;
+      position: relative;
+    }
+    .btn-employed:after {
+      content: "";
+      width: 16px;
+      height: 16px;
+      background-image: url('//ezenac.co.kr/m/images/curriculum/employed/btn_arrow_black.png');
+      background-size: 16px 16px;
+      background-repeat: no-repeat;
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      margin-top: -8px;
+    }
+    .btn-online {
+      background: linear-gradient(to bottom, rgb(91, 91, 91) 0%, rgb(50, 50, 50) 100%);
+      padding: 9px 33px 10px 13px;
+      border-radius: 25px;
+      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.16), inset 0px -2px 2px rgba(0, 0, 0, 0.4);
+      color: #fff;
+      position: relative;
+    }
+    .btn-online:after {
+      content: "";
+      width: 16px;
+      height: 16px;
+      background-image: url('//ezenac.co.kr/m/images/curriculum/employed/btn_arrow_white.png');
+      background-size: 16px 16px;
+      background-repeat: no-repeat;
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      margin-top: -8px;
+    }
+
+    .btn-employed:hover,
+    .btn-online:hover {
+      opacity: 0.8;
+      filter: alpha(opacity=80);
+    }
+  }
+}
+
+
+// @@ MEBNU04
+.pp-wrap{
+  .view--util{
+    margin: 0 13px;
+
+    .util{
+      background-color: #eee;
+      position: relative;
+      text-align: center;
+      margin: 0 -13px;
+      padding: 20px;
+      a{
+        display: inline-block;
+      }
+      .prev{
+        position: absolute;
+        left: 13px;
+        top: 20px;
+      }
+      .next{
+        position: absolute;
+        right: 13px;
+        top: 20px;
+      }
+      .last, .first{
+        opacity: .3;
+      }
+    }
+
+
+    .btn{
+      @extend .grey, .darken-4
+    }
+    .fa{
+      color: #fff;
+    }
+  }
+  .tab .item{
+    width: 120px;
+    &.on a{
+      color: $c2;
+    }
+  }
+
+  .pfvtit {
+    margin: 0 13px;
+    h3{
+      font-size: 22px;
+      margin: 15px 0 10px 0;
+      font-weight: normal;
+      text-transform: uppercase;
+    }
+    span{
+      font-size: 13px;
+      color: #999;
+    }
+  }
+
+
+  .view {
+    margin:  20px 13px 30px 13px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+    img{
+      width: 100%;
+      display: block;
+    }
+  }
+
+  .list-wrap{
+    margin: 0 13px;
+    li{
+      margin:  20px 0 30px 0;
+      box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+      p{padding:  15px 10px;}
+      p span:last-child{color: $c1}
+      a{
+        display: block;
+        min-height: 100px;
+        position: relative;
+        text-align: center;
+        img{
+          position: relative;
+          z-index: 2;
+        }
+        &::before{
+          content: '\f021';
+          color: #666;
+          font: normal normal normal 14px/1 FontAwesome;
+          font-size: inherit;
+          text-rendering: auto;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          transform: translate(0, 0);
+          position: absolute;
+          z-index: 1;
+          width: 40px;
+          height: 40px;
+          line-height: 40px;
+          display: block;
+          left: 50%;
+          top: 50%;
+          margin: -20px 0 0 -20px;
+          animation: pulse 2s infinite ease;
+        }
+      }
+    }
+
+    .item{
+      margin: 10px 0 20px 0;
+      padding: 0;
+    }
+    img{
+      max-width: 100%;
+    }
+    .caption{
+      text-align: center;
+      margin: 10px 0;
+    }
+    & + .btn-wrap{
+      margin: 0 13px;
+
+    }
+  }
+  .btn{
+    width: 100%;
+    @extend .cyan, .darken-1;
+    &:active{
+      color: #fff;
+    }
+    .fa{
+      vertical-align: middle;
+    }
+    margin-bottom: 30px;
+  }
+}
+
+.table__linear{
+  border-top: 1px solid #000;
+  margin: 0 13px;
+  .req::after{
+    content: '*';
+    color: $c3;
+  }
+  input[type="text"],
+  input[type="tel"]{
+    height: 38px;
+    border: 1px solid #ccc;
+    width: 50%;
+    vertical-align: top;
+    margin: 0;
+  }
+  th{
+    width: 60px;
+  }
+  td, th {
+    padding: 7px 0;
+    border-bottom: 1px solid #ccc;
+  }
+  td{
+    .select--wrap{
+      margin: 0;
+      display: inline-block;
+      width: 90px;
+      select{
+        text-indent: 5px;
+      }
+    }
+  }
+  .td-wrap{
+    padding-left: 100px;
+    position: relative;
+    .select--wrap{
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    input[type="tel"],
+    input[type="text"]{
+      width: 44%;
+    }
+  }
+}
+.table__left{
+  table{
+    border-collapse: separate;
+    border-spacing: 1px;
+    background-color: #eee;
+    table-layout: fixed;
+    width: 100%;
+  }
+  th{
+    background-color: #808080;
+    width: 120px;
+    font-size: 11px;
+    color: #fff;
+    padding: 14px 0;
+  }
+
+  td{
+    background-color: #fff;
+    padding: 0;
+    font-size: 10px;
+    text-align: left;
+    color: #666;
+  }
+  th + td{
+    width: 50%;
+  }
+}
+.table__dt{
+  text-align: center;
+  background-color: #fff;
+  overflow: hidden;
+  > dt{
+    background-color: #777;
+    color: #fff;
+    padding: 7px 0;
+  }
+  > dd{
+    text-align: left;
+    position: relative;
+    margin: 10px;
+    padding-left: 10px;
+    font-size: 12px;
+    &::before{
+      content: '-';
+      position: absolute;
+      left: 0px;
+      top: 0;
+    }
+  }
+  em{
+    color: #848484;
+    font-size: 11px;
+    font-style: normal;
+    display: block;
+    margin-top: 5px;
+  }
+}
+.search--form{
+  border-top: 2px solid #000;
+  h4{
+    text-align: center;
+  }
+  .getDataList{
+    dl:last-child{
+      margin-bottom: 20px;
+    }
+  }
+  .item__list{
+    margin-left: 23px;
+  }
+  .item__list--title{
+    padding-left: 13px;
+  }
+  .select--wrap + .getDataList + .txt--red{
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.5;
+    margin: 10px 13px 30px 13px;
+    font-size: 12px;
+    .fa{
+      position: absolute;
+      left: 0;
+      top: 3px;
+      font-size: 16px;
+    }
+  }
+  [type="radio"] + span{
+    font-size: 13px;
+    line-height: 22px;
+    padding-left: 26px;
+    color: #666;
+  }
+
+
+  .btn-wrap{
+    text-align: center;
+    margin: 20px 0 30px ;
+    &:active{
+      color: #fff;
+    }
+  }
+  .btn{
+    @extend .cyan, .darken-1;
+  }
+}
+.terms--txtContent{
+  margin: 20px 13px 5px 13px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  height: 100px;
+  overflow: auto;
+  font-size: 11px;
+  line-height: 1.5;
+  background-color: #efefef;
+  color: #666;
+}
+
+// COLOR API ] https://materializecss.com/color.html
+.btn--link{
+  display: block;
+  text-align: center;
+  font-size: 13px;
+  .fa-angle-right{
+    font-size: 16px;
+    vertical-align: top;
+    position: relative;
+    top: 10px;
+  }
+  @extend .cyan , .darken-1;
+}
+
+
+//@@ old
+.unempBox1 h4 {
+  text-align: center;
+}
+.unempSupportBox h4 {color: #333333;}
+
+
+// 커리큘럼 인포메이션
+.curriculum-index{
+  .btn_wrap_lecture{
+    overflow: hidden;
+    width: 100%;
+    max-width: 320px;
+    margin: 20px auto 0;
+    li{
+      width: 49%;
+      margin: 0;
+      &:last-child{
+        float: right;
+      }
+      img{
+        padding: 0;
+      }
+    }
+  }
+  .mSubcontent1{
+    padding: 10px 13px;
+    background: #333;
+  }
+  .mSubcontent1 > .box {
+    background: #fff;
+    border-top: 4px solid #e6715f;
+    padding: 25px 28px 25px 28px;
+  }
+
+  img{display: block;width: 100%;}
+.mSubcontent1{
+  .box ul li {
+    margin: 10px 0;
+    &::before{
+      content: '';
+      display: inline-block;
+      width: 3px;
+      height: 3px;
+      background-color: #666;
+      border-radius: 3px;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+    padding-left: 7px;
+    font-size: 14px;
+    letter-spacing: -.5px;
+  }
+  .title{
+    text-align: center;
+    color: #e6715f;
+    font-weight: bold;
+    margin-left: 8px;
+    margin-top: 5px;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  p {
+    overflow: hidden;
+    margin: 5px 0;
+    clear:both;
+  }
+  p > span {
+    float: left;
+    padding: 3px 6px;
+    width: 80px;
+    background: #e6715f;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+  }
+}
+  .curriConetent {
+    padding: 35px 30px 35px 30px;
+    text-align: center;
+  }
+
+  .infoTextBox{
+    .tits + .tit{
+      font-size: 15px;
+      margin: 15px 0 0 0;
+    }
+    img {
+      width: 100%;
+      padding: 37px 0 17px 0;
+      display: inline-block;
+    }
+
+    p{
+      text-align: center;
+      font-size: 12px;
+      color: #333333;
+      letter-spacing: -0.05em;
+      font-weight: 300;
+      margin: 15px 0;
+      line-height: 1.5;
+    }
+    strong{
+      display: block;
+      font-size: 20px;
+      font-weight: normal;
+      line-height: 1.3;
+      .red{
+        background: none !important;
+        color: #e86a54;
+      }
+    }
+  }
+
+  .curriinfobox {
+    margin: 12px 13px 0 13px;
+    strong{
+      font-size:15px;
+    }
+    img{
+      display: inline-block;
+      margin: 20px 0;
+    }
+    p{
+      margin: 10px 0 20px 0;
+      font-size: 13px;
+      color: #666;
+    }
+    .infobox {
+      padding: 20px 0;
+      border-top: 2px solid #000;
+      border-bottom: 2px solid #000;
+      .title{
+        iframe{
+          width: 100%;
+          margin: 10px 0 20px 0;
+        }
+      }
+    }
+    .txtBox{
+      width: 50%;
+      color: #666666;
+      font-size: 13px;
+      line-height: 1.5;
+      letter-spacing: -0.05em;
+    }
+
+    .ifb1{
+      overflow: hidden;
+      > .txtBox {
+        float: left;
+
+        text-align: right;
+      }
+      > img {
+        width: 46%;
+        float: right;
+        display: block;
+      }
+    }
+    .ifb2{
+      overflow: hidden;
+      > .txtBox {
+        float: right;
+        text-align: left;
+      }
+      > img {
+        width: 46%;
+        float: left;
+        display: block;
+      }
+    }
+    .ifb3{
+      > p{
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 14px;
+      }
+      .txtBox{
+        width: 100%;
+        color: #222;
+        margin: 15px 0 10px;
+        letter-spacing: -0.05em;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.curriculumBox{
+  margin: 0 13px 35px 13px;
+  text-align: center;
+  .tit--curri-img01{
+    display: block;
+    margin: 20px auto;
+  }
+  .parag{
+    font-size: 12px;
+    margin-bottom: 50px;
+  }
+  .curri{
+    margin: 25px auto 0;
+    width: 320px;
+    overflow: hidden;
+    @mixin cm($url){
+      background-size: 63px 87px;
+      background-position: 0 33px;
+      background-repeat: no-repeat;
+      background-image: url($url);
+    }
+    &.basic {@include cm('http://www.ezenac.co.kr/m/images/curri_img02.jpg');}
+    &.skillup {
+      @include cm('http://www.ezenac.co.kr/m/images/curri_img03.jpg');
+      background-position: 0 53px;
+    }
+    &.portFolio {
+      @include cm('http://www.ezenac.co.kr/m/images/curri_img04.jpg');
+      background-position: 0 53px;
+    }
+
+
+    dd span {
+      float: left;
+      text-align: center;
+      background: url(http://www.ezenac.co.kr/m/images/numbering_bg.png)no-repeat;
+      position: relative;
+      top: 3px;
+      font-weight: normal;
+      margin-right: 5px;
+      width: 13px;
+      height: 14px;
+      background-size: 13px 14px;
+      color: #fff;
+      font-size: 8px;
+      display: inline-block;
+    }
+    dt{
+      float: left;
+      font-size: 27px;
+      text-align: left;
+      text-transform: uppercase;
+      line-height: 23px;
+    }
+    dd{
+      width: 193px;
+      text-align: left;
+      min-width: 190px;
+      float: right;
+      font-size: 14px;
+      font-weight: bold;
+      position: relative;
+      background: url(http://www.ezenac.co.kr/m/images/line_bg.png)repeat-y;
+      padding-bottom: 20px;
+      background-position: 6px 0;
+    }
+    .lecture_name {
+      display: inline-block;
+      width: 169px;
+      line-height: 14px;
+    }
+    ul{
+      margin-top: 8px;
+      padding-left: 19px;
+    }
+    li {
+      text-align: left;
+      font-weight: normal;
+      color: #777777;
+      font-size: 12px;
+    }
+  }
+}
+.portFolioWrap{
+  background: #dbdbd9;
+  padding: 37px 13px 50px 13px;
+  text-align: center;
+  background-size: 20px 20px;
+  .tit--portfolio{
+    display: block;
+    margin: 0 auto 20px;
+  }
+  .pf_list {
+    > a{
+      display: block;
+      .thumb{position: relative;
+        display: block;}
+      .thumb::before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        border: 1px solid #000;
+        opacity: .1;
+      }
+    }
+    .cf{
+      padding: 10px 0 20px;
+    }
+  }
+  .waves-effect{
+    &:active{
+      color: #fff;
+    }
+    width: 100%;
+    line-height: 32px;
+    @extend .grey, .darken-4
+  }
+
+  .fa{
+    position: relative;
+    top: 2px;
+  }
+}
+.curriculum-ep_wrap{
+  margin: 0 13px;
+  text-align: center;
+  .tit--ep-title{
+    margin: 30px 0 10px 0;
+    & + .parag{
+      font-size: 12px;
+      color: #666;
+      margin: 15px 0;
+    }
+  }
+  .item{
+    position: relative;
+    img{
+      width: 45px;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    .info{
+      position: relative;
+      text-align: left;
+      padding-left: 60px;
+      min-height: 45px;
+      font-weight: bold;
+      p{
+        font-weight: normal;
+        font-size: 12px;
+        margin-top: 5px;
+      }
+      strong{
+        color: $c1;
+        font-size: 13px !important;
+      }
+    }
+    .parag{
+      margin: 15px 0;
+      clear:both;
+      font-size: 13px;
+      text-align: left;
+      line-height: 1.5;
+      @include ell(3);
+    }
+  }
+  #review{
+    margin: 20px 0;
+    .swiper-pagination{
+      position: relative;
+      margin-top: 10px;
+    }
+  }
+
+}
+.sns-review{
+  .inner{
+    padding: 0 5px;
+  }
+  background-color: #f4f4f4;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  h2 img{
+    width: 182px;
+    display: block;
+    margin: 20px auto ;
+  }
+  .txt{
+    padding: 0 8px 20px 8px;
+    border-bottom: 1px solid #ccc;
+  }
+}
+.online-inquiry{
+  padding: 0 13px;
+  text-align: center;
+  // 개방취
+  .terms--txtContent{
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 30px;
+  }
+  .agree{
+
+  }
+  .tit--counsel-title{
+    margin: 20px 0 10px 0;
+  }
+  .parag{
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  .table__linear{
+    margin: 0;
+    th{
+      width: 100px;
+    }
+    .campus{
+      width: 100%;
+    }
+    textarea{
+      height: 80px;
+    }
+  }
+  .waves-effect{
+    margin: 20px 0 30px;
+    &:active{
+      color: #fff;
+    }
+    width: 100%;
+    line-height: 34px;
+    @extend .grey, .darken-4
+  }
+  .fa{
+    vertical-align: middle;
+  }
+  .agree{
+    margin: 0;
+  }
+}
+
+// 프라임
+.ezen-prime{
+  .adv{
+    span{
+      position: absolute;
+
+    }
+    img{
+      opacity: 0;
+      display: block;
+      width: 100%;
+    }
+    text-indent: -999em;
+    background-size: cover;
+  }
+  .container{
+    max-width: 640px;
+    background-size: cover;
+    margin: 0 auto;
+    padding: 0 13px;
+    img{
+      width: 100%;
+    }
+  }
+  .tab{
+    position: relative;
+    border: 0;
+    z-index: 100;
+    background-color: rgba(white, .5);
+    &::after{
+      display: none;
+    }
+    .item::after{
+      background-color: black;
+    }
+  }
+  .single{
+    margin-bottom: 5px;
+  }
+  .half.left {float: left;}
+  .half.right {float: right;}
+  .half {
+    width: 48.31%;
+    margin: 5px 0;
+  }
+
+  .slide-wrap{
+    margin-top: -77px;
+  }
+  .slider01 {
+    .container{
+      background-image: url('http://ezenac.co.kr/m/images/curriculum/curriculum_edu/section02_bg01.jpg');
+      background-color: #38afc3;
+
+    }
+  }
+  .slider02 {
+    .container{
+      background-image: url('http://ezenac.co.kr/m/images/curriculum/curriculum_edu/section02_bg02.jpg');
+    }
+  }
+  .slider03 {
+    .container{
+      background-image: url('http://ezenac.co.kr/m/images/curriculum/curriculum_edu/section02_bg03.jpg');
+    }
+  }
+  .slider04 {
+    .container{
+      background-image: url('http://ezenac.co.kr/m/images/curriculum/curriculum_edu/section02_bg04.jpg');
+    }
+  }
+  .slider05 {
+    .container{
+      background-image: url('http://ezenac.co.kr/m/images/curriculum/curriculum_edu/section02_bg05.jpg');
+    }
+  }
+  .slider06 {
+    .container{
+      background-image: url('http://ezenac.co.kr/m/images/curriculum/curriculum_edu/section02_bg06.jpg');
+    }
+  }
+
+  .container{
+    padding-top: 80px;
+    padding-bottom: 20px;
+    overflow: hidden;
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+  // 2
+  .context2{
+    position: relative;
+    h2{
+      position: absolute;
+      left: -999em;
+    }
+    .bg{
+      display: block;
+      width: 100%;
+    }
+    .btn1{
+      bottom: 43%;
+    }
+    .btn2{
+      bottom: 3%;
+    }
+    .btn1, .btn2{
+      position: absolute;
+      width: 80%;
+      margin: 0 10%;
+      overflow: hidden;
+      img{
+        width: 100%;
+        display: block;
+      }
+    }
+    .btn1 a:first-child,
+    .btn2 a:first-child{
+      float: left;
+      width: 48.5%;
+    }
+    .btn1 a:last-child,
+    .btn2 a:last-child{
+      float: right;
+      width: 48.5%;
+    }
+  }
+  .teacher{
+    img{
+      width: 100%;
+      display: block;
+    }
+    .button-prev,
+    .button-next{
+      position: absolute;
+      top: 43%;
+      z-index: 30;
+      &.swiper-button-disabled{
+        opacity: .3;
+      }
+    }
+    .button-prev{
+
+      left: 13px;
+      @include ir2($arr-left)
+    }
+    .button-next{
+      right: 13px;
+      @include ir2($arr-right);
+    }
+  }
+  .vic{
+    font-size: 0;
+    img{
+      width: 100%;}
+  }
+}
+
+.teacher--wrap{
+  text-align: center;
+  .teacher__tit{
+    display: block;
+    font-size: 22px;
+    padding: 30px 0 6px;
+    line-height: 1.2;
+    span{
+      font-weight: normal;
+    }
+  }
+  .wraps{
+    position: relative;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .lozad{
+    width: 100%;
+  }
+  .teacher__circle{
+    position: absolute;
+    left: 10px;
+    top: 20px;
+    overflow: hidden;
+    > div{
+      width: 80px;
+      height: 80px;
+      border-radius: 100%;
+      float: left;
+      margin-right: 10px;
+      box-sizing: border-box;
+      padding-top: 20px;
+      font-size: 12px;
+      strong{
+        display: block;
+        margin-top: 3px;
+        font-size: 15px;
+        color: #fff;
+      }
+    }
+    .bluec{
+      background: url('http://ezenac.co.kr/m/images/sub/teacher/round_bg_blue.png');
+    }
+    .redc{
+      background: url('http://ezenac.co.kr/m/images/sub/teacher/round_bg_red.png');
+    }
+  }
+  .name{
+    position: absolute;
+    left: 15px;
+    font-size: 18px;
+    bottom: 20px;
+    text-align: left;
+    em{
+      font-style: normal;
+      color: #999;
+      font-size: 14px;
+      display: block;
+    }
+  }
+}
+.teacher--profile{
+  position: relative;
+  padding-left: 80px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  dt{
+    background: #323131;
+    color: #fff;
+    padding: 3px 8px;
+    font-size: 11px;
+    position: absolute;
+    left: 10px;
+    top: 2px;
+  }
+  dd{
+    font-size: 12px;
+    margin: 5px 0;
+    color: #666;
+    position: relative;
+    padding-left: 10px;
+    &::before{
+      content: '';
+      display: inline-block;
+      width: 3px;
+      height: 3px;
+      border-radius: 3px;
+      background-color: #666;
+      position: absolute;
+      left: 0;
+      top: 7px;
+    }
+  }
+}
+.special{
+  padding: 28px 19px;
+  background: url('http://ezenac.co.kr/m/images/sub/teacher/teachercon_bg3.png') repeat;
+  text-align: center;
+  &.step{
+    background: url('http://ezenac.co.kr/m/images/sub/teacher/teachercon_bg4.png') repeat;
+    border-bottom: 1px solid #000;
+    .s-tit{
+      color: #000;
+    }
+    .s-tit + p{
+      color: #fff;
+      font-size: 12px;
+      margin-bottom: 20px;
+      & + img{
+        margin: 0 auto;
+        width: 100%;
+      }
+    }
+  }
+  .btn-wrap{
+    margin: 30px 0 10px;
+    a{
+      font-size: 12px;
+      background-color: #fff;
+      color: $c3;
+      width: 80%;
+    }
+  }
+  .tit{
+    height: 16px;
+    display: block;
+    margin: 0 auto;
+  }
+  .s-tit{
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    margin: 20px 0;
+  }
+  .parag{
+    padding: 15px 0;
+    font-size: 11px;
+    color: #c4c4c4;
+    line-height: 1.5;
+    span{
+      color: $c3;
+    }
+  }
+  .lozad{
+    max-width: 100%;
+    display: block;
+    margin: 10px auto;
+  }
+}
+
+.teacher--slide{
+  padding: 28px 13px;
+  background: url('http://ezenac.co.kr/m/images/sub/teacher/teachercon_bg2.png');
+  &.movie{
+    background-image: none;
+    background-color: #eee;
+    .ss-tit{
+      font-size: 20px;
+      margin: 20px 0 10px 0;
+      font-weight: normal;
+      span{
+        border-bottom: 1px solid #000;
+      }
+    }
+    .tit + .help + .parag{
+      margin-bottom: 30px;
+    }
+    .frame__wrap + .help{
+      margin-bottom: 30px;
+    }
+    .frame__wrap + .help + .parag{
+      margin-top: -30px;
+      margin-bottom: 30px;
+    }
+  }
+  
+  .help{
+    color: #000;
+    padding: 15px 0;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+  }
+  .tit{
+    height: 12px;
+    display: block;
+    margin: 0 auto;
+  }
+  .parag{
+    text-align: center;
+    color: #115f6e;
+    font-size: 11px;
+  }
+  .diagram{
+    text-align: center;
+    margin-top: 20px;
+    img{max-width: 100%;}
+    &.step{
+      img{
+        max-width: 100%;}
+    }
+  }
+
+  .review{
+    margin: 30px 0 10px;
+    .swiper-pagination{
+      position: relative;
+      bottom: 0;
+      margin-top: 10px;
+    }
+  }
+  .review .swiper-slide{
+    position: relative;
+    border: 1px solid rgba(white, .6);
+    box-sizing: border-box;
+  }
+  .review--tit{
+    background: rgba(white, .7);
+    padding: 8px 0;
+    text-align: center;
+    font-size: 13px;
+    strong{
+      color: #e86953;
+    }
+  }
+  .review--txt{
+    background: #6ec9da;
+    text-align: left;
+    padding: 15px 15px 15px 50px;
+    font-size: 11px;
+  }
+  .anonymous{
+    position: absolute;
+    left: 15px;
+    top: 50px;
+    color: #fff;
+    font-size: 11px;
+    &::before{
+      content: '';
+      @include ir2($anonymous);
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 5px;
+    }
+  }
+}
+.img--wrap{
+  margin: 0 13px;
+  font-size: 0;
+  text-align: center;
+  img{
+    max-width: 540px;
+    width: 100%;
+  }
+}
+// http://www.ezenac.co.kr/m/ezen/intro/company_edu.asp
+.company_edu{
+  .tit--parag{
+    margin: 10px 13px 20px 13px;
+  }
+  .sub--image{
+    background-color: #efefef;
+    text-align: center;
+    font-size: 0;
+    img {
+      width: 100%;
+      max-width: 540px;
+    }
+
+
+  }
+  .img--wrap{
+    padding: 30px 0;
+    .parag{
+      font-size: 13px;
+      line-height: 1.5;
+      color: #666;
+      margin: 30px 0;
+      span{
+        color: #000;
+        font-weight: 500;
+      }
+    }
+    & +.img--wrap{
+      border-top: 1px solid #efefef;
+      margin: 0 -13px;
+      padding: 30px 26px;
+    }
+    .lozad + .lozad{
+      margin-top: 30px;
+    }
+    .btn-wrap{
+      margin: 30px 0 50px 0;
+    }
+  }
+  .btn-wrap{
+    margin: 30px 13px;
+    text-align: center;
+    font-size: 0;
+    a{width: 49%;}
+    a:first-child{
+      margin-right: 2%;
+    }
+  }
+  .s-tit{
+    margin: 30px 13px 10px;
+    font-size: 16px;
+  }
+  .help{
+    margin: 13px;
+    padding: 10px 0;
+    text-align: center;
+    color: #666;
+    border-top: 1px solid #efefef;
+    font-size: 12px;
+    line-height: 1.6;
+    border-bottom: 1px solid #efefef;
+  }
+}
+
+
+.bbs-container{
+
+}
+
+.license{
+  .tab.swiper-container{
+    margin-bottom: 0;
+    height: 36px;
+    overflow: hidden;
+  }
+  .certInfoSBox{
+    padding: 30px 0;
+  }
+  .certInfoSBox:nth-child(even){
+    background-color: #eee;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+  }
+  .rightTextBox{
+    margin: 0 13px;
+    > strong:first-child{
+      display: block;
+      font-size: 22px;
+      color: #333;
+      font-weight: 500;
+      padding: 20px 0 10px 0;
+      & + p{
+        font-size: 13px;
+        color: #999;
+      }
+    }
+
+    .detailBox{
+      dt{
+        position: relative;
+        display: inline-block;
+        border-top: 2px solid #000;
+        font-size: 16px;
+        padding-top: 7px;
+        margin: 30px 0 0 0;
+      }
+      dd{
+        color: #666;
+        overflow: hidden;
+        margin:  10px 0;
+      }
+      dd p{
+        position: relative;
+        margin:  5px 0;
+        strong{
+          color: $c3;
+        }
+        &::before{
+          content:'';
+          width: 3px;
+          height: 3px;
+          display: inline-block;
+          background-color: #666;
+          border-radius: 100%;
+          vertical-align: middle;
+          position: relative;
+          top: -1px;
+        }
+      }
+
+    }
+    .linkBtn{
+      margin-top: 20px;
+      font-size: 0;
+      a{
+        width: 32%;
+        padding: 0;
+        font-size: 13px;
+        line-height: 38px;
+        box-sizing: border-box;
+        &:nth-child(2){
+          margin:  0 2%;
+        }
+        &:nth-child(2), &:nth-child(3){
+          background-color: #000
+        }
+      }
+    }
+
+
+  }
+}
+// @@공지사항
+.notice{
+  .select--wrap{
+    margin: 20px 13px;
+  }
+  .ico-ezen{
+    @include ir2($icon-mobile-notice)
+  }
+  .table__linear{
+    td{
+      text-align: center;
+    }
+    .replytal{
+      a{
+        position: relative;
+        &::before{
+          content: "\f148";
+          transform: rotate(90deg);
+          font-family: 'FontAwesome';
+          display: inline-block;
+          margin-right: 10px;
+          font-size: 16px;
+        ;
+        }
+      }
+    }
+    a{
+      @include ell(1);
+      margin: 5px 0;
+      text-align: left;
+    }
+    .reName{
+      .ico-ezen{
+        vertical-align: middle;
+      }
+    }
+    img{vertical-align: middle;}
+  }
+  .btn--wrap{
+    margin: 20px 13px 30px 13px;
+    .waves-light2{
+      background-color: #000;
+      &:active{
+        color: #fff;
+      }
+    }
+  }
+  .btn-wrap{
+    margin: 20px 13px 30px 13px;
+    .btn{
+      width: 100%;}
+    .fa{
+      font-size: 15px;
+    }
+  }
+  .qna-area{
+    color: #666;
+  }
+
+}
+.review--list-item{
+  padding: 0 13px;
+  box-sizing: border-box;
+  .tt{
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    margin: 20px 0;
+    &::before{
+      content: '';
+      width: 3px;
+      height: 12px;
+      display: inline-block;
+      background-color: $c2;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+  }
+  .context{
+    position: relative;
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    &::before{
+      content: '';
+      position: absolute;
+      left: -1px;
+      top: -1px;
+      @include ir2($ep-bg);
+    }
+    &.on{
+      .epContent{
+        display: block;
+      }
+    }
+  }
+  .wrap{
+    padding: 20px;
+    padding-bottom: 10px;
+    .head{
+      text-align: left;
+      font-size: 14px;
+      font-weight: bold;
+      color: $c2;
+      span{
+        margin-left: 5px;
+        color: #000;
+      }
+    }
+    .epContent{
+      text-align: left;
+      line-height: 1.5;
+      font-size: 13px;
+      @include ell(3);
+      margin: 10px 0;
+      color: #666;
+    }
+  }
+}
+
+.view--container{
+  margin: 20px 13px 0 13px;
+  .head{
+    padding: 15px 0;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #ccc;
+    font-size: 16px;
+    time{
+      font-size: 11px;
+      color: #999;
+      &::before{
+        content: '';
+        display: inline-block;
+        width: 1px;
+        height: 8px;
+        vertical-align: middle;
+        background-color: #ccc;
+        margin-right: 5px;
+      }
+    }
+    .campus{
+      font-size: 11px;
+      color: $c2;
+    }
+  }
+  .context{
+    padding: 30px 0;
+    img{
+      width: 100%;
+    }
+  }
+
+  .util{
+    background-color: #eee;
+    position: relative;
+    text-align: center;
+    margin: 0 -13px;
+    padding: 20px;
+    a{
+      display: inline-block;
+    }
+    .prev{
+      position: absolute;
+      left: 13px;
+      top: 20px;
+    }
+    .next{
+      position: absolute;
+      right: 13px;
+      top: 20px;
+    }
+    .last, .first{
+      opacity: .3;
+    }
+  }
+}
+
+.epilogue{
+  .frame__wrap::before{
+    display: none;
+  }
+  .btn--wrap{
+    margin: 20px 13px;
+    .btn:last-child{
+      float: right;
+      background-color: #000;
+      color: #fff;
+    }
+  }
+  .swiper-pagination{
+    position: relative;
+    margin: 20px 0 0;
+  }
+  .swiper-pagination-bullet{
+    border: 1px solid #000;
+  }
+  .swiper-pagination-bullet-active{
+    border: 0;
+  }
+  .tab{
+    height: 37px;
+    margin-bottom: 0;
+  }
+  .review{
+    margin-top: -1px;
+    height: auto;
+    background: url('http://ezenac.co.kr/m/images/sub/ep_visual_bg.png') no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    padding: 0 13px 30px 13px;
+
+    text-align: center;
+    .item{
+      background-color: #fff;
+      border-radius: 5px;
+      .swiper-slide{
+        padding: 20px 10px;
+        box-sizing: border-box;
+      }
+      .review_content{
+        line-height: 1.5;
+        font-size: 13px;
+        text-align: left;
+        margin-top: 10px;
+        @include ell(3);
+        &.on{
+          display: block;
+        }
+      }
+      .top{
+        position: relative;
+        padding-left: 45px;
+        font-size: 12px;
+        text-align: left;
+        .ico{
+          display: block;
+          position: absolute;
+          width: 35px;
+          height: 35px;
+          left: 0;
+          top: 5px;
+        }
+        strong{
+          display: block;
+          font-size: 16px;
+          font-weight: bold;
+          margin-bottom: 4px;
+          @include ell(1);
+        }
+        .lb{
+          color: $c2;
+        }
+        
+      }
+
+
+    }
+  }
+  .title{
+    font-size: 14px;
+    color: #505050;
+    background: url('http://ezenac.co.kr/images/community/talk_balloon_bg.png') no-repeat 0 6px;
+    background-size: 17px 18px;
+    margin: 30px 13px 10px 13px;
+    padding: 3px 0 5px 23px;
+  }
+  .tits {
+    padding: 3px 0 5px 20px;
+    color: #fff;
+    margin: 30px 0;
+    display: inline-block;
+    font-size: 13px;
+    background: url('http://ezenac.co.kr/images/community/mouse_bg.png') no-repeat 0 0;
+    background-size: 16px 22px;
+    span{
+      color: $c2;
+      font-weight: bold;
+    }
+  }
+
+  .table__linear{
+    margin-top: 30px;
+    table{
+      width: 100%;
+      input[type="text"]{
+        width: 95%;
+      }
+    }
+    .help{
+      font-size: 12px;
+      color: #666;
+      margin: 10px 0;
+    }
+    .noti{
+      margin: 10px 0;
+      color: $c3;
+    }
+    #captchacode,
+    #imgCaptcha{
+      vertical-align: middle;
+    }
+  }
+  input + label{
+    position: relative;
+    margin-right: 10px;
+    &::before{
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 100%;
+      box-sizing: border-box;
+      transition: all .6s 0s ease;
+      position: absolute;
+      left: 0;
+      top: 0;
+      border: 2px solid transparent;
+    }
+  }
+  input:checked + label{
+    &::before{
+      border: 2px solid #000;
+    }
+
+  }
+
+  .ico1_1{@include ir2($review-icon1-1)}
+  .ico1_2{@include ir2($review-icon1-2)}
+  .ico1_3{@include ir2($review-icon1-3)}
+
+  .ico2_1{@include ir2($review-icon2-1)}
+  .ico2_2{@include ir2($review-icon2-2)}
+  .ico2_3{@include ir2($review-icon2-3)}
+
+  .ico3_1{@include ir2($review-icon3-1)}
+  .ico3_2{@include ir2($review-icon3-2)}
+  .ico3_3{@include ir2($review-icon3-3)}
+
+  .ico4_1{@include ir2($review-icon4-1)}
+  .ico4_2{@include ir2($review-icon4-2)}
+  .ico4_3{@include ir2($review-icon4-3)}
+
+  .ico5_1{@include ir2($review-icon5-1)}
+  .ico5_2{@include ir2($review-icon5-2)}
+  .ico5_3{@include ir2($review-icon5-3)}
+
+  .ico6_1{@include ir2($review-icon6-1)}
+  .ico6_2{@include ir2($review-icon6-2)}
+  .ico6_3{@include ir2($review-icon6-3)}
+
+  .ico7_1{@include ir2($review-icon7-1)}
+  .ico7_2{@include ir2($review-icon7-2)}
+  .ico7_3{@include ir2($review-icon7-3)}
+}
+
+// 포토갤러리
+.photo-container{
+  .tit--parag{
+    margin: 10px 0 20px 0;
+  }
+}
+
+// 브랜드스토리
+.brand-story{
+  font-size: 0;
+  text-align: center;
+  img{
+    width: 100%;
+    max-width: 540px;
+  }
+}
+
+// 연혁
+.history-context{
+  min-height: 300px;
+  .swiper-slide{
+    box-sizing: border-box;
+    padding: 0 13px;
+
+    .year{
+      border-top: 1px solid #ccc;
+
+      font-size: 24px;
+      position: relative;
+      left: -5px;
+      padding: 20px 0 10px 0;
+    }
+    .parag{
+      color: #666;
+      font-size: 13px;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+    li{
+      border-left: 1px solid #ccc;
+      padding-left: 20px;
+      position: relative;
+      padding-bottom: 20px;;
+      &:last-child{
+        &::after{
+          content: '';
+          position: absolute;
+          width: 10px;
+          height: 20px;
+          background-color: #fff;
+          left: -1px;
+          bottom: 0;
+        }
+        border-bottom: 1px solid #ccc;
+      }
+    }
+    .month{
+      color: #000;
+      position: absolute;
+      left: -15px;
+      top: 0;
+      width: 30px;
+      color: #000;
+      font-weight: bold;
+      text-align: center;
+
+      &::after{
+        content: '';
+        display: block;
+        margin: 5px auto;
+        width: 6px;
+        height: 6px;
+        border-radius: 100%;
+        background-color: #ccc;
+      }
+    }
+    img{
+      display: block;
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+  .swiper-pagination{
+    position: absolute;
+    bottom:inherit !important;
+    left: inherit !important;
+    right: 10px;
+    top: 32px;
+    text-align: right;
+  }
+}
+
+
+// @@CIBI
+.ci-container{
+  margin:  0 13px;
+  text-align: center;
+  .adv-txt{
+    color: $c2;
+    font-size: 20px;
+    margin:  50px 0;
+  }
+  .cm--tit--parag {
+    font-size: 11px;
+    color: #999;
+  }
+
+  .parag{
+    margin:  20px 0;
+    font-size: 13px;
+    color: #666;
+    line-height: 1.5;
+    .adv{
+      display: block;
+      color: #000;
+    }
+    .c2{
+      color: $c2;
+    }
+  }
+  .bg{
+    margin: 30px 0;
+    padding: 30px 0 20px 0;
+    background: url('http://ezenac.co.kr/m/images/sub/ci_section_bg.png') repeat;
+    min-width: 320px;
+    text-align: center;
+  }
+  .item{
+    margin: 20px 0;
+    li{
+      position: relative;
+      text-align: left;
+      font-size: 12px;
+      width: 130px;
+      margin: 0 auto;
+      &::before{
+        content: '';
+        display: inline-block;
+        width: 2px;
+        height: 2px;
+        border-radius: 100%;
+        background-color: #666;
+        vertical-align: middle;
+        margin-right: 5px;
+        margin-top: -2px;
+      }
+    }
+  }
+  .bi{
+    margin-top: 50px;
+    border-top: 1px dashed #ccc;
+    padding: 20px 0;
+    text-align: left;
+    .img-wrap{
+      border: 1px solid #ddd;
+      &.none{
+        border: 0;
+      }
+      background-color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      margin:  10px 0;
+      img{
+      }
+    }
+
+    h4{
+      font-size: 18px;
+      margin: 30px 0 10px;
+      &::before{
+        content: '';
+        display: inline-block;
+        width: 2px;
+        height: 16px;
+        background-color: $c2;
+        vertical-align: top;
+        margin-right: 8px;
+        margin-top: 4px;
+      }
+    }
+  }
+}
+
+// @@teacher main
+.teacher-main{
+  .count{
+    position: absolute;
+    left: 68%;
+    top: 16%;
+    z-index: 30;
+  }
+  .teacher-carousel{
+    position: relative;
+    img{
+      display: block;
+      width: 100%;
+    }
+  }
+  .prev,
+  .next{
+    position: absolute;
+    top: 105px;
+    z-index: 50;
+    img{
+      display: block;
+      width: 17px;
+      height: 17px;
+    }
+  }
+  .prev{
+    left: 47%;
+  }
+  .next{
+    right: 4%;
+  }
+}
+#teacherInfoContent2 {
+  background: url('//ezenac.co.kr/m/images/teacher2_bg.png') no-repeat center top;
+  background-size: cover;
+  .teacherInfoSContent2 {
+    padding: 20px 13px 30px 13px;
+    h2 {
+      color: #45b1c4;
+      font-size: 22px;
+      line-height: 23px;
+      span {
+        color: #fff;
+        font-size: 11px;
+        padding-left: 10px;
+        font-weight: normal;
+        vertical-align: middle;
+      }
+    }
+  }
+  .list {
+    li {
+      margin: 10px 0;
+      position: relative;
+      img {
+        display: block;
+        height: 100px;
+      }
+      background-color: #fff;
+    }
+
+    .txtWrap {
+      line-height: 1.5;
+      position: absolute;
+      top: 15px;
+      left: 130px;
+      > strong {
+        font-size: 15px;
+        line-height: 1.2;
+      }
+      > p {
+        font-size: 12px;
+        color: #666;
+        line-height: 1.2;
+        margin: 5px 0 3px 0;
+      }
+      > span {
+        font-size: 11px;
+        em {
+          color: #999;
+          font-style: normal;
+          &::after {
+            content: '';
+            display: inline-block;
+            width: 1px;
+            height: 8px;
+            background-color: #ccc;
+            margin-right: 5px;
+            vertical-align: middle;
+            margin-left: 5px;
+            position: relative;
+            top: -1px;
+          }
+        }
+      }
+    }
+
+  }
+
+  #license{
+      h2{color: #5d5d5d}
+      background: url('//ezenac.co.kr/m/images/teacher3_bg.png') no-repeat center top;
+      background-size: cover;
+  }
+
+}
+
+.summer2018-vacation{
+  .img--wrap{
+    margin:0;
+    background-color: #0576ca;
+  }
+
+
+  .items{
+    background: url('//ezenac.co.kr/m/ezen/event/2018_summer/images/section2_bg.jpg') no-repeat;
+    background-size: cover;
+    padding: 26px;
+    li{
+      border: 1px solid #ccc;
+      background: #fff;
+      padding: 20px 10px 20px 80px;
+      margin-bottom: 10px;
+      text-align: left;
+      position: relative;
+      box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.18);
+      > p{
+        font-size: 12px;
+        color: #666;
+        margin-top: 5px;
+      }
+      > strong{
+        font-size: 14px;
+        letter-spacing: -1px;
+        span{
+          color: #3b96e9;
+        }
+        .noraml{
+          color: #666;
+          font-size: 13px;
+        }
+      }
+    }
+
+
+    .couPon1::before{
+      content: "";
+      position: absolute;
+      width: 46px;
+      height: 44px;
+      top: 50%;
+      margin-top: -22px;
+      left: 15px;
+      background-image: url('/m/ezen/event/2018_summer/images/icon_1.jpg');
+      background-size: cover;
+    }
+    .couPon2::before{
+      content: "";
+      position: absolute;
+      width: 59px;
+      height: 36px;
+      top: 50%;
+      margin-top: -18px;
+      left: 9px;
+      background-image: url('/m/ezen/event/2018_summer/images/icon_2.jpg');
+      background-size: cover;
+    }
+    .couPon3::before{
+      content: "";
+      position: absolute;
+      width: 37.5px;
+      height: 51px;
+      top: 50%;
+      margin-top: -24px;
+      left: 21px;
+      background-image: url('/m/ezen/event/2018_summer/images/icon_3.jpg');
+      background-size: cover;
+    }
+
+
+    .couPon4::before{
+      content: "";
+      position: absolute;
+      width: 65.5px;
+      height: 34px;
+      top: 50%;
+      margin-top: -17px;
+      left: 6px;
+      background-image: url('/m/ezen/event/2018_summer/images/icon_4.jpg');
+      background-size: cover;
+    }
+
+
+
+  }
+
+  .form-wrap{
+    padding: 27px 26px;
+
+    .tt{
+      font-size: 20px;
+      color: #666;
+      strong{
+        color: #000;
+      }
+    }
+    //
+    .table__linear{
+      margin: 15px 0 0 0;
+      & + .tt{
+        margin-top: 30px;
+      }
+      input[type="text"]{
+        width: 95%;
+      }
+      .addcurri{
+        border: 0;
+      }
+      .none{
+        padding: 0;
+        border: 0;
+      }
+      .on{
+        border-bottom: 1px solid #ccc;
+      }
+
+      [type="checkbox"]+span:not(.lever):before,
+      [type="checkbox"]:not(.filled-in)+span:not(.lever):after {
+
+        width: 13px;
+        height: 13px;
+        margin-top: 6px;
+
+      }
+      [type="checkbox"]:checked+span:not(.lever):before {
+        top: -2px;
+        left: -2px;
+        width: 8px;
+        height: 15px;
+      }
+      .item__list .item input+span{
+        padding-left: 20px;
+      }
+      #selCampusWrap{
+        border: 1px solid #ccc;
+        height: 34px;
+        line-height: 34px;
+        font-size: 13px;
+        text-indent: 5px;
+        color: #999;
+        display: block;
+        span{
+          font-size:12px;
+        }
+      }
+      .txts{
+        display: block;
+        font-size: 15px;
+        font-weight: bold;
+        margin: 10px 0;
+        span{
+          color: $c3;
+        }
+      }
+      .nodata{
+        text-align: center;
+        font-size: 13px;
+        padding: 30px 0;
+        border-top: dashed 1px #ccc;
+      }
+      .lecture-list{
+        border: 1px solid #0576ca;
+        color: #0576ca;
+        font-size: 12px;
+        margin: 5px;
+        display: inline-block;
+        padding: 5px 10px 3px 10px;
+        border-radius: 15px;
+      }
+      .delete-btn{
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background: url('http://www.ezenac.co.kr/m/images/btn_application_delete.jpg') no-repeat center center;
+        background-size: 50% auto;
+        vertical-align: middle;
+        position: relative;
+        color: transparent;
+        text-indent: -999em;
+        overflow: hidden;
+        top: -1px;
+      }
+    }
+    //
+    .terms--txtContent{
+      margin: 10px 0 0 0 ;
+      line-height: 1.6;
+    }
+    //
+    .agreePP{
+      display: block;
+      margin: 10px 0;
+    }
+    //
+    .btn--wrap{
+      margin: 30px 0 0 0 ;
+      .btn{
+        background-color: #0693d0;
+        color: #fff;
+      }
+      .btn:active{
+        text-shadow: -1px 1px 5px #333;
+      }
+    }
+    //
+  }
+
+}
+
+
+
+
+
+@keyframes pulse {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.img--wrap{
+  font-size: 0;
+  text-align: center;
+  margin: 0 13px;
+  img{
+    max-width: 540px;
+    width: 100%;
+  }
+}
+
+
+
+.bbs-container{
+  
+}
+
+.license{
+  .certInfoSBox{
+    padding: 30px 0;
+  }
+  .certInfoSBox:nth-child(even){
+    background-color: #eee;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+  }
+  .rightTextBox{
+    margin: 0 13px;
+    > strong:first-child{
+        display: block;
+        font-size: 22px;
+        color: #333;
+        font-weight: 500;
+        padding: 20px 0 10px 0;
+        & + p{
+          font-size: 13px;
+          color: #999;
+        }
+    }
+
+    .detailBox{
+      dt{
+        position: relative;
+        display: inline-block;
+        border-top: 2px solid #000;
+        font-size: 16px;
+        padding-top: 7px;
+        margin: 30px 0 0 0;
+      }
+      dd{
+        color: #666;
+        overflow: hidden;
+        margin:  10px 0;
+      }
+      dd p{
+        position: relative;
+        margin:  5px 0;
+        strong{
+          color: red;
+        }
+        &::before{
+          content:'';
+          display: block;
+          width: 3px;
+          height: 3px;
+          display: inline-block;
+          background-color: #666;
+          border-radius: 100%;
+          vertical-align: middle;
+          position: relative;
+          top: -1px;
+        }
+      }
+
+    }
+.linkBtn{
+  font-size: 0;
+  a{
+   width: 32%; 
+   padding: 0;
+   font-size: 13px;
+   line-height: 38px;
+   box-sizing: border-box;
+   &:nth-child(2){
+    margin:  0 2%;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+   }
+   &:nth-child(2), &:nth-child(3){
+    background-color: #000
+   }
+  }
+}
+
+
+  }
+}
+// @@CIBI
+.ci-container{
+  margin:  0 13px;
+  text-align: center;
+  .adv-txt{
+    color: $c2;
+    font-size: 20px;
+    margin:  50px 0;
+  }
+  .cm--tit--parag {
+    font-size: 11px;
+    color: #999;
+  }
+
+  .parag{
+    margin:  20px 0;
+    font-size: 13px;
+    color: #666;
+    line-height: 1.5;
+    .adv{
+      display: block;
+      color: #000;
+    }
+    .c2{
+      color: $c2;
+    }
+  }
+  .bg{
+    margin: 30px 0;
+    padding: 30px 0 20px 0;
+    background: url('http://ezenac.co.kr/m/images/sub/ci_section_bg.png') repeat;
+    min-width: 320px;
+    text-align: center;
+    &.star{
+      min-width: auto;
+    }
+  }
+  .item{
+    margin: 20px 0;
+    li{
+      position: relative;
+      text-align: left;
+      font-size: 12px;
+      width: 130px;
+      margin: 0 auto;
+      &::before{
+        content: '';
+        display: inline-block;
+        width: 2px;
+        height: 2px;
+        border-radius: 100%;
+        background-color: #666;
+        vertical-align: middle;
+        margin-right: 5px;
+        margin-top: -2px;
+      }
+    }
+  }
+  .bi{
+    margin-top: 50px;
+    border-top: 1px dashed #ccc;
+    padding: 20px 0;
+    text-align: left;
+    .img-wrap{
+      border: 1px solid #ddd;
+      &.none{
+        border: 0;
+      }
+      background-color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      margin:  10px 0;
+      img{
+      }
+    }
+
+    h4{
+      font-size: 18px;
+      margin: 30px 0 10px;
+      &::before{
+        content: '';
+        display: inline-block;
+        width: 2px;
+        height: 16px;
+        background-color: $c2;
+        vertical-align: top;
+        margin-right: 8px;
+        margin-top: 4px;
+      }
+    }
+  }
+}
+
+// @@teacher main
+.teacher-main{
+
+  .teacher-carousel{
+    position: relative;
+    img{
+      display: block;
+      width: 100%;
+    }
+  }
+  .prev,
+  .next{
+    position: absolute;
+    top: 105px;
+    z-index: 50;
+    img{
+      display: block;
+      width: 17px;
+      height: 17px;
+    }
+  }
+  .prev{
+    left: 47%;
+  }
+  .next{
+    right: 4%;
+  }
+}
+#teacherInfoContent2 {
+  background: url('http://ezenac.co.kr/m/images/teacher2_bg.png') no-repeat center top;
+  background-size: cover;
+  .teacherInfoSContent2 {
+    padding: 20px 13px 30px 13px;
+    h2 {
+      color: #45b1c4;
+      font-size: 22px;
+      line-height: 23px;
+      span {
+        color: #fff;
+        font-size: 11px;
+        padding-left: 10px;
+        font-weight: normal;
+        vertical-align: middle;
+      }
+    }
+  }
+  .list{
+    li {
+      margin: 10px 0;
+      position: relative;
+      img{
+        display: block;
+        height: 100px;
+      }
+      background-color: #fff;
+    }
+
+    .txtWrap {
+      line-height: 1.5;
+      position: absolute;
+      top: 15px;
+      left: 130px;
+      > strong{
+        font-size: 15px;
+        line-height: 1.2;
+      }
+      > p {
+        font-size: 12px;
+        color: #666;
+        line-height: 1.2;
+        margin:  5px 0 3px 0;
+      }
+      > span{
+        font-size: 11px;
+        em{
+          color: #999;
+          font-style: normal;
+          &::after{
+            content: '';
+            display: inline-block;
+            width: 1px;
+            height: 8px;
+            background-color: #ccc;
+            margin-right: 5px;
+            vertical-align: middle;
+            margin-left: 5px;
+            position: relative;
+            top: -1px;
+          }
+        }
+      }
+    }
+
+  }
+
+
+
+}
+// 개인정보취급방침
+.termsConBox{
+  margin: 0 13px 30px 13px;
+  .parag{
+    margin: 5px 0 15px 0;
+    line-height: 1.5;
+    font-size: 13px;
+    color: #666;
+  }
+  .s-tit{
+    display: inline-block;
+    position: relative;
+    padding-top: 10px;
+    margin: 30px 0 5px;
+    font-size: 15px;
+    &::before{
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 50%;
+      height: 2px;
+      background-color: #000;
+    }
+    & + .parag{
+
+    }
+  }
+  .termsConIndex{
+    border: 1px solid #ccc;
+    background-color: #efefef;
+    padding: 0 10px 20px 10px;
+    font-size: 12px;
+    li{
+      margin: 10px 0 10px 30px;
+
+      a{color: #666;}
+    }
+    .ss-tit{
+      color: #000;
+      margin: 25px 0 10px 0;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+  }
+  //
+
+  .sd-tit{
+    margin: 20px 0 10px 0;
+    font-size: 13px;
+    padding-left: 15px;
+    position: relative;
+    &::before{
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      width: 4px;
+      height: 4px;
+      background-color: $c3;
+      position: absolute;
+      left: 0;
+      top: 7px;
+    }
+  }
+  //
+  .depth2{
+    li{
+      font-size: 12px;
+      margin: 15px 10px;
+      line-height: 1.5;
+
+    }
+  }
+}
+// 직장인신청
+.salaryman{
+  .img--wrap{
+    margin: 30px 0;
+  }
+  .help{
+    margin: 3px 0;
+  }
+  input[type="text"] {
+    width: 95%;
+  }
+  .item-radio{
+    margin: 5px 0;
+  }
+  .down{
+    vertical-align: middle;
+    position: relative;
+    top: 2px;
+    img{
+      width: 72px;
+    }
+  }
+  .current-select{
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .point-color{
+    color: $c3
+  }
+  .division{
+    border-top:dashed 1px #ccc;
+    padding-top: 10px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    &:first-child{
+      margin-top: 0;
+      border: 0;
+    }
+    &::before{
+      //content: '';
+      display: inline-block;
+      width: 2px;
+      height: 12px;
+      background-color: #000;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+  }
+  .payment .radio-custom:last-child{
+    margin-bottom: 15px;
+  }
+  .noti{
+    background-color: #efefef;
+    color: #000;
+    padding: 10px;
+    line-height: 1.5;
+    font-size: 11px;
+  }
+
+  .termsConBox{
+    margin: 0;
+    font-size: 11px;
+    .parag{
+      font-size: 11px;
+    }
+    .termsConIndex{
+      height: 80px;
+      overflow: scroll;
+      margin-top: 10px;
+      li{
+        font-size: 11px;
+      }
+      .ss-tit{
+        font-size: 12px;
+      }
+    }
+  }
+  .agree{
+    margin: 10px 0 0 0;
+  }
+  .notice{
+    margin: 30px 0;
+    li{
+      font-size: 12px;
+      margin: 10px 0;
+      span{
+        color: $c3;
+      }
+    }
+  }
+  .btn--wrap{
+    margin-bottom: 30px;
+  }
+}
+.campus-lecture-list{
+  border-top: 1px dashed #000;
+  padding-top: 20px;
+  h3 {
+    font-size: 14px;
+    color: #fff;
+    background-color: #3c98ba;
+    padding: 10px 0;
+    text-align: center;
+    margin-bottom: 0.5em;
+    font-weight: normal;
+  }
+
+  .course-list {
+    position: relative;
+    padding: 15px 0;
+    overflow: hidden;
+  }
+
+
+
+  label{
+    display: block;
+    position: relative;
+    margin: 10px 0;
+  }
+  [type="checkbox"].filled-in:not(:checked) + span:not(.lever):after{
+    margin-top: 2px;
+    transition:  all 0.1s 0s ease;
+    transform: scale(0.6);
+  }
+  [type="checkbox"].filled-in:checked+span:not(.lever):after{
+    margin-top: 3px;
+    transform: scale(0.8);
+  }
+  [type="checkbox"].filled-in:checked+span:not(.lever):before{
+    top: 4px;
+    width: 8px;
+    height: 11px;
+  }
+  .name{
+    @include oell(30);
+    display: block !important;
+    color: #000;
+    margin-right: 100px;
+  }
+  input + span{
+    font-size: 12px;
+    padding-left: 25px;
+    color: #666;
+  }
+  .cate{
+    @include oell(30);
+    display: block;
+    line-height: 2.2;
+    color: #666;
+    font-size: 12px;
+  }
+  .price{
+    position: absolute;
+    right: 0;
+    font-size: 12px;
+    top: 5px;
+    .month{
+      color: #666;
+      font-size: 12px;
+      vertical-align: top;
+      &::after{
+        content: '-';
+      }
+    }
+    color: $c3;
+  }
+
+}
+
+
+#lecture-result li {
+  display: inline-block;
+  position: relative;
+  color: #139aba;
+  padding: 10px 20px 10px 10px;
+  margin: 0 5px 15px 0;
+  border-radius: 20px;
+  font-size: 12px;
+  border: 1px solid #999;
+}
+#lecture-result .delete-btn {
+  display: inline-block;
+  width: 15px;
+  height: 16px;
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  margin-top: -7px;
+  padding: 0 5px;
+  color: #fff;
+  font-size: 0;
+  background: url('/m/images/btn_application_delete.jpg') no-repeat center center;
+  background-size: 60% auto;
+}
+
+
+// 빠른상담 - 프레임
+.quick-qna{
+  position: fixed;
+  padding-top: 30px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 310px;
+  background-color: #e1e1e1;
+  transition: all 200ms 0s ease;
+  z-index: 100;
+  transform: translate3d(0,350px,0);
+  &.open{
+    transform: translate3d(0,0,0) !important;
+  }
+  .quick-btn{
+    border: 0;
+    z-index: 50;
+    background: none;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: -23px;
+    font-size: 0;
+    display: block;
+    .img{
+      @include ir2($quick-btn);
+    }
+  }
+}
+.float__menu--wrap.down + .quick-qna{
+  transform: translate3d(0,300px,0);
+}
+
+.quick-btn-open{
+  overflow: hidden;
+  height: 100%;
+  position: relative;
+  #wrapping{
+
+  }
+  #wrap{
+    overflow: hidden;
+    height: 100%;
+  }
+  .quick-qna{
+    transform: translate3d(0,0,0) !important;
+  }
+}
+// 빠른상담 컨텐츠
+#frm-quick-qna{
+  input[type="text"],
+  input[type="tel"],
+  textarea,
+  select{
+    background-color: #fff;
+  }
+  .agree{
+    margin: 10px 0;
+    position: relative;
+    .link{
+      width: 70px;
+      font-size: 11px;
+      position: absolute;
+      right: 0;
+      top: -2px;
+      background-color: #666 !important;
+      padding: 0;
+      text-align: center;
+      line-height: 25px;
+      height: 25px;
+      margin: 0;
+    }
+  }
+  .select--wrap .fa{
+    z-index: 5;
+    color: #000;
+  }
+  .submit{
+    margin: 5px 0 20px;
+    background-color: #139aba !important;
+  }
+  tr:last-child{
+    .td-wrap{
+      padding-left: 74px;
+    }
+    .select--wrap{
+      width: 70px;
+    }
+  }
+}
+
+
+// 교습과목 교습비
+#fee-content{
+  .img--wrap{
+    &::before{
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 1px;
+      left: 0;
+      bottom: 7px;
+      background-color: #c3c3c3;
+      z-index: 1;
+    }
+    img{
+      position: relative;
+      z-index: 3;
+    }
+    position: relative;
+  }
+  .tutition-View{
+    margin: 0 13px 30px 13px;
+  }
+}
+
+
+// web_index
+#webstudio{
+  padding-bottom: 30px;
+  .adv{
+    font-size: 0;
+    text-align: center;
+    img{
+      max-width: 640px;
+      width: 100%;
+    }
+  }
+  .example{
+    margin: 0 13px;
+    box-shadow: 1px 0 15px #ccc;
+    font-size: 0;
+    img{width: 100%;}
+    .page{
+      text-align: center;
+      padding: 10px 0;
+    }
+    .cnt{
+      display: inline-block;
+      vertical-align: middle;
+      padding: 0 10px;
+      font-size: 12px;
+    }
+    .btn-next,
+    .btn-prev{
+      display: inline-block;
+      vertical-align: middle;
+      position: relative;
+      width: 26px;
+      height: 26px;
+      text-indent: -999em;
+      &::before{
+        content:'\f104';
+        font-family: 'FontAwesome';
+        display: block;
+        position: absolute;
+        text-indent: 0;
+        left: 50%;
+        font-size: 20px;
+        margin-left: -3px;
+      }
+    }
+    .btn-next::before{
+      content:'\f105';
+    }
+  }
+  .section--design{
+    background: #343434 url('//eduncs.co.kr//m/images/sub/web/section2_bg.png') no-repeat center bottom;
+    padding: 40px 20px 100px 20px;
+    text-align: center;
+    background-size: 100%;
+    .head{
+      padding: 0 10px 20px 10px;
+    }
+    img{
+      max-width: 100%;
+    }
+    h2{
+      font-size: 20px;
+      padding-top: 12px;
+      text-align: center;
+    }
+    p{
+      font-size: 14px;
+      padding: 0 12px;
+      margin-top: 8px;
+      line-height: 1.3;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .wrapping{
+      position: relative;
+      margin: 0 10px;
+      padding: 10px;
+      background: #fff;
+      box-sizing: border-box;
+      box-shadow: 0 0 5px #ccc;
+      img{
+        width: 100%;
+        display: block;
+      }
+    }
+    .btn--wrap{
+      .btn{
+        border-radius: 3px;
+        width: 49%;
+        box-sizing: border-box;
+      }
+      a:hover{
+        color: #fff;;
+      }
+      .waves-light2{
+        float: left;
+        background-color: black;
+      }
+      .waves-light{
+        float: right;
+        background-color: gray;
+      }
+    }
+    .swiper-pagination{
+      width: 100%;
+      left: 0;
+      bottom: -30px;
+      .swiper-pagination-bullet{
+        margin: 0 3px;
+        background-color: #ccc;
+        opacity: .6;
+      }
+      .swiper-pagination-bullet-active{
+        background-color: black;
+      }
+    }
+
+  }
+  #webpubb{
+    background: #ebeff0 url('//eduncs.co.kr/m/images/sub/web/section3_bg.png')no-repeat center bottom;
+  }
+  #webpof{
+    padding-bottom: 20px;
+    background: #fff;
+    .swiper-container{
+      border: 1px solid #ccc;
+    }
+    .swiper-pagination{
+      position: relative;
+      bottom: 0;
+      margin: 10px 0;
+    }
+    .swiper-pagination-bullet{
+      background-color: #ccc;
+    }
+    .swiper-pagination-bullet-active{
+      background-color: black;
+    }
+  }
+  #webpof #webofSlide2{
+    border: 0;
+    margin-top: 20px;
+    a{
+      font-size: 0;
+      margin: 0 5px;
+      position: relative;
+      &::before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        border: 1px solid #000;
+        box-sizing: border-box;
+        opacity: .2;
+      }
+      display: block;
+    }
+    .active a::before{
+      border: 3px solid #000;
+      opacity: .8;
+    }
+  }
+  .btn--wrap{
+    position: relative;
+    z-index: 30;
+    overflow: visible;
+  }
+  .webofSlide2-btn-next,
+  .webofSlide2-btn-prev{
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: -43px;
+    text-indent: -999em;
+    &::before{
+      content: '\f104';
+      font-family: 'FontAwesome';
+      display: block;
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      text-indent: 0;
+      font-size: 20px;
+      margin-left: -3px;
+      z-index: 30;
+    }
+  }
+  .webofSlide2-btn-prev{
+    left: -20px;
+  }
+
+  .webofSlide2-btn-next{
+    right: -23px;
+    &::before{
+      content: '\f105';
+    }
+  }
+
+  #teacherLink{
+    position: relative;
+    img{width: 100%;}
+    .n2,
+    .n1{
+      position: absolute;
+      display: block;
+      left: 55%;
+      width: 20%;
+      top: 16%;
+    }
+    .n2{
+      top: 39.6%;
+    }
+  }
+}
+
+#account_index{
+
+  .account_title {
+    padding-top: 30px;
+    border-bottom: 3px solid #000000;
+    padding-bottom: 18px;
+    text-align: center;
+    font-size: 15px;
+    line-height: 18px;
+    margin-bottom: 20px;
+    strong{
+      font-size: 20px;
+      display: block;
+      margin-top: 3px;
+      span{
+        color: $c3;
+      }
+    }
+  }
+  .rwd--image img{width: 100%;display: block;}
+  .review-items{
+    padding: 0 20px;
+    background: url('//ezenac.co.kr/m/images/sub/account/account_box8_bg.jpg') repeat;
+    li img{width: 100%;}
+    li{
+      position: relative;
+      border-bottom: 1px solid #ccc;
+    }
+    .btnWrap{
+      overflow: hidden;
+      width: 50%;
+      position: absolute;
+      left: 32%;
+      top: 65%;
+      a{float: left;width:49%;}
+      a:first-child{margin-right: 2%;}
+    }
+  }
+  .time-table{
+    background: url('//ezenac.co.kr/m/images/sub/account/account_box3_bg.jpg') repeat;
+    padding: 0 13px 30px 13px;
+    color: #fff;
+    .account_title{
+      border: 0;
+      line-height: 1.3;
+      margin-bottom: 0;
+    }
+    table{
+      color: #fff;
+      border: 1px solid #666;
+      th{
+        &:first-child{
+          border-right: 1px solid #666;
+        }
+        background-color: rgba(black, .5);
+        height: 34px;
+        text-align: center;
+      }
+      tr td:first-child{
+        padding-left: 10px;
+        border-right: 1px solid #666;
+      }
+      td{
+        font-size: 12px;
+        border-bottom: 1px solid #666;
+      }
+      .rgb{
+        text-align: center;
+        height: 32px;
+        border-right: 1px solid #666;
+        background-color: rgba(#666, .3);
+      }
+      .pd{
+        font-size: 0;
+        padding: 10px 0;
+        li{
+          display: inline-block;
+          width: 50%;
+          font-size: 12px;
+          color: #efefef;
+          padding: 4px 0;
+          &::before{
+            content: '';
+            display: inline-block;
+            width: 3px;
+            height: 3px;
+            border-radius: 100%;
+            background-color: #efefef;
+            vertical-align: middle;
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  .allpass{
+    padding: 50px 0 0 0;
+    background: url('//ezenac.co.kr/m/images/sub/account/account_box4_bg.png') no-repeat;
+    background-size: 100%;
+    .account_title{
+      line-height: 1.3;
+      border-bottom: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  .account_title2{
+    padding-top: 30px;
+    text-align: center;
+    strong{
+      font-size: 20px;}
+
+    .parag{
+      margin-top: 10px;
+      line-height: 1.5;
+      font-size: 13px;
+    }
+    .c3{color: $c3;}
+  }
+  .example{
+    margin-top:30px;
+    margin-bottom: 30px;
+    padding: 10px;
+  }
+  .mv-slide{
+    padding: 0 13px;
+    .movie_text{
+      background-color: #666;
+      color: #fff;
+      padding: 10px;
+      font-size: 12px;
+      line-height: 1.3;
+    }
+    .swiper-pagination{
+      position: relative;
+      bottom: 0;
+      padding: 10px 0 20px 0;
+    }
+  }
+  .teach2{
+    position: relative;
+    a{
+      position: absolute;
+      width: 100%;
+      height: 50%;
+      left: 0;
+      display: block;
+      color: transparent;
+    }
+    .usemap1{top: 0;}
+    .usemap2{top: 50%;}
+  }
+  // END
+}
