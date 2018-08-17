@@ -172,3 +172,17 @@ $ROOT: '../../../../../images';
   border: 1px dotted #ffb4db;
 }
 
+
+//추가
+@mixin clear-fix() {
+  display:block;
+  clear:both;
+  content:"";
+}
+
+@mixin display-flex(){
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
