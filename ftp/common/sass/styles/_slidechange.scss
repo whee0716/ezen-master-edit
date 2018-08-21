@@ -30,7 +30,7 @@
     width:27px;
   }
 }
-
+//main-teacher
 #content3 {
   .teacherSSMNum .tMNum:focus {
     outline: none;
@@ -74,54 +74,30 @@
   }
 }
 
-
-#gallery-swiper {
-  .swiper-wrapper {
-    max-height: 600px;
+//curriculum-epilogue
+#sub1ContentBox4 {
+  position:relative;
+  .reViewSlider-wrap {
+    margin: 65px auto 0;
+    max-width:920px;
   }
-  .swiper-button-next, .swiper-button-prev {
-    background-color: #fff;
-    padding: 30px;
-    background-size: 15px 24px;
-    background-position: center center;
-    border: none;
-  }
-  .swiper-button-next {
-    right: 0px;
-  }
-  .swiper-button-prev {
-    left: 0px;
-  }
-  .thumb-list {
-    overflow: hidden;
-    margin-left: -10px;
-    li {
-      cursor: pointer;
-      width: 167px;
-      height: 95px;
-      margin: 8px 0 0 9.5px;
-      float: left;
-      overflow: hidden;
-      > img {
-        width: 100%;
-      }
-      &.active {
-        position: relative;
-        transition: all 0.8s, border 0.3s 0.3s;
-        &:after {
-          width: 167px;
-          height: 95px;
-          content: "";
-          position: absolute;
-          border: 5px solid #02bbce;
-          -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-          top: 0;
-          left: 0;
-          z-index: 1;
-        }
-      }
+  .reViewSlider-btn{
+    position: absolute;
+    top: 50%;
+    margin-top: 50px;
+    z-index: 5;
+    cursor: pointer;
+    border:none;
+    &.reViewSlider-btn-next {
+      @include ir($next-arrow);
+      right: 40px;
+    }
+    &.reViewSlider-btn-prev {
+      @include ir($prev-arrow);
+      left: 40px;
+    }
+    &:focus{
+      outline:none;
     }
   }
 }
-

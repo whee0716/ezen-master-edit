@@ -622,7 +622,7 @@ caption{
   //.vNum .effect{position: absolute; left: 0; top: 0; width: 60px; height: 40px; background-color: #000000; opacity: 0.4; filter: alpha(opacity=40);}
   //.vNum.active .effect{background-color: transparent; opacity: 1; filter: alpha(opacity=100); background: url(/images/main/cont1_thumb_img_on.png) no-repeat 0 0;}
   .bx-controls{
-    position: absolute; 
+    position: absolute;
     bottom:75px;
     left: 0;
     width: 100%;
@@ -1079,7 +1079,6 @@ caption{
 #contentBox7 .rightBox dd {float:left;color:#666666;font-size:18px;width:293px;padding-left:20px;}
 #contentBox7 dd span{color:#ff7144;font-size:18px;}
 #contentBox7 dd a.t1 {font-size:16px;width:231px;height:49px;line-height:49px;display:block;color:#ffffff;background:#191919;text-align:center;margin-top:31px;letter-spacing:-0.075em;}
-
 /*
 #content6{width: 100%; margin: 40px 0 80px;}
 #scholarshop{width: 1050px; margin: 0 auto; border-top: 4px solid #333333; border-bottom: 4px solid #333333; padding: 48px 0; position: relative;}
@@ -1134,7 +1133,7 @@ caption{
     li:first-child {padding-left:0;}
     li a {color:#7e7e7e; font-size:14px;}
   }
-} 
+}
 
 #footerBox{width: 1050px; padding:30px 0 50px 25px; margin: 0 auto;}
 #footerBox .leftBox{
@@ -2625,7 +2624,7 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
         font-size: 36px;
         font-weight: 600;
       }
-     //
+      //
     }
     .tab-content-box01 .text-box {
       width: 780px;
@@ -2969,9 +2968,9 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
     }
 
     .tab-content-box02{
-        background-color: #ffffff;
-        padding: 60px 0 90px 0;
-        overflow: hidden;
+      background-color: #ffffff;
+      padding: 60px 0 90px 0;
+      overflow: hidden;
       .left-box {
         float: left;
         width: 525px;
@@ -3566,7 +3565,7 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
 #certInformation{width: 1050px; padding: 105px 0 80px; margin: 0 auto;}
 #certInformation .noticeTitle > h2 {background: url(/images/license/cert_info_title.png) no-repeat;}
 .certInfoNav{margin-bottom: 60px;
-    li.active a{color: #ffffff;}
+  li.active a{color: #ffffff;}
 }
 .certInfoNav li{float: left; width: 210px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -o-box-sizing: border-box; box-sizing: border-box; border: 1px solid #777777; text-align: center;}
 .certInfoNav li+li{border-left: none;}
@@ -5081,7 +5080,7 @@ cpation{
   display: none;
 }
 #wrap.curriculum-index{
-   width:100%;
+  width:100%;
   .carousel-feature{
     img{
       width: 840px;
@@ -5264,7 +5263,7 @@ cpation{
 }
 .anim-tab.active{
   &::after{
-    transform: translate3d(0, -100%, 0);    
+    transform: translate3d(0, -100%, 0);
   }
 }
 

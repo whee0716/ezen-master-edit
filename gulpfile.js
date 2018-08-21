@@ -20,6 +20,8 @@ let url = require('url'),
 
 var pkg = require('./package.json'),
     gulp = require('gulp'),
+    bourbon    = require("bourbon").includePaths, //추가
+    connect    = require("gulp-connect"), //추가
     autoprefixer = require('gulp-autoprefixer'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
@@ -32,10 +34,6 @@ var pkg = require('./package.json'),
     concat = require('gulp-concat'),
     cleanCSS = require('gulp-clean-css'),
     inquirer = require('inquirer');
-
-
-gulp.task('default', function() {
-});
 
 // 리뉴얼 frontJS
 gulp.task('compress-pc-js', function() {
@@ -80,6 +78,7 @@ gulp.task('choiceSprites', function () {
                 }}))
                 .pipe(sourcemaps.init())
                 .pipe(sass({
+                    includePaths: ["styles"].concat(bourbon),//추가
                     sourceComments: false,
                     outputStyle: 'compressed'
                 }).on('error', sass.logError))
@@ -89,6 +88,7 @@ gulp.task('choiceSprites', function () {
                 }))
                 .pipe(sourcemaps.write('./'))
                 .pipe(gulp.dest('./ftp/common/css/site/'))
+                .pipe(connect.reload()); //추가
         });
 
 

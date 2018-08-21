@@ -1,6 +1,6 @@
 {
   "name": "news",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "ezen renewal 작업 가이드",
   "main": "index.js",
   "author": "",
@@ -23,11 +23,13 @@
     }
   },
   "dependencies": {
+    "bourbon": "^5.1.0",
     "browser-sync": "^2.23.6",
     "chokidar": "^1.7.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-cached": "^1.1.1",
+    "gulp-connect": "^5.5.0",
     "gulp-convert-encoding": "^1.0.0",
     "gulp-copy": "^1.0.0",
     "gulp-cssmin": "^0.1.7",
