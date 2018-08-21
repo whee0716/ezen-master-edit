@@ -107,7 +107,7 @@ gulp.task('choiceSprites', function () {
                     imgName: 'sprite.png',
                     padding: 20,
                     imgPath : '/images/sprites/' + task + '/sprite.png',
-                    cssName: '_' + task + 'Sprite.scss'
+                    cssName: '_' + task + '_sprite.scss'
                 }));
 
             spriteData.img.pipe(gulp.dest('./ftp/images/sprites/' + task));
