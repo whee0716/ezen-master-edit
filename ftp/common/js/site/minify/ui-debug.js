@@ -198,6 +198,7 @@ $(document).ready(function(){
         sideMenu.click(function(){
             var isVisible = $(this).next().is(':visible');
 
+            sideMenu.removeClass('on');
             sideMenu.parent().removeClass('on').not($(this).parent()).find('> a').next().slideUp();
 
             if(!isVisible) {
@@ -360,4 +361,31 @@ function toggleEvent(e){
     } catch(e) {
         console.log(e)
     }
+}
+
+
+
+$(document).ready(function(){
+
+    //swiper slider 마우스 오버시 자동 슬라이드 멈춤
+    $('[data-role="swiper-slider"]').on('mouseenter', function(e){
+        console.log('stop autoplay');
+        var swiperTarget = $(this).attr('data-function');
+        eval("target = " + swiperTarget);
+        target.autoplay.stop();
+    });
+    //swiper slider 마우스 오버시 자동 슬라이드 시작
+    $('[data-role="swiper-slider"]').on('mouseleave', function(e){
+        console.log('start autoplay');
+        var swiperTarget = $(this).attr('data-function');
+        eval("target = " + swiperTarget);
+        target.autoplay.start();
+    });
+});
+
+// swiper slider 랜덤
+function returnIndex(slidElement){
+    console.log("랜덤");
+    var randomIndex = Math.floor(Math.random()*($(slidElement+' .swiper-slide:not(.swiper-slide-duplicate)').length));
+    return parseInt(randomIndex);
 }
