@@ -1,3 +1,4 @@
+var seasonNotiSwiper = null;
 $(document).ready(function(){
     (function () {
         var tab = $('.cm-tab'),
@@ -19,9 +20,9 @@ $(document).ready(function(){
         //toggleEvent
         $('.telBoxS').click(toggleEvent);
         $('.telBoxS').hover(function() {
-            $(this).addClass('on')
+            $(this).addClass('on');
         }, function() {
-            $(this).removeClass('on')
+            $(this).removeClass('on');
         });
 
         $('.hasImg').click(function(){
@@ -48,7 +49,7 @@ $(document).ready(function(){
 
             // 스크롤 중일때 자동롤링 모두 정지
             if(!isResize) {
-                seasonNoti.stopAuto();
+                seasonNotiSwiper.autoplay.stop();
                 isResize = true;
             }
 
@@ -67,7 +68,7 @@ $(document).ready(function(){
                     floatFootBanner.removeClass('close');
                 }
 
-                seasonNoti.startAuto();
+                seasonNotiSwiper.autoplay.start();
                 isResize = false;
             }, 100);
         });
@@ -137,7 +138,7 @@ $(document).ready(function(){
 
             // 스크롤 중일때 자동롤링 모두 정지
             if(!isScroll) {
-                seasonNoti.stopAuto();
+                seasonNotiSwiper.autoplay.stop();
                 isScroll = true;
             }
 
@@ -178,7 +179,7 @@ $(document).ready(function(){
 
             //  0.3s후 스크롤 종료 자동롤링 시작
             scrollTimer = setTimeout(function () {
-                seasonNoti.startAuto();
+                seasonNotiSwiper.autoplay.start();
                 isScroll = false;
             }, 300)
         });
@@ -228,13 +229,12 @@ $(document).ready(function(){
     })();
 
     // 수강
-    var seasonNoti = $('.previewT').bxSlider({
-        mode: 'vertical',
-        speed: 600,
-        pause: 4000,
-        pager: false,
-        controls: false,
-        auto: true
+    seasonNotiSwiper = new Swiper('.previewT-wrap.swiper-container', {
+        direction: 'vertical',
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
     });
 
 
@@ -345,7 +345,6 @@ $(document).ready(function(){
 
 function toggleEvent(e){
     e.preventDefault();
-
     try {
         var target = $(this).find('a').next();
         var isVisible = target.is(':visible');
@@ -355,7 +354,9 @@ function toggleEvent(e){
             target.parent().removeAttr('style');
 
         } else {
-            target.parent().css({ 'z-index' : '100' })
+            $(".telBoxS").removeAttr('style');
+            $(".telBoxSS").hide();
+            target.parent().css({ 'z-index' : '100' });
             target.show();
         }
     } catch(e) {

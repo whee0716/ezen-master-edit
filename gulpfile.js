@@ -57,6 +57,36 @@ gulp.task('compress-pc-js', function() {
 
 
 // 리뉴얼 SASS
+function loadSass() {
+    console.log('run sass2');
+    gulp.src('./ftp/common/sass/*.scss')
+        .pipe(plumber({ errorHandler: function(e) {
+                console.error(e.message);
+                this.emit('end');
+            }}))
+        .pipe(sourcemaps.init())
+        .pipe(sass({
+            includePaths: ["styles"].concat(bourbon),//추가
+            sourceComments: false,
+            outputStyle: 'compressed'
+        }).on('error', sass.logError))
+        .pipe(autoprefixer({
+            browsers: ['last 4 versions'],
+            cascade: true
+        }))
+        .pipe(sourcemaps.write('./'))
+        .pipe(gulp.dest('./ftp/common/css/site/'))
+        .pipe(connect.reload()); //추가
+
+    // watch
+    gulp.watch([
+        './ftp/common/sass/styles/*.scss',
+        './ftp/common/sass/!*.scss'
+    ], ['sass2']);
+}
+
+gulp.task('sass2', loadSass);
+
 // choice 항목  스프라이트할 이미지 폴더 네이밍
 gulp.task('choiceSprites', function () {
     inquirer.prompt([
@@ -64,34 +94,12 @@ gulp.task('choiceSprites', function () {
             type: 'rawlist',
             name: 'theme',
             message: 'choice sprite folder',
-            choices: ['common','home','curriculum']
+            choices: ['common','home','curriculum'] // 이미지 폴더 생성하고 이름 같게 추가...
         }
     ]).then(function (task) {
         var task = task.theme;
 
-        gulp.task('sass2', function() {
-            console.log('run sass2');
-            gulp.src('./ftp/common/sass/*.scss')
-                .pipe(plumber({ errorHandler: function(e) {
-                    console.error(e.message);
-                    this.emit('end');
-                }}))
-                .pipe(sourcemaps.init())
-                .pipe(sass({
-                    includePaths: ["styles"].concat(bourbon),//추가
-                    sourceComments: false,
-                    outputStyle: 'compressed'
-                }).on('error', sass.logError))
-                .pipe(autoprefixer({
-                    browsers: ['last 4 versions'],
-                    cascade: true
-                }))
-                .pipe(sourcemaps.write('./'))
-                .pipe(gulp.dest('./ftp/common/css/site/'))
-                .pipe(connect.reload()); //추가
-        });
-
-
+        gulp.task('sass2', loadSass);
         gulp.task('sprite2', function() {
             var spriteData = gulp.src([
                 './ftp/images/sprites/' + task + '/sprite/*.png',
@@ -114,19 +122,18 @@ gulp.task('choiceSprites', function () {
             spriteData.css.pipe(gulp.dest('./ftp/common/sass/styles/'))
         });
 
-        runSequence('sprite2', 'sass2', function(e){
+        runSequence('sprite2', function(e){
             var watcher = chokidar.watch('./ftp/images/sprites/**/sprite/*', {});
 
             watcher.on('add', function (event) {
                 console.log('> eventtype is ', event);
                 gulp.start(['sprite2']);
             });
-
-            gulp.watch([
-                './ftp/common/sass/styles/*.scss',
-                './ftp/common/sass/*.scss'
-            ], ['sass2']);
         });
+
+        setTimeout(() => {
+            runSequence('sass2', loadSass);
+        }, 5000);
     });
 });
 
