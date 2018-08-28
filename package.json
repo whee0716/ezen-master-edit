@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "bourbon": "^5.1.0",
-    "browser-sync": "^2.23.6",
+    "browser-sync": "^2.24.7",
     "chokidar": "^1.7.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
@@ -51,6 +51,7 @@
     "jschardet": "^1.6.0",
     "run-sequence": "^1.2.2",
     "setcharset": "0.0.1",
+    "setheader": "^1.0.1",
     "yargs": "^6.5.0"
   },
   "devDependencies": {

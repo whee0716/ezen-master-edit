@@ -367,7 +367,6 @@ function toggleEvent(e){
 
 
 $(document).ready(function(){
-
     //swiper slider 마우스 오버시 자동 슬라이드 멈춤
     $('[data-role="swiper-slider"]').on('mouseenter', function(e){
         console.log('stop autoplay');

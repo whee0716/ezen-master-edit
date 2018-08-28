@@ -4951,14 +4951,14 @@ a.cbtn > img {vertical-align:middle;}
 .cLcompanyul li:last-child {margin-right:0;}
 .cLcompanyul li img {padding-bottom:19px;}
 
-#companyLectureList {width:1048px; height:501px; margin:80px auto 0; border:1px solid #e1e1e1; position:relative;}
+#companyLectureList {width:1048px; margin:80px auto 0; border:1px solid #e1e1e1; position:relative;}
 .tab_head {z-index:99; background:#fff; width:200px; padding:9px 30px 23px 11px; position:absolute; right:0; top:20px; border-bottom:1px solid #e1e1e1; border-left:1px solid #e1e1e1; font-size:14px; text-align:right;}
 .tab_head.tab_head2{ top:44px;}
 .tab_head > h3 {letter-spacing:-3px; color:#2787d2; font-size:24px; font-weight:normal;}
 .tab_head span {color:#858585; font-size:13px; font-family:'dotum'; line-height: 18px; display: block; padding-top:20px;}
-#companyLectureList ul { padding: 12px 20px 12px 20px;}
+#companyLectureList ul { padding: 18px 20px 5px 20px;}
 #companyLectureList ul > li > ul {width:730px;}
-#companyLectureList ul > li > ul > li {float:left; width:235px; text-align:center; font-size:16px; margin-right:12px; height:252px; position:relative;}
+#companyLectureList ul > li > ul > li {float:left; width:235px; text-align:center; font-size:16px; margin-right:12px; height:230px; position:relative;}
 #companyLectureList ul > li > ul > li > span {padding:24px; width:187px; height: 170px; background:rgba(0, 0, 0, 0.7); display: inline-block; position: absolute; top: 0; z-index: 999; left: 0; color:#fff; display:none;}
 #companyLectureList ul > li > ul > li > span > img {margin-top:15px;}
 #companyLectureList ul > li > ul > li > span ul {margin:0;}
@@ -5234,6 +5234,9 @@ cpation{
   border-radius:5px; height:230px;
   box-sizing:border-box;
   padding:17px 0 0 15px;
+  max-width:295px \0/IE9;
+  float:left;
+  margin:5px \0/IE9 !important;
   > a{
     display: block;
     position: relative;
@@ -5400,9 +5403,9 @@ cpation{
   transform: translate3d(0, 0, 0);
 }
 .anim-tab.active{
-  &::after{
-    transform: translate3d(0, -100%, 0);
-  }
+   &::after{
+     transform: translate3d(0, -100%, 0);
+   }
 }
 
 // btn
