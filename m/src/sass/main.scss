@@ -82,10 +82,12 @@
     width: 100%
   }
   .swiper-button-prev{
-    @include ir2($m-teacher-left-arrow)
+    @include ir2($m-teacher-left-arrow);
+    z-index:2;
   }
   .swiper-button-next{
-    @include ir2($m-teacher-right-arrow)
+    @include ir2($m-teacher-right-arrow);
+    z-index:2;
   }
   .teacherText {
     position: absolute;
