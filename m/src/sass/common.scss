@@ -91,6 +91,9 @@ textarea{
   padding: 5px;
   line-height: 1.5;
   font-size: 15px;
+  -webkit-border-radius: 0px !important;
+  -moz-border-radius: 0px !important;
+  border-radius: 0px !important;
 }
 caption{
   display: none;
@@ -100,6 +103,13 @@ nav{
   background: none;
   box-shadow: none
 }
+
+//class 추가 스타일
+.position-rel{
+  position:relative;
+}
+
+
 .btn:active{
   color: black;
 }
@@ -442,7 +452,7 @@ nav{
     font-size: 30px;
     text-align: center;
     line-height: 50px;
-    height: 50px;
+    height: 60px;
     position: absolute;
     left: 0;
     bottom: 0;
@@ -688,6 +698,9 @@ nav{
 .tit--counsel-title{
   @include ir2($tit-onlinecoun)
 }
+.tit--inquiry-title{
+  @include ir2($counsel-title)
+}
 .tit--company_edu-title{
   @include ir2($company-edu-title)
 }
@@ -730,8 +743,14 @@ nav{
 .tit--fee{
   @include ir2($tit-fee)
 }
+
+// 국비교육 구직자
 .tit--unemployed_title_new{
   @include ir2($unemployed-title-new)
+}
+// 국비교육 직장인
+.tit--employed_title_new{
+  @include ir2($employed-title-new)
 }
 // @@stit
 .tit--ss{
@@ -1462,9 +1481,8 @@ COMPONENT
   }
 
   .table__linear {
-    input[type="text"],
-    input[type="tel"]{
-      width: 95%;
+    input[type="text"]{
+      width: 100%;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
@@ -1576,7 +1594,11 @@ COMPONENT
     dd {
       position: relative;
       padding-left: 10px;
-      margin: 10px 10px 10px 20px;
+      margin: 0px 10px 0px 20px;
+      line-height: 1.66;
+      letter-spacing: -1.5px;
+      word-break: keep-all;
+      word-wrap: break-word;
       color: #666;
       &::before {
         content: '-';
@@ -2290,7 +2312,6 @@ COMPONENT
   img{display: block;width: 100%;}
 .mSubcontent1{
   .box ul {
-    margin-bottom: 20px;
     li {
       &::before {
         content: '';
@@ -2305,36 +2326,51 @@ COMPONENT
       padding-left: 2px;
       font-size: 14px;
       letter-spacing: -.6px;
-      margin: 2px 0;
-      &:last-child {
-        margin-top: 5px;
-      }
+      margin: 10px 0 2px 0;
     }
   }
 
-  .title{
-    text-align: center;
-    color: #e6715f;
-    font-weight: bold;
-    margin-left: 8px;
-    margin-top: 5px;
-    font-size: 16px;
-    margin-bottom: 20px;
-  }
   p {
-    overflow: hidden;
     margin: 5px 0;
-    clear:both;
+    padding-left: 85px;
+    line-height: 1.5;
+    display: inline-block;
+    letter-spacing:-0.5px;
+    position:relative;
+    width:100%;
+    > span {
+      padding: 3px 6px;
+      width: 80px;
+      background: #e6715f;
+      color: #fff;
+      text-align: center;
+      font-size: 13px;
+      display: inline-block;
+      position: absolute;
+      top: -2px;
+      left: 0;
+      letter-spacing:0px;
+    }
+    &.fb{
+      padding-left:0;
+    }
+    &.title{
+      text-align: center;
+      color: #e6715f;
+      font-weight: bold;
+      margin-left: 8px;
+      margin-top: 5px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      padding-left:0;
+    }
+    &:after{
+      clear:both;
+      content:"";
+      display:table;
+    }
   }
-  p > span {
-    float: left;
-    padding: 3px 6px;
-    width: 80px;
-    background: #e6715f;
-    color: #fff;
-    text-align: center;
-    font-size: 14px;
-  }
+
 }
   .curriConetent {
     padding: 35px 30px 35px 30px;
@@ -2577,6 +2613,7 @@ COMPONENT
 .curriculum-ep_wrap{
   margin: 0 13px 30px 13px;
   text-align: center;
+  border-top:1px solid #ddd;
   .tit--ep-title{
     margin: 30px 0 10px 0;
     & + .parag{
@@ -2695,6 +2732,7 @@ COMPONENT
   .agree{
 
   }
+  .tit--inquiry-title,
   .tit--counsel-title{
     margin: 20px 0 10px 0;
   }
@@ -2713,6 +2751,9 @@ COMPONENT
     }
     textarea{
       height: 80px;
+      -webkit-border-radius: 0px;
+      -moz-border-radius: 0px;
+      border-radius: 0px;
     }
   }
   .waves-effect{
@@ -4057,7 +4098,7 @@ COMPONENT
         margin-top: 30px;
       }
       input[type="text"]{
-        width: 95%;
+        width: 100%;
       }
       .addcurri{
         border: 0;
@@ -4135,6 +4176,7 @@ COMPONENT
         text-indent: -999em;
         overflow: hidden;
         top: -1px;
+        right:-5px;
       }
     }
     //
@@ -4822,10 +4864,16 @@ COMPONENT
   }
   tr:last-child{
     .td-wrap{
-      padding-left: 74px;
+      input[type="tel"]{
+        margin-left: 2.5%;
+        width: 30%;
+        float: left;
+      }
     }
     .select--wrap{
-      width: 70px;
+      margin: 0;
+      display: inline-block;
+      width: 35%;
     }
   }
 }
@@ -5075,7 +5123,16 @@ COMPONENT
 }
 
 #account_index{
-
+  .account-top-title{
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    color: #d8b99b;
+    font-size: 14px;
+    text-align: center;
+    padding: 4.5% 0;
+    line-height: 1.45;
+  }
   .account_title {
     padding-top: 30px;
     border-bottom: 3px solid #000000;
