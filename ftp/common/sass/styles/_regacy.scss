@@ -1825,6 +1825,7 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
 #qnaWrite .noticeTitle > h2 {background: url(/images/community/qna_title.png) no-repeat;}
 #qnaWrite .qnaWBox {width: 1050px; margin-bottom: 40px; border-top: 1px solid #c3c3c3; border-bottom: 1px solid #c3c3c3; font-size: 16px; color: #333333;}
 .qnaWBox dl.qnatt dt {float: left; width: 180px; height: 50px; line-height: 50px; text-indent: 30px; margin-right: 50px; border-bottom: 1px solid #d4d4d4;}
+.qnaWBox dl.qnatt dt > span{ color:#e86a53;}
 .qnaWBox dl.qnatt dd {float: left; width: 800px; height: 50px; line-height: 50px; padding-left: 20px; border-bottom: 1px solid #d4d4d4;}
 .qnaWBox dl.qnatt dd input[type="text"] {display: block; width: 788px; border: 1px solid #dbdbdb; height: 28px; margin: 10px 0; font-family: 'Noto Sans Korean', sans-serif; background-color: #f3f3f3; text-indent: 10px;}
 .qnaWBox dl.qnatt dd .campusSelectBox{position: relative; width: 800px; height: 50px; color: #333333; font-size: 14px; background: url(/images/common/select_arrow.png) 98% center no-repeat;}

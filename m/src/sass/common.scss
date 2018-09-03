@@ -731,9 +731,13 @@ nav{
 .tit--cbi{
   @include ir2($history-title);
 }
-// 개취방
+// 서비스 이용약관
 .tit--term{
   @include ir2($tit-term);
+}
+// 개인정보 취급방침
+.tit--privacy{
+  @include ir2($privacyp-title);
 }
 // 직장인 수정신청
 .tit--salaryman{
@@ -752,6 +756,12 @@ nav{
 .tit--employed_title_new{
   @include ir2($employed-title-new)
 }
+
+// 기업대학출강교육 소개 서브 타이틀
+.tit--company_edu_title_sub1{
+@include ir2($company-edu-content2-title-img)
+}
+
 // @@stit
 .tit--ss{
   position: relative;
@@ -1860,7 +1870,7 @@ COMPONENT
       background-size: 100% 100%;
       color: #fff;
       font-size: 14.5px;
-      padding: 15px 44px 15px 20px;
+      padding: 13px 44px 14px 20px;
       margin: 20px 0;
       text-align: center;
       letter-spacing: -1.5px;
@@ -2611,7 +2621,7 @@ COMPONENT
   }
 }
 .curriculum-ep_wrap{
-  margin: 0 13px 30px 13px;
+  padding: 0 13px 30px 13px;
   text-align: center;
   border-top:1px solid #ddd;
   .tit--ep-title{
@@ -3216,12 +3226,22 @@ COMPONENT
       font-size: 13px;
       line-height: 1.5;
       color: #666;
-      margin: 30px 0;
+      margin: 15px 0;
       span{
         color: #000;
         font-weight: 500;
+        &.sub-title-img {
+          text-align:left;
+          margin-bottom:10px;
+          color:transparent !important;
+          display:block;
+          > span.tit--company_edu_title_sub1{
+            color:transparent !important;
+          }
+        }
       }
     }
+
     & +.img--wrap{
       border-top: 1px solid #efefef;
       margin: 0 -13px;
@@ -3311,17 +3331,8 @@ COMPONENT
         margin:  5px 0;
         strong{
           color: $c3;
-        }
-        &::before{
-          content:'';
-          width: 3px;
-          height: 3px;
-          display: inline-block;
-          background-color: #666;
-          border-radius: 100%;
-          vertical-align: middle;
-          position: relative;
-          top: -1px;
+          display:block;
+          position:relative;
         }
       }
 
@@ -3493,6 +3504,11 @@ COMPONENT
   }
   .context{
     padding: 30px 0;
+    .prev-text {
+      color:#a9a9a9;
+      font-size:12px;
+      margin-bottom:10px;
+    }
     img{
       width: 100%;
     }
@@ -3631,7 +3647,7 @@ COMPONENT
     table{
       width: 100%;
       input[type="text"]{
-        width: 95%;
+        width: 100%;
       }
     }
     .help{
@@ -3724,7 +3740,9 @@ COMPONENT
   .swiper-slide{
     box-sizing: border-box;
     padding: 0 13px;
-
+    > ul{
+      padding:10px;
+    }
     .year{
       border-top: 1px solid #ccc;
 
@@ -3738,6 +3756,7 @@ COMPONENT
       font-size: 13px;
       line-height: 1.5;
       margin-bottom: 10px;
+      letter-spacing:-0.5px;
     }
     li{
       border-left: 1px solid #ccc;
@@ -3763,9 +3782,9 @@ COMPONENT
       left: -15px;
       top: 0;
       width: 30px;
-      color: #000;
       font-weight: bold;
       text-align: center;
+      background-color:#fff;
 
       &::after{
         content: '';
@@ -4272,22 +4291,25 @@ COMPONENT
       }
       dd p{
         position: relative;
-        margin:  5px 0;
-        strong{
+        margin:  5px 0 10px 0;
+        > strong{
           color: red;
-        }
-        &::before{
-          content:'';
-          display: block;
-          width: 3px;
-          height: 3px;
-          display: inline-block;
-          background-color: #666;
-          border-radius: 100%;
-          vertical-align: middle;
           position: relative;
-          top: -1px;
+          padding-left:5px;
+          &::before{
+            content:'';
+            width: 3px;
+            height: 3px;
+            display: inline-block;
+            background-color: #666;
+            border-radius: 100%;
+            vertical-align: middle;
+            position: relative;
+            top: -1px;
+            left: -5px;
+          }
         }
+
       }
 
     }
@@ -4502,7 +4524,7 @@ COMPONENT
 
 
 }
-// 개인정보취급방침
+// 이용약관
 .termsConBox{
   margin: 0 13px 30px 13px;
   .parag{
@@ -4577,6 +4599,114 @@ COMPONENT
 
     }
   }
+  table.table1{
+    word-break: keep-all;
+    word-wrap: break-word;
+    th{
+      padding:5px;
+      border:1px solid #ebdbdb;
+      text-align:center;
+    }
+    td{
+      padding:5px;
+      border:1px solid #ebdbdb;
+    }
+  }
+}
+// 개인정보 취급방침
+.privacyConBox{
+  margin: 0 13px 30px 13px;
+  .parag{
+    margin: 5px 0 15px 0;
+    line-height: 1.5;
+    font-size: 13px;
+    color: #666;
+  }
+  .s-tit{
+    display: inline-block;
+    position: relative;
+    padding-top: 10px;
+    margin: 30px 0 5px;
+    font-size: 15px;
+    &::before{
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 50%;
+      height: 2px;
+      background-color: #000;
+    }
+    & + .parag{
+
+    }
+  }
+  .privacyConIndex{
+    border: 1px solid #ccc;
+    background-color: #efefef;
+    padding:10px;
+    font-size: 12px;
+    li{
+      margin: 10px 0;
+
+      a{color: #666;}
+    }
+  }
+  ol{
+    padding-left:0px;
+    li{
+      position:relative;
+      > span.num{
+        position:absolute;
+        left:-15px;
+        top:0;
+      }
+      a{color: #666;}
+    }
+  }
+
+  .ss-tit{
+    color: #000;
+    margin: 25px 0 10px 0;
+    font-size: 14px;
+    font-weight: bold;
+    &.parag{
+      margin: 15px 0 0 0;
+      line-height: 1.5;
+      font-size: 13px;
+      color: #666;
+      font-weight: normal;
+    }
+  }
+  //
+
+  .sd-tit{
+    margin: 20px 0 10px 0;
+    font-size: 13px;
+    padding-left: 15px;
+    position: relative;
+    &::before{
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      width: 4px;
+      height: 4px;
+      background-color: $c3;
+      position: absolute;
+      left: 0;
+      top: 7px;
+    }
+  }
+  //
+  .depth2{
+    li{
+      font-size: 12px;
+      margin: 15px 10px 15px 16px;
+      line-height: 1.5;
+
+    }
+  }
 }
 // 직장인신청
 .salaryman{
@@ -4587,7 +4717,7 @@ COMPONENT
     margin: 3px 0;
   }
   input[type="text"] {
-    width: 95%;
+    width: 100%;
   }
   .item-radio{
     margin: 5px 0;
