@@ -6,6 +6,21 @@ var observer = lozad('.lozad', {
     }
 });
 
+var mask = $('<div id="mask">').css({
+    'position':'fixed',
+    'top' : '0px',
+    'left' : '0px',
+    'width' : '100%',
+    'height' : '100%',
+    '-ms-filter' : 'progid:DXImageTransform.Microsoft.Alpha(Opacity=70)',
+    'filter' : 'progid:DXImageTransform.Microsoft.Alpha(Opacity=70)',
+    'opacity' : '0.7',
+    'background' : '#000',
+    '-moz-opacity' : '0.7',
+    'z-index' : '9',
+    'display': 'none'
+});
+
 
 
 $(document).ready(function () {
@@ -17,6 +32,7 @@ $(document).ready(function () {
         if($('body').hasClass('quick-btn-open')) {
             $('.quick-btn').trigger('click');
         }
+
 
 
         $('body').toggleClass('cross').removeClass('quick-btn-open');
@@ -37,8 +53,12 @@ $(document).ready(function () {
 
         if(isClass) {
             eventBlock('body', false);
+            $('#wrap').append(mask);
+            $("#mask").fadeTo(300, 0.7);
+
         } else {
             eventBlock('body', true);
+            $("#mask").remove();
         }
     });
     $('.side-menu__banner .close').click(function(){
@@ -46,12 +66,12 @@ $(document).ready(function () {
         return false;
     });
 // quick-btn
-    $('.quick-btn').on('click touch', function(e){
+    $('.qna').on('click touch', function(e){
         e.preventDefault();
+        alert('click');
         var ele = document.getElementById('wrap');
 
         if($('body').hasClass('quick-btn-open')) {
-            $('body').removeClass('quick-btn-open');
             ele.removeEventListener('touchmove', t);
         } else {
             $('body').addClass('quick-btn-open');
@@ -89,53 +109,53 @@ $(document).ready(function () {
         return false;
     });
 
-(function() {
-    $('.tab-trigger .item').click(function(e){
-        e.preventDefault();
-        var getID = $(this).attr('data-rel');
+    (function() {
+        $('.tab-trigger .item').click(function(e){
+            e.preventDefault();
+            var getID = $(this).attr('data-rel');
 
-        $('.tab-trigger .item').removeClass('on');
-        $(this).addClass('on');
+            $('.tab-trigger .item').removeClass('on');
+            $(this).addClass('on');
 
-        $('.tab-cnt').hide();
-        $('#'+ getID).show();
-    });
+            $('.tab-cnt').hide();
+            $('#'+ getID).show();
+        });
 
 
-    // scroll
-    var getHeader = $('#re-header').height(),
-        scVal = 0,
-        lastScrollTop = 0;
+        // scroll
+        var getHeader = $('#re-header').height(),
+            scVal = 0,
+            lastScrollTop = 0;
 
-    $(window).scroll(function(e){
-        var isClass = $('body').hasClass('cross'),
-            p = $(window).scrollTop();
+        $(window).scroll(function(e){
+            var isClass = $('body').hasClass('cross'),
+                p = $(window).scrollTop();
 
-        if(isClass) return true;
+            if(isClass) return true;
 
-        $('.float__menu--wrap').removeClass('down up');
-        if (p > lastScrollTop){
-            scVal = 0;
-            $('#re-header, .float__menu--wrap').addClass('up');
-        } else {
-            $('#re-header, .float__menu--wrap').addClass('down');
-            // 이동거리 값이 30이상일때 헤더 보임
-            scVal++;
-            if(scVal > 30) {
-                $('#re-header').removeAttr('class');
+            $('.float__menu--wrap').removeClass('down up');
+            if (p > lastScrollTop){
+                scVal = 0;
+                $('#re-header, .float__menu--wrap').addClass('up');
+            } else {
                 $('#re-header, .float__menu--wrap').addClass('down');
+                // 이동거리 값이 30이상일때 헤더 보임
+                scVal++;
+                if(scVal > 30) {
+                    $('#re-header').removeAttr('class');
+                    $('#re-header, .float__menu--wrap').addClass('down');
+                }
             }
-        }
-        lastScrollTop = p;
+            lastScrollTop = p;
 
 
-        if( p >= getHeader) {
-            $('body').addClass('head-fixed');
-        } else {
-            $('body').removeClass('head-fixed');
-        }
-    });
-}());
+            if( p >= getHeader) {
+                $('body').addClass('head-fixed');
+            } else {
+                $('body').removeClass('head-fixed');
+            }
+        });
+    }());
 
     // header rolling
     var rollingDate = new Swiper('.rolling-date .swiper-container', {
