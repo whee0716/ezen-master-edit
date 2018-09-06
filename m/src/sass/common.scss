@@ -332,7 +332,7 @@ nav{
   }
   #wrap{
     box-shadow: -1px 0px 18px #ccc;
-    transform: translate3d(85%, 0, 0);
+    transform: translate3d(320px, 0, 0);
     &::before{
       content: '';
       position: absolute;
@@ -407,7 +407,7 @@ nav{
 // 좌측
 #side-menu{
   position: absolute;
-  width: 80%;
+  width: 320px;
   z-index: 10;
   background: #fff;
   height: 100%;
@@ -423,11 +423,12 @@ nav{
     .ezen{@include ir2($l-menu-img1);}
   }
   .side-menu__menulist{
-    padding: 10px 0 90px 85px;
+    padding: 10px 0px 90px 82px;
     position: absolute;
     left: 0px;
     top: 0;
     height: 100%;
+    z-index:1;
     box-sizing: border-box;
     > ul {
       height: 100%;
@@ -439,11 +440,14 @@ nav{
 .side-menu__banner{
   overflow: hidden;
   width: 69px;
+  position:relative;
+  z-index:2;
   > ul{
     overflow:hidden;
     > li{
       height:63px;
       overflow:hidden;
+      border-top:1px solid #fff;
       > a{
         display: block;
         float:left;
@@ -474,7 +478,6 @@ nav{
 
 }
 .side-menu__menulist{
-  width:100%;
   .ezen-logo-wrap{
     border-bottom:2px solid #000;
     span.ezen{
@@ -2166,6 +2169,9 @@ COMPONENT
       float:left;
     }
   }
+  &.border-top-none{
+    border-top:0px;
+  }
 }
 .table__left{
   table{
@@ -2745,7 +2751,7 @@ COMPONENT
   }
 }
 .online-inquiry{
-  padding: 0 13px;
+  padding:13px;
   text-align: center;
   // 개방취
   .terms--txtContent{
@@ -4936,15 +4942,29 @@ COMPONENT
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 340px;
+  height: 50px;
   background-color: #e1e1e1;
   transition: all 200ms 0s ease;
   z-index: 202;
-  transform: translate3d(0, 290px,0);
-  &.open{
-    transform: translate3d(0,0,0) !important;
+}
+/*.float__menu--wrap.down + .quick-qna{
+  transform: translate3d(0,300px,0);
+}*/
+
+.quick-consultation-form{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 272px;
+  background-color: #e1e1e1;
+  transition: all 200ms 0s ease;
+  z-index: 202;
+  transform: translate3d(0, 300px,0);
+  &.open {
+    transform: translate3d(0, 0, 0) !important;
   }
-  .quick-btn{
+  .quick-consultation-btn{
     border: 0;
     z-index: 50;
     background: none;
@@ -4963,12 +4983,12 @@ COMPONENT
       border: none;
     }
   }
+  .table__linear {
+    border-top:0px;
+  }
 }
-/*.float__menu--wrap.down + .quick-qna{
-  transform: translate3d(0,300px,0);
-}*/
 
-.quick-btn-open{
+.quick-form-open{
   overflow: hidden;
   height: 100%;
   position: relative;
@@ -4979,7 +4999,12 @@ COMPONENT
     overflow: hidden;
     height: 100%;
   }
+  /*
   .quick-qna{
+    transform: translate3d(0,0,0) !important;
+  }
+  */
+  .quick-consultation-form{
     transform: translate3d(0,0,0) !important;
   }
 }
@@ -5013,7 +5038,7 @@ COMPONENT
     color: #000;
   }
   .submit{
-    margin: 5px 0 20px;
+    margin: 5px 0 0 0;
     background-color: #139aba !important;
   }
   tr:last-child{

@@ -6,7 +6,7 @@ var observer = lozad('.lozad', {
     }
 });
 
-var mask = $('<div id="mask">').css({
+var mask = $('<div id="mask">').css({ //마스크
     'position':'fixed',
     'top' : '0px',
     'left' : '0px',
@@ -26,65 +26,105 @@ var mask = $('<div id="mask">').css({
 $(document).ready(function () {
     observer.observe();
 // Layout
-    $('.menu-button').click(function(e){
+    $('.menu-button').click(function(e){  //메뉴 버튼 클릭하면
         e.preventDefault();
 
-        if($('body').hasClass('quick-btn-open')) {
-            $('.quick-btn').trigger('click');
+        if($('body').hasClass('quick-form-open')) { //body .quick-form-open 있을때
+            $('.quick-consultation-btn').trigger('click'); // 신청 폼 버튼 강제 클릭함  // body에 .quick-form-open 있을때 신청 폼 닫기 위해
         }
 
-
-
-        $('body').toggleClass('cross').removeClass('quick-btn-open');
+        $('body').toggleClass('cross').removeClass('quick-form-open'); //body에 cross 버튼 있을경우 side 메뉴 열려 있음, quick-form-open
         $('.float__menu--wrap').removeClass('down');
 
         var isClass = $('body').hasClass('cross'),
             isMain = $('.main').size();
 
         if(isMain) {
-            if(isClass) {
-                rollingDate.autoplay.stop();
-                pf.autoplay.stop();
-            } else {
-                rollingDate.autoplay.start();
-                pf.autoplay.start();
+            if(isClass) { //body 에 cross 클래스 있을때 ( side 메뉴 열림 )
+                rollingDate.autoplay.stop(); // 개강일자 슬라이드 스톱
+                pf.autoplay.stop(); // 포트폴리오 슬라이드 스톱
+                slider.autoplay.stop(); //메인 슬라이드 스톱
+            } else { //body 에 cross 클래스 없을때  ( side 메뉴 닫힘 )
+                rollingDate.autoplay.start(); // 개강일자 슬라이드 재생
+                pf.autoplay.start(); // 포트폴리오 슬라이드 재생
+                slider.autoplay.start(); //메인 슬라이드 재생
             }
         }
 
-        if(isClass) {
+        if(isClass) { //body 에 cross 클래스 있을때 ( side 메뉴 닫힘 )
             eventBlock('body', false);
-            $('#wrap').append(mask);
-            $("#mask").fadeTo(300, 0.7);
+            $('#wrap').append(mask); // 본문 #wrap 에 mask 추가
+            $("#mask").fadeTo(300, 0.7); // mask 서서히 나타남
 
         } else {
             eventBlock('body', true);
-            $("#mask").remove();
+            $("#mask").remove(); // mask 삭제
         }
     });
+    /*
     $('.side-menu__banner .close').click(function(){
         $('.menu-button').trigger('click');
         return false;
     });
-// quick-btn
-    $('.qna').on('click touch', function(e){
+    */
+
+    // qna button 전과목 빠른상담
+
+    var quickForm = $('.quick-consultation-form'); // 폼
+
+    $('.qna, .quick-consultation-btn').on('click touch', function(e){
         e.preventDefault();
-        alert('click');
         var ele = document.getElementById('wrap');
 
-        if($('body').hasClass('quick-btn-open')) {
+
+        if($('body').hasClass('quick-form-open')) {
+            $('body').removeClass('quick-form-open');
+            quickForm.attr('data-toggle','close');
             ele.removeEventListener('touchmove', t);
         } else {
-            $('body').addClass('quick-btn-open');
+            $('body').addClass('quick-form-open');
+            quickForm.attr('data-toggle','open');
             ele.addEventListener('touchmove', t, {
                 passive: false
             });
         }
+
     });
+
+    // 온라인상담 버튼
+
+    $('.contact').on('click touch', function(e){
+        e.preventDefault();
+        var ele = document.getElementById('wrap');
+
+
+        if($('body').hasClass('quick-form-open') && $('body').hasClass('cross') && (quickForm.attr('data-toggle','open'))) { //왼쪽 메뉴 열려있고, 빠른신청 폼 열려있을때
+            $('body').removeClass('quick-form-open');
+            quickForm.attr('data-toggle','close');
+
+            setTimeout(function() {
+                $('body').addClass('quick-form-open');
+                quickForm.attr('data-toggle','open');
+                ele.addEventListener('touchmove', t, {
+                    passive: false
+                });
+            }, 200);
+
+        } else {
+            $('body').addClass('quick-form-open');
+            quickForm.attr('data-toggle','open');
+            ele.addEventListener('touchmove', t, {
+                passive: false
+            });
+        }
+
+    });
+
     function t(e){
         e.preventDefault();
         e.stopPropagation();
     }
-// floating btn
+    // floating btn
     $('#menu-open').change(function(e) {
         e.preventDefault();
 
@@ -92,7 +132,7 @@ $(document).ready(function () {
         $('.float__menu--wrap').toggleClass('checked');
     });
 
-// sidemenu depth
+    // sidemenu depth
     $('.side-menu__menulist .items').click(function() {
         var flag = $(this).hasClass('active');
 
