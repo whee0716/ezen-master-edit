@@ -7,7 +7,7 @@ var observer = lozad('.lozad', {
 });
 
 var mask = $('<div id="mask">').css({ //마스크
-    'position':'fixed',
+    'position':'absolute',
     'top' : '0px',
     'left' : '0px',
     'width' : '100%',
@@ -17,9 +17,42 @@ var mask = $('<div id="mask">').css({ //마스크
     'opacity' : '0.7',
     'background' : '#000',
     '-moz-opacity' : '0.7',
-    'z-index' : '9',
+    'z-index' : '100',
     'display': 'none'
 });
+
+var popup = function(){
+    return {
+        open: function(el) {
+            // 기존에 열리있는 다른 팝업레이어 제거
+            $(".popup").hide();
+
+            // 배경 마스크 생성및 보여줌
+
+
+            $('body').append(mask);
+            $("#mask").fadeTo(300, 0.8);
+
+            $("html, body").css({'overflow-y':'hidden'}).bind('touchmove');
+
+            // 팝업레이어 띄움
+            $(el).fadeIn('300');
+
+
+        },
+        close : function(el) {
+            // 배경 마스크 fadeOut 감춘뒤 삭제
+            $(el).fadeOut('300');
+
+            $("#mask").fadeOut('300',function(){
+                $("#mask").remove();
+                $("html, body").css({'overflow':'visible'}).unbind('touchmove');
+            });
+
+
+        }
+    }
+}();
 
 
 
@@ -61,12 +94,12 @@ $(document).ready(function () {
             $("#mask").remove(); // mask 삭제
         }
     });
-    /*
+
     $('.side-menu__banner .close').click(function(){
         $('.menu-button').trigger('click');
         return false;
     });
-    */
+
 
     // qna button 전과목 빠른상담
 
