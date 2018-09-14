@@ -1,0 +1,299 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$btn-map-add-name: 'btn_map_add';
+$btn-map-add-x: 842px;
+$btn-map-add-y: 136px;
+$btn-map-add-offset-x: -842px;
+$btn-map-add-offset-y: -136px;
+$btn-map-add-width: 16px;
+$btn-map-add-height: 15px;
+$btn-map-add-total-width: 870px;
+$btn-map-add-total-height: 809px;
+$btn-map-add-image: '/images/sprites/hrd/sprite.png';
+$btn-map-add: (842px, 136px, -842px, -136px, 16px, 15px, 870px, 809px, '/images/sprites/hrd/sprite.png', 'btn_map_add', );
+$ezen-search-title-name: 'ezen_search_title';
+$ezen-search-title-x: 388px;
+$ezen-search-title-y: 0px;
+$ezen-search-title-offset-x: -388px;
+$ezen-search-title-offset-y: 0px;
+$ezen-search-title-width: 482px;
+$ezen-search-title-height: 53px;
+$ezen-search-title-total-width: 870px;
+$ezen-search-title-total-height: 809px;
+$ezen-search-title-image: '/images/sprites/hrd/sprite.png';
+$ezen-search-title: (388px, 0px, -388px, 0px, 482px, 53px, 870px, 809px, '/images/sprites/hrd/sprite.png', 'ezen_search_title', );
+$hrd-calendar-icon-name: 'hrd_calendar_icon';
+$hrd-calendar-icon-x: 842px;
+$hrd-calendar-icon-y: 99px;
+$hrd-calendar-icon-offset-x: -842px;
+$hrd-calendar-icon-offset-y: -99px;
+$hrd-calendar-icon-width: 17px;
+$hrd-calendar-icon-height: 17px;
+$hrd-calendar-icon-total-width: 870px;
+$hrd-calendar-icon-total-height: 809px;
+$hrd-calendar-icon-image: '/images/sprites/hrd/sprite.png';
+$hrd-calendar-icon: (842px, 99px, -842px, -99px, 17px, 17px, 870px, 809px, '/images/sprites/hrd/sprite.png', 'hrd_calendar_icon', );
+$hrd-campus-200600964-name: 'hrd_campus_200600964';
+$hrd-campus-200600964-x: 250px;
+$hrd-campus-200600964-y: 391px;
+$hrd-campus-200600964-offset-x: -250px;
+$hrd-campus-200600964-offset-y: -391px;
+$hrd-campus-200600964-width: 230px;
+$hrd-campus-200600964-height: 126px;
+$hrd-campus-200600964-total-width: 870px;
+$hrd-campus-200600964-total-height: 809px;
+$hrd-campus-200600964-image: '/images/sprites/hrd/sprite.png';
+$hrd-campus-200600964: (250px, 391px, -250px, -391px, 230px, 126px, 870px, 809px, '/images/sprites/hrd/sprite.png', 'hrd_campus_200600964', );
+$hrd-campus-200701532-name: 'hrd_campus_200701532';
+$hrd-campus-200701532-x: 250px;
+$hrd-campus-200701532-y: 99px;
+$hrd-campus-200701532-offset-x: -250px;
+$hrd-campus-200701532-offset-y: -99px;
+$hrd-campus-200701532-width: 230px;
+$hrd-campus-200701532-height: 126px;
+$hrd-campus-200701532-total-width: 870px;
+$hrd-campus-200701532-total-height: 809px;
+$hrd-campus-200701532-image: '/images/sprites/hrd/sprite.png';
+$hrd-campus-200701532: (250px, 99px, -250px, -99px, 230px, 126px, 870px, 809px, '/images/sprites/hrd/sprite.png', 'hrd_campus_200701532', );
+$hrd-campus-200701612-name: 'hrd_campus_200701612';
+$hrd-campus-200701612-x: 500px;
+$hrd-campus-200701612-y: 99px;
+$hrd-campus-200701612-offset-x: -500px;
+$hrd-campus-200701612-offset-y: -99px;
+$hrd-campus-200701612-width: 230px;
+$hrd-campus-200701612-height: 126px;
+$hrd-campus-200701612-total-width: 870px;
+$hrd-campus-200701612-total-height: 809px;
+$hrd-campus-200701612-image: '/images/sprites/hrd/sprite.png';
+$hrd-campus-200701612: (500px, 99px, -500px, -99px, 230px, 126px, 870px, 809px, '/images/sprites/hrd/sprite.png', 'hrd_campus_200701612', );
+$hrd-campus-200701876-name: 'hrd_campus_200701876';
+$hrd-campus-200701876-x: 0px;
+$hrd-campus-200701876-y: 245px;
+$hrd-campus-200701876-offset-x: 0px;
+$hrd-campus-200701876-offset-y: -245px;
+$hrd-campus-200701876-width: 230px;
+$hrd-campus-200701876-height: 126px;
+$hrd-campus-200701876-total-width: 870px;
+$hrd-campus-200701876-total-height: 809px;
+$hrd-campus-200701876-image: '/images/sprites/hrd/sprite.png';
+$hrd-campus-200701876: (0px, 245px, 0px, -245px, 230px, 126px, 870px, 809px, '/images/sprites/hrd/sprite.png', 'hrd_campus_200701876', );
+$hrd-campus-200800323-name: 'hrd_campus_200800323';
+$hrd-campus-200800323-x: 250px;
+$hrd-campus-200800323-y: 245px;
+$hrd-campus-200800323-offset-x: -250px;
+$hrd-campus-200800323-offset-y: -245px;
+$hrd-campus-200800323-width: 230px;
+$hrd-campus-200800323-height: 126px;
+$hrd-campus-200800323-total-width: 870px;
+$hrd-campus-200800323-total-height: 809px;
+$hrd-campus-200800323-image: '/images/sprites/hrd/sprite.png';
+$hrd-campus-200800323: (250px, 245px, -250px, -245px, 230px, 126px, 870px, 809px, '/images/sprites/hrd/sprite.png', 'hrd_campus_200800323', );
+$hrd-campus-200801348-name: 'hrd_campus_200801348';
+$hrd-campus-200801348-x: 500px;
+$hrd-campus-200801348-y: 245px;
+$hrd-campus-200801348-offset-x: -500px;
+$hrd-campus-200801348-offset-y: -245px;
+$hrd-campus-200801348-width: 230px;
+$hrd-campus-200801348-height: 126px;
+$hrd-campus-200801348-total-width: 870px;
+$hrd-campus-200801348-total-height: 809px;
+$hrd-campus-200801348-image: '/images/sprites/hrd/sprite.png';
+$hrd-campus-200801348: (500px, 245px, -500px, -245px, 230px, 126px, 870px, 809px, '/images/sprites/hrd/sprite.png', 'hrd_campus_200801348', );
+$hrd-campus-200801529-name: 'hrd_campus_200801529';
+$hrd-campus-200801529-x: 0px;
+$hrd-campus-200801529-y: 99px;
+$hrd-campus-200801529-offset-x: 0px;
+$hrd-campus-200801529-offset-y: -99px;
+$hrd-campus-200801529-width: 230px;
+$hrd-campus-200801529-height: 126px;
+$hrd-campus-200801529-total-width: 870px;
+$hrd-campus-200801529-total-height: 809px;
+$hrd-campus-200801529-image: '/images/sprites/hrd/sprite.png';
+$hrd-campus-200801529: (0px, 99px, 0px, -99px, 230px, 126px, 870px, 809px, '/images/sprites/hrd/sprite.png', 'hrd_campus_200801529', );
+$hrd-campus-200900755-name: 'hrd_campus_200900755';
+$hrd-campus-200900755-x: 0px;
+$hrd-campus-200900755-y: 391px;
+$hrd-campus-200900755-offset-x: 0px;
+$hrd-campus-200900755-offset-y: -391px;
+$hrd-campus-200900755-width: 230px;
+$hrd-campus-200900755-height: 126px;
+$hrd-campus-200900755-total-width: 870px;
+$hrd-campus-200900755-total-height: 809px;
+$hrd-campus-200900755-image: '/images/sprites/hrd/sprite.png';
+$hrd-campus-200900755: (0px, 391px, 0px, -391px, 230px, 126px, 870px, 809px, '/images/sprites/hrd/sprite.png', 'hrd_campus_200900755', );
+$hrd-campus-201001028-name: 'hrd_campus_201001028';
+$hrd-campus-201001028-x: 500px;
+$hrd-campus-201001028-y: 391px;
+$hrd-campus-201001028-offset-x: -500px;
+$hrd-campus-201001028-offset-y: -391px;
+$hrd-campus-201001028-width: 230px;
+$hrd-campus-201001028-height: 126px;
+$hrd-campus-201001028-total-width: 870px;
+$hrd-campus-201001028-total-height: 809px;
+$hrd-campus-201001028-image: '/images/sprites/hrd/sprite.png';
+$hrd-campus-201001028: (500px, 391px, -500px, -391px, 230px, 126px, 870px, 809px, '/images/sprites/hrd/sprite.png', 'hrd_campus_201001028', );
+$hrd-campus-201002184-name: 'hrd_campus_201002184';
+$hrd-campus-201002184-x: 0px;
+$hrd-campus-201002184-y: 537px;
+$hrd-campus-201002184-offset-x: 0px;
+$hrd-campus-201002184-offset-y: -537px;
+$hrd-campus-201002184-width: 230px;
+$hrd-campus-201002184-height: 126px;
+$hrd-campus-201002184-total-width: 870px;
+$hrd-campus-201002184-total-height: 809px;
+$hrd-campus-201002184-image: '/images/sprites/hrd/sprite.png';
+$hrd-campus-201002184: (0px, 537px, 0px, -537px, 230px, 126px, 870px, 809px, '/images/sprites/hrd/sprite.png', 'hrd_campus_201002184', );
+$hrd-campus-201400511-name: 'hrd_campus_201400511';
+$hrd-campus-201400511-x: 250px;
+$hrd-campus-201400511-y: 537px;
+$hrd-campus-201400511-offset-x: -250px;
+$hrd-campus-201400511-offset-y: -537px;
+$hrd-campus-201400511-width: 230px;
+$hrd-campus-201400511-height: 126px;
+$hrd-campus-201400511-total-width: 870px;
+$hrd-campus-201400511-total-height: 809px;
+$hrd-campus-201400511-image: '/images/sprites/hrd/sprite.png';
+$hrd-campus-201400511: (250px, 537px, -250px, -537px, 230px, 126px, 870px, 809px, '/images/sprites/hrd/sprite.png', 'hrd_campus_201400511', );
+$hrd-campus-201502519-name: 'hrd_campus_201502519';
+$hrd-campus-201502519-x: 500px;
+$hrd-campus-201502519-y: 537px;
+$hrd-campus-201502519-offset-x: -500px;
+$hrd-campus-201502519-offset-y: -537px;
+$hrd-campus-201502519-width: 230px;
+$hrd-campus-201502519-height: 126px;
+$hrd-campus-201502519-total-width: 870px;
+$hrd-campus-201502519-total-height: 809px;
+$hrd-campus-201502519-image: '/images/sprites/hrd/sprite.png';
+$hrd-campus-201502519: (500px, 537px, -500px, -537px, 230px, 126px, 870px, 809px, '/images/sprites/hrd/sprite.png', 'hrd_campus_201502519', );
+$hrd-campus-201703807-name: 'hrd_campus_201703807';
+$hrd-campus-201703807-x: 0px;
+$hrd-campus-201703807-y: 683px;
+$hrd-campus-201703807-offset-x: 0px;
+$hrd-campus-201703807-offset-y: -683px;
+$hrd-campus-201703807-width: 230px;
+$hrd-campus-201703807-height: 126px;
+$hrd-campus-201703807-total-width: 870px;
+$hrd-campus-201703807-total-height: 809px;
+$hrd-campus-201703807-image: '/images/sprites/hrd/sprite.png';
+$hrd-campus-201703807: (0px, 683px, 0px, -683px, 230px, 126px, 870px, 809px, '/images/sprites/hrd/sprite.png', 'hrd_campus_201703807', );
+$hrd-campus-201801025-name: 'hrd_campus_201801025';
+$hrd-campus-201801025-x: 250px;
+$hrd-campus-201801025-y: 683px;
+$hrd-campus-201801025-offset-x: -250px;
+$hrd-campus-201801025-offset-y: -683px;
+$hrd-campus-201801025-width: 230px;
+$hrd-campus-201801025-height: 126px;
+$hrd-campus-201801025-total-width: 870px;
+$hrd-campus-201801025-total-height: 809px;
+$hrd-campus-201801025-image: '/images/sprites/hrd/sprite.png';
+$hrd-campus-201801025: (250px, 683px, -250px, -683px, 230px, 126px, 870px, 809px, '/images/sprites/hrd/sprite.png', 'hrd_campus_201801025', );
+$hrd-search-title-name: 'hrd_search_title';
+$hrd-search-title-x: 0px;
+$hrd-search-title-y: 0px;
+$hrd-search-title-offset-x: 0px;
+$hrd-search-title-offset-y: 0px;
+$hrd-search-title-width: 368px;
+$hrd-search-title-height: 79px;
+$hrd-search-title-total-width: 870px;
+$hrd-search-title-total-height: 809px;
+$hrd-search-title-image: '/images/sprites/hrd/sprite.png';
+$hrd-search-title: (0px, 0px, 0px, 0px, 368px, 79px, 870px, 809px, '/images/sprites/hrd/sprite.png', 'hrd_search_title', );
+$mark-3year-name: 'mark_3year';
+$mark-3year-x: 750px;
+$mark-3year-y: 99px;
+$mark-3year-offset-x: -750px;
+$mark-3year-offset-y: -99px;
+$mark-3year-width: 72px;
+$mark-3year-height: 52px;
+$mark-3year-total-width: 870px;
+$mark-3year-total-height: 809px;
+$mark-3year-image: '/images/sprites/hrd/sprite.png';
+$mark-3year: (750px, 99px, -750px, -99px, 72px, 52px, 870px, 809px, '/images/sprites/hrd/sprite.png', 'mark_3year', );
+$menu-hrd-name: 'menu_hrd';
+$menu-hrd-x: 500px;
+$menu-hrd-y: 683px;
+$menu-hrd-offset-x: -500px;
+$menu-hrd-offset-y: -683px;
+$menu-hrd-width: 183px;
+$menu-hrd-height: 17px;
+$menu-hrd-total-width: 870px;
+$menu-hrd-total-height: 809px;
+$menu-hrd-image: '/images/sprites/hrd/sprite.png';
+$menu-hrd: (500px, 683px, -500px, -683px, 183px, 17px, 870px, 809px, '/images/sprites/hrd/sprite.png', 'menu_hrd', );
+$spritesheet-width: 870px;
+$spritesheet-height: 809px;
+$spritesheet-image: '/images/sprites/hrd/sprite.png';
+$spritesheet-sprites: ($btn-map-add, $ezen-search-title, $hrd-calendar-icon, $hrd-campus-200600964, $hrd-campus-200701532, $hrd-campus-200701612, $hrd-campus-200701876, $hrd-campus-200800323, $hrd-campus-200801348, $hrd-campus-200801529, $hrd-campus-200900755, $hrd-campus-201001028, $hrd-campus-201002184, $hrd-campus-201400511, $hrd-campus-201502519, $hrd-campus-201703807, $hrd-campus-201801025, $hrd-search-title, $mark-3year, $menu-hrd, );
+$spritesheet: (870px, 809px, '/images/sprites/hrd/sprite.png', $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

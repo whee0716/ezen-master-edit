@@ -189,7 +189,11 @@
       width: 90px;
       margin: 0 5px;
       color: #666;
-      @include lh(24)
+      @include lh(24);
+      &.active{
+        font-weight:bold;
+        color:#000;
+      }
     }
   }
 }
