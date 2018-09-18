@@ -787,6 +787,11 @@ nav{
   @include ir2($company-edu-content2-title-img)
 }
 
+// hrd 과정 검색 타이틀
+.tit--hrd_search{
+  @include ir2($hrd-search-title);
+}
+
 // @@stit
 .tit--ss{
   position: relative;
@@ -5673,6 +5678,328 @@ COMPONENT
     margin:0;
   }
 }
+
+//hrd 검색
+#hrd-net-search {
+  margin:0 13px;
+  .search-form-wrap {
+    margin-top: 15px;
+    background-color: #f8f8f8;
+    table {
+      width: 100%;
+      border-spacing: 0px;
+      box-sizing: border-box;
+      border-top: 2px solid #333434;
+      margin-bottom: 15px;
+      & > tbody {
+        & > tr {
+          & > td {
+            padding: 0 10px 10px 10px;
+            position: relative;
+            background-color: #e5e5e5;
+            & .item-radio {
+              display:inline-block;
+            }
+            & > label {
+              display: inline-block;
+              margin-right: 10px;
+              font-size: 13px;
+              font-weight: bold;
+              background-color: #e5e5e5;
+              padding:10px 0;
+              text-align: center;
+            }
+            & > input[type="text"] {
+              width:100%;
+              height: 38px;
+              background-color:#fff;
+              border: 1px solid #ccc;
+              vertical-align: top;
+              margin: 0;
+              display: inline-block;
+              -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+              color: #666;
+            }
+            & > .calendar-wrap {
+              & > span {
+                width: 10%;
+                height: 38px;
+                float: left;
+                text-align: center;
+                line-height: 38px;
+              }
+              .start-date,
+              .end-date {
+                position:relative;
+                float:left;
+                width:45%;
+                > input[type="text"]{
+                  height:38px;
+                  margin:0;
+                }
+                &:after {
+                  content: "\f133";
+                  position: absolute;
+                  right: 6px;
+                  top: 10px;
+                  font-family: 'FontAwesome';
+                  font-size: 16px;
+                  color:#333;
+                }
+              }
+            }
+          }
+          &:first-child {
+            & > td {
+              padding-top: 5px;
+            }
+          }
+          &:last-child {
+            & > td {
+              border-bottom: none;
+              padding-bottom: 10px;
+            }
+          }
+        }
+      }
+    }
+    .flex-wrap {
+      display: -webkit-flex;
+      display: flex;
+      .select--wrap {
+        width:70%;
+        margin:0;
+        background-color:#fff;
+        > .fa {
+          z-index:1;
+        }
+      }
+    }
+    button {
+      &.search-btn {
+        -webkit-flex: 1;
+        flex: 1;
+        text-align: center;
+        border: 1px solid #000;
+        color: #fff;
+        font-size: 14px;
+        display: block;
+        margin: 0 auto;
+        -webkit-box-shadow: inset 0px -15px 17px -5px rgba(0,0,0,0.4);
+        -moz-box-shadow: inset 0px -15px 17px -5px rgba(0,0,0,0.4);
+        box-shadow: inset 0px -15px 17px -5px rgba(0,0,0,0.4);
+        background: rgba(50,51,52,1);
+        background: -moz-linear-gradient(top, rgba(50,51,52,1) 0%, rgba(50,51,52,1) 38%, rgba(11,11,11,1) 100%);
+        background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(50,51,52,1)), color-stop(38%, rgba(50,51,52,1)), color-stop(100%, rgba(11,11,11,1)));
+        background: -webkit-linear-gradient(top, rgba(50,51,52,1) 0%, rgba(50,51,52,1) 38%, rgba(11,11,11,1) 100%);
+        background: -o-linear-gradient(top, rgba(50,51,52,1) 0%, rgba(50,51,52,1) 38%, rgba(11,11,11,1) 100%);
+        background: -ms-linear-gradient(top, rgba(50,51,52,1) 0%, rgba(50,51,52,1) 38%, rgba(11,11,11,1) 100%);
+        background: linear-gradient(to bottom, rgba(50,51,52,1) 0%, rgba(50,51,52,1) 38%, rgba(11,11,11,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#323334', endColorstr='#0b0b0b', GradientType=0 );
+      }
+    }
+  }
+  .search-result-list {
+    margin-top: 20px;
+    .result-list-top {
+      display: -webkit-flex;
+      display: flex;
+      border-bottom: 2px solid #666;
+      padding-bottom: 10px;
+      & > span {
+        -webkit-flex: 3;
+        flex: 3;
+        font-size: 14px;
+        font-weight: 400;
+        margin-top: 12px;
+        & > strong {
+          color: #139aba;
+          font-weight: bold;
+        }
+      }
+    }
+    .result-list {
+      & > li {
+        padding: 20px 0;
+        border-bottom: 1px solid #e0e0e0;
+        overflow: hidden;
+        & > h3 {
+          & > a {
+            color: #000;
+            font-size: 15px;
+            letter-spacing: -0.5px;
+          }
+        }
+      }
+      .info-cotents {
+        display: -webkit-flex;
+        display: flex;
+        padding-top: 15px;
+        .img-box {
+          -webkit-flex: 2;
+          flex: 2;
+          padding-right: 10px;
+          max-width: 250px;
+          & > img {
+            width: 100%;
+          }
+        }
+        .info-box {
+          -webkit-flex: 3;
+          flex: 3;
+        }
+      }
+      .year-3-certification {
+        padding-top: 40px;
+        font-size: 11px;
+        color: #000000;
+        text-align: center;
+        line-height: 1.65;
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        & > strong {
+          background-color: #52b9cf;
+          color: #fff;
+          letter-spacing: 8px;
+          padding: 0px 0 2px 8px;
+          font-weight: 500;
+        }
+        &:before {
+          content: "";
+          position: absolute;
+          left: 0px;
+          top: 6px;
+          background-image: url("hrd/mark_3year.jpg");
+          width: 100%;
+          height: 42px;
+          background-size: 45px;
+          background-position: top center;
+          background-repeat: no-repeat;
+        }
+      }
+      .year-1-certification {
+        padding-top: 10px;
+        font-size: 11px;
+        color: #000000;
+        text-align: center;
+        line-height: 1.65;
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        & > strong {
+          background-color: #cfaa52;
+          color: #fff;
+          letter-spacing: 8px;
+          padding: 0px 0 2px 8px;
+          font-weight: 500;
+        }
+      }
+      .info-box {
+        & > h3 {
+          font-size: 14px;
+          line-height: 1.5;
+          margin-bottom: 10px;
+          & > a {
+            color: #000;
+          }
+        }
+        .mark-img {
+          display: block;
+          width: 100%;
+          margin-bottom: 5px;
+          line-height: 1;
+          & > img {
+            display: inline-block;
+          }
+        }
+        dl {
+          margin-bottom: 10px;
+          & > dt {
+            font-size: 13px;
+            color: #000;
+            font-weight: bold;
+            & > a {
+              color: inherit;
+              line-height: 1.5;
+              & > .sub-title {
+                position: relative;
+                color: #000;
+                display: inline-block;
+                padding-right: 25px;
+                font-size: 13px;
+                font-weight: 500;
+                &:after {
+                  content: "";
+                  position: absolute;
+                  width: 16px;
+                  height: 15px;
+                  background-image: url("hrd/btn_map_add.jpg");
+                  overflow: hidden;
+                  top: 3px;
+                  right: 0;
+                }
+              }
+              & > span {
+                display: block;
+                font-size: 12px;
+                color: #666;
+                font-weight: 400;
+              }
+            }
+          }
+          & > dd {
+            font-size: 12px;
+            color: #666;
+            font-weight: 400;
+            position: relative;
+            line-height: 1.5;
+            & > a {
+              color: #666;
+            }
+          }
+        }
+        ol {
+          overflow: hidden;
+          padding-left:0;
+          & > li {
+            color: #333;
+            font-weight: 500;
+            font-size: 12px;
+            position: relative;
+            padding-left: 58px;
+            margin-bottom: 3px;
+            letter-spacing: -0.5px;
+            &:after {
+              content: "\00b7";
+              position: absolute;
+              left: -5px;
+              top: 0px;
+              color: #666;
+            }
+            & > .title {
+              color: #666;
+              font-weight: 500;
+              position: absolute;
+              left: 0;
+            }
+            & > small {
+              font-size: 11px;
+              font-weight: 400;
+              color: #666;
+            }
+            & > strong {
+              color: #139aba;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 
 @media (min-width : 320px) and (max-width : 900px) and (orientation : landscape) {
   #MainLayer{margin-top:-160px; top:50%;}

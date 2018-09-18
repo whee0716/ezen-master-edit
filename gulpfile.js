@@ -35,6 +35,7 @@ var pkg = require('./package.json'),
     cleanCSS = require('gulp-clean-css'),
     inquirer = require('inquirer');
 
+
 // 리뉴얼 frontJS
 gulp.task('compress-pc-js', function() {
     console.log('~~~ js run');
@@ -136,23 +137,6 @@ gulp.task('choiceSprites', function () {
         }, 5000);
     });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 gulp.task('mobile', function(){
