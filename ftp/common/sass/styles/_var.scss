@@ -186,3 +186,78 @@ $ROOT: '../../../../../images';
   display: -webkit-flex;
   display: flex;
 }
+
+//공통 셀렉트 박스
+.select-wrap{
+  padding: 0;
+  margin: 0;
+  border: 1px solid #dbdbdb;
+  position: relative;
+  height: 38px;
+  overflow: hidden;
+  display: inline-block;
+  select{
+    border-radius: 0;
+    color: #333333;
+    font-size: 16px;
+    position:absolute;
+    left:0;
+    top:0;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    -o-appearance:none;
+    appearance:none;
+    &.select_box{
+      border: none;
+      width: 100%;
+      width: 120% \0/IE8+9;
+      height: 38px;
+      padding-left: 10px;
+      &::-ms-expand {
+        display: none;
+      }
+    }
+  }
+  select::-ms-expand {
+    display: none;
+  }
+  .fa{
+    display: block;
+    line-height: 36px;
+    position: absolute;
+    width: 26px;
+    text-align: center;
+    height: 36px;
+    font-size: 24px;
+    right: 1px;
+    top: 1px;
+    z-index: 2;
+    color: #000;
+    background-color: transparent;
+  }
+}
+//공통 휴대전화 번호 input
+.phone-number-wrap {
+  width:100%;
+  overflow:hidden;
+  .select-wrap,
+  input[type="text"],
+  span.phone-hyphen{
+    float:left;
+  }
+  span.phone-hyphen {
+    padding:0 10px;
+    line-height:38px;
+  }
+  input[type="text"]{
+    height: 38px;
+    font-family: 'Noto Sans Korean', sans-serif;
+    font-size: 16px;
+    border: 1px solid #dbdbdb;
+    text-indent: 10px;
+    color: #707070;
+  }
+  .w170 {
+    width:170px;
+  }
+}

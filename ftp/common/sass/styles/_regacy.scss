@@ -39,6 +39,8 @@ img{border: none;}
 caption{
   display: none;
 }
+
+.req::after {content: '*'; color: #e86a53; }
 /* eventB */
 #evenB{position: absolute; top: 0; left: 0; width: 100%;}
 .eventBS{width: 1380px; margin: 0 auto; position: relative;}
@@ -1766,7 +1768,7 @@ caption{
 .blueBtn {width: 232px; margin: 30px auto; }
 .blueBtn a{display: block; width: 232px; height: 48px; line-height: 48px; background: #41b0bd; color: #ffffff; text-align: center; font-size: 16px; }
 
-#captchacode{width: 25%; display: inline; margin: 10px 0; height: 28px; border: 1px solid #dbdbdb; background-color: #f3f3f3; text-indent: 10px;}
+#captchacode{width: 25%; display: inline; margin: 5px 0; height: 38px; border: 1px solid #dbdbdb; background-color: #f3f3f3; text-indent: 10px;}
 #imgCaptcha + a{display: inline-block; width: 69px; height: 24px; line-height: 24px; border: 1px solid #848484; margin: 12px 0; text-align: center; background-color: #e4e4e4; font-size: 11px; font-family: Dotum; color: #1d1d1d; vertical-align: top;}
 
 #epLayer{z-index:99999; position: absolute; top: 50%; left: 50%; margin-left: -186px; margin-top: -265px; width: 373px; height: 228px; border: 1px solid #000000; background-color: #e3e3e3; text-align: center; display: none;}
@@ -1779,9 +1781,9 @@ caption{
 /* qna1  */
 #qnaList {width: 1050px; padding: 105px 0 80px; margin: 0 auto; }
 #qnaList .noticeTitle > h2 {background: url(/images/community/qna_title.png) no-repeat;}
-#qnaList .campusSelectBox {position: relative; width: 1050px; height: 46px; border: 1px solid #c3c3c3; color: #333333; font-size: 14px; background: url(/images/common/select_arrow.png) 98% center no-repeat; margin-bottom: 40px; }
-.campusSelectBox label {position: absolute; font-size: 14px; color: #333333; top: 13px; left: 12px; letter-spacing: 1px;}
-.campusSelectBox .nsbox {width: 100%; height: 46px; min-height: 46px; line-height: 46px; opacity: 0; filter: alpha(opacity=0); }
+#qnaList .select-wrap.campus-select { width: 1050px; height: 46px; border: 1px solid #c3c3c3; color: #333333; font-size: 14px; margin-bottom: 40px; }
+#qnaList .select-wrap.campus-select > select{ height:46px;}
+#qnaList .select-wrap.campus-select .fa { line-height:44px;width:36px; height:44px; }
 .qnalistBox table.ntcTable {width: 1050px; text-align: center; color: #666666; font-size: 14px;  border-spacing: 0px; padding: 0; border: 0; border-collapse: collapse;}
 table.ntcTable tr {border-top: 1px solid #c3c3c3;border-bottom: 1px solid #c3c3c3; }
 table.ntcTable tr td {padding: 14px 0;}
@@ -1795,15 +1797,16 @@ table.ntcTable td.replytal a {color: #666666; overflow: hidden; text-overflow: e
 table.ntcTable tr:hover a {color: #c7c7c7;}
 table.ntcTable td.tdate {font-size: 12px; color: #a9a9a9;font-family: 'Open Sans', sans-serif; }
 .noticeSearch {width: 1050px; margin-bottom: 40px;}
-.noticeSearch .nSelect{float: left; position: relative; width: 140px; height: 46px; border-bottom: 1px solid #c3c3c3; color: #333333; font-size: 14px; background: url(/images/common/select_arrow.png) 98% center no-repeat; margin-right: 40px;}
-.nSelect label {position: absolute; font-size: 14px; color: #333333; top: 13px; left: 12px; letter-spacing: 1px;}
-.nSelect .nsbox {width: 100%; height: 46px; min-height: 46px; line-height: 46px; opacity: 0; filter: alpha(opacity=0); }
-.noticeSearch .nSearch {float: left; width: 870px; border-bottom: 1px solid #c3c3c3; height: 46px;}
-.nSearch > input[type="text"]{float: left; height: 28px; width: 198px; padding-left: 10px; margin: 8px 0; border: 1px solid #dbdbdb; background-color: #f3f3f3; text-indent: 10px;}
-.nSearch > a {float: left; text-indent: -99999px; display: inline-block; width: 50px; height: 46px; background: url(/images/common/dod.png) 50% 50% no-repeat;}
+.noticeSearch .nSelect-wrap{ float:left; width:140px; border-bottom: 1px solid #c3c3c3; margin-right:40px; }
+.noticeSearch .nSelect {border:1px solid #fff; width:100%; margin:4px 0;}
+.nSelect .nsbox {width: 100%; height: 50px; min-height: 46px; line-height: 46px; opacity: 0; filter: alpha(opacity=0); }
+.noticeSearch .nSearch {float: left; width: 870px; border-bottom: 1px solid #c3c3c3; height: 52px;}
+.nSearch > input[type="text"]{float: left; height: 36px; width: 198px; padding-left: 10px; margin: 7px 0; border: 1px solid #dbdbdb; background-color: #f3f3f3; text-indent: 10px;}
+.nSearch > a {float: left; display: inline-block; color:#5b5b5b; margin:14px;}
+.nSearch > a > i { font-size:24px; width:24px;}
 
 
-/* qna2 */
+  /* qna2 */
 #qnaView {width: 1050px; padding: 105px 0 80px; margin: 0 auto; }
 #qnaView .noticeTitle > h2 {background: url(/images/community/qna_title.png) no-repeat;}
 dl.qvt2 p {font-size: 16px; color: #666666; line-height: 28px; letter-spacing: -.75px;}
@@ -1827,10 +1830,8 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
 .qnaWBox dl.qnatt dt {float: left; width: 180px; height: 50px; line-height: 50px; text-indent: 30px; margin-right: 50px; border-bottom: 1px solid #d4d4d4;}
 .qnaWBox dl.qnatt dt > span{ color:#e86a53;}
 .qnaWBox dl.qnatt dd {float: left; width: 800px; height: 50px; line-height: 50px; padding-left: 20px; border-bottom: 1px solid #d4d4d4;}
-.qnaWBox dl.qnatt dd input[type="text"] {display: block; width: 788px; border: 1px solid #dbdbdb; height: 28px; margin: 10px 0; font-family: 'Noto Sans Korean', sans-serif; background-color: #f3f3f3; text-indent: 10px;}
-.qnaWBox dl.qnatt dd .campusSelectBox{position: relative; width: 800px; height: 50px; color: #333333; font-size: 14px; background: url(/images/common/select_arrow.png) 98% center no-repeat;}
-.qnaWBox dl.qnatt dd .campusSelectBox label {position: absolute; font-size: 16px; color: #333333; top: 0; left: 12px; letter-spacing: 1px;}
-.qnaWBox dl.qnatt dd .campusSelectBox .nsbox {display: block; width: 100%; height: 50px; min-height: 50px; line-height: 50px; opacity: 0; filter: alpha(opacity=0); }
+.qnaWBox dl.qnatt dd input[type="text"] {display: block; width: 788px; border: 1px solid #dbdbdb; height: 38px; margin: 5px 0; font-family: 'Noto Sans Korean', sans-serif; background-color: #f3f3f3; text-indent: 10px;}
+.qnaWBox dl.qnatt dd .select-wrap.campus-select{ width: 788px; color: #333333; font-size: 14px; margin:5px 0; border:none;}
 .qnaWBox dl.qnatt dd input[type="password"] {display: block; width: 148px; border: 1px solid #dbdbdb; height: 38px; margin: 10px 0 0; font-family: 'Noto Sans Korean', sans-serif; background-color: #f3f3f3; text-indent: 10px;}
 .qnaWBox span{font-size: 14px; color: #999999;}
 .qnaWBox dl.qnapw dt{height: 100px;}
@@ -1851,7 +1852,9 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
 /* announce1 */
 #announceList {width: 1050px; padding: 105px 0 80px; margin: 0 auto; }
 #announceList .noticeTitle > h2 {background: url(/images/community/announce_title.png) no-repeat;}
-#announceList .campusSelectBox {position: relative; width: 1050px; height: 46px; border: 1px solid #c3c3c3; color: #333333; font-size: 14px; background: url(/images/common/select_arrow.png) 98% center no-repeat; margin-bottom: 40px; }
+#announceList .select-wrap.campus-select { width: 1050px; height: 46px; border: 1px solid #c3c3c3; color: #333333; font-size: 14px; margin-bottom: 40px; }
+#announceList .select-wrap.campus-select > select{ height:46px;}
+#announceList .select-wrap.campus-select .fa { line-height:44px;width:36px; height:44px; }
 .notiIco{display: block; margin: 0 auto;}
 
 /* announce2 */
@@ -1885,10 +1888,9 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
 #epilogueWrite .epiWBox {width: 1050px; margin-bottom: 40px; border-top: 1px solid #c3c3c3; border-bottom: 1px solid #c3c3c3; font-size: 16px; color: #333333;}
 .epiWBox dl.eptt dt {float: left; width: 180px; height: 50px; line-height: 50px; text-indent: 30px; margin-right: 50px; border-bottom: 1px solid #d4d4d4;}
 .epiWBox dl.eptt dd {float: left; width: 800px; height: 50px; line-height: 50px; padding-left: 20px; border-bottom: 1px solid #d4d4d4;}
-.epiWBox dl.eptt dd input[type="text"] {display: block; width: 778px; border: 1px solid #dbdbdb; height: 28px; margin: 10px 0; font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; background-color: #f3f3f3; text-indent: 10px;}
-.epiWBox dl.eptt dd .campusSelectBox{position: relative; width: 298px; height: 28px; color: #333333; font-size: 14px; background: url(/images/common/select_arrow.png) 98% center no-repeat; margin: 10px 0; border: 1px solid #dbdbdb; background-color: #f3f3f3;}
-.epiWBox dl.eptt dd .campusSelectBox label {position: absolute; font-size: 16px; color: #333333; top: 0; left: 12px; letter-spacing: 1px; line-height: 28px;}
-.epiWBox dl.eptt dd .campusSelectBox .nsbox {display: block; width: 100%; height: 28px; min-height: 28px; line-height: 28px; opacity: 0; filter: alpha(opacity=0); }
+.epiWBox dl.eptt dd input[type="text"] {display: block; width: 778px; border: 1px solid #dbdbdb; height: 38px; margin: 5px 0; font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; background-color: #f3f3f3; text-indent: 10px;}
+.epiWBox dl.eptt dd .categorySelectBox{ width:298px; margin:5px 0;}
+.epiWBox dl.eptt dd .categorySelectBox > select{ background-color: #f3f3f3;}
 .epiWBox dl.eptt dd input[type="password"] {display: block; width: 148px; border: 1px solid #dbdbdb; height: 38px; margin: 10px 0 0; font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; background-color: #f3f3f3; text-indent: 10px;}
 .epiWBox dl.eptt dd span{font-size: 14px; color: #999999;}
 .epiWBox dl.eppw dt{height: 100px;}
@@ -2077,31 +2079,18 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
 .counWBox dl.cntt dd input[type="radio"]+label{margin-right: 40px; padding-left: 20px; background: url(/images/common/radio_off.gif) no-repeat 0 5px;}
 .counWBox dl.cntt dd input[type="radio"]+label.on{background: url(/images/common/radio_on.gif) no-repeat 0 5px;}
 #radio6 + label{margin-right: 95px;}
-.counWBox dl.cntt dd input[type="text"] {display: block; width: 778px; border: none; height: 28px; margin: 10px 0; font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; border: 1px solid #dbdbdb; background-color: #f3f3f3; text-indent: 10px;}
+.counWBox dl.cntt dd input[type="text"] {display: block; width: 778px; border: none; height: 38px; margin: 5px 0; font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; border: 1px solid #dbdbdb; background-color: #f3f3f3; text-indent: 10px;}
 .counWBox dl.cntt dd .campusSelectBox{position: relative; width: 168px; height: 28px; color: #333333; font-size: 14px; background: url(/images/common/select_arrow.png) 98% center no-repeat; margin: 10px 0; border: 1px solid #dbdbdb; background-color: #f3f3f3;}
 .counWBox dl.cntt dd .campusSelectBox label {position: absolute; font-size: 16px; color: #333333; top: 0; left: 12px; letter-spacing: 1px; line-height: 28px;}
 .counWBox dl.cntt dd .campusSelectBox .nsbox {display: block; width: 100%; height: 28px; min-height: 28px; line-height: 28px; opacity: 0; filter: alpha(opacity=0);}
-.counWBox dl.cntt dd input.name{width: 168px;}
-.counWBox dl.cntt dd .phoneBox{position: relative; width: 168px; height: 28px; color: #333333; font-size: 14px; background: url(/images/common/select_arrow.png) 98% center no-repeat; float: left; margin: 10px 0; border: 1px solid #dbdbdb; background-color: #f3f3f3;}
-.counWBox dl.cntt dd .phoneBox label {position: absolute; font-size: 16px; color: #333333; top: 0; left: 12px; letter-spacing: 1px; line-height: 28px;}
-.counWBox dl.cntt dd .phoneBox .nsbox {display: block; width: 100%; height: 28px; min-height: 28px; line-height: 28px; opacity: 0; filter: alpha(opacity=0); }
-.counWBox dl.cntt dd .emailBox{position: relative; width: 258px; height: 28px; color: #333333; font-size: 14px; background: url(/images/common/select_arrow.png) 98% center no-repeat; float: left; margin: 10px 0 10px 15px; border: 1px solid #dbdbdb; background-color: #f3f3f3;}
-.counWBox dl.cntt dd .emailBox label {position: absolute; font-size: 16px; color: #333333; top: 0; left: 12px; letter-spacing: 1px; line-height: 28px;}
-.counWBox dl.cntt dd .emailBox .nsbox {display: block; width: 100%; height: 28px; min-height: 28px; line-height: 28px; opacity: 0; filter: alpha(opacity=0);}
-.counWBox dl.cntt dd .hourBox{position: relative; width: 68px; height: 28px; color: #333333; font-size: 14px; background: url(/images/common/select_arrow.png) 98% center no-repeat; float: left; margin: 10px 0; border: 1px solid #dbdbdb; background-color: #f3f3f3;}
-.counWBox dl.cntt dd .hourBox label {position: absolute; font-size: 16px; color: #333333; top: 0; left: 12px; letter-spacing: 1px; line-height: 28px;}
-.counWBox dl.cntt dd .hourBox .nsbox {display: block; width: 100%; height: 28px; min-height: 28px; line-height: 28px; opacity: 0; filter: alpha(opacity=0); }
-.counWBox dl.cntt dd .minuteBox{position: relative; width: 68px; height: 28px; color: #333333; font-size: 14px; background: url(/images/common/select_arrow.png) 98% center no-repeat; float: left; margin: 10px 0 10px 20px; border: 1px solid #dbdbdb; background-color: #f3f3f3;}
-.counWBox dl.cntt dd .minuteBox label {position: absolute; font-size: 16px; color: #333333; top: 0; left: 12px; letter-spacing: 1px; line-height: 28px;}
-.counWBox dl.cntt dd .minuteBox .nsbox {display: block; width: 100%; height: 28px; min-height: 28px; line-height: 28px; opacity: 0; filter: alpha(opacity=0); }
-.counWBox dl.cntt dd .minuteBox + span{float: left; font-size: 16px; font-weight: bold; color: #333333; padding: 0 25px 0 35px;}
-.counWBox dl.cntt dd input[type="password"] {display: block; width: 148px; border: 1px solid #dbdbdb; height: 38px; margin: 10px 0 0; font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; background-color: #f3f3f3; text-indent: 10px;}
+.counWBox dl.cntt dd input.name,
+.counWBox dl.cntt dd input.w170{width: 168px;}
+.counWBox dl.cntt dd .select-wrap {margin:5px 0;}
+.counWBox dl.cntt dd .select-wrap select{ background-color: #f3f3f3;}
+.counWBox dl.cntt dd .phone-hyphen{margin:5px 0;}
+.counWBox dl.cntt dd .select-wrap.w100 { width:100px;float:left; margin:5px;}
+.counWBox dl.cntt dd .cal-hyphen{margin:5px 0; padding: 0 10px; line-height: 38px; float:left;}
 .counWBox dl.cntt dd span{font-size: 14px; color: #999999;}
-.counWBox dl.cntt dd input.w170{width: 168px; float: left; text-align: center; text-indent: 0;}
-.counWBox dl.cntt dd input.w170+span, .counWBox dl.cntt dd .phoneBox+span{float: left; font-size: 16px; font-weight: bold; color: #333333; padding: 0 10px;}
-.counWBox dl.cntt dd input.w250{width: 233px; float: left;}
-.counWBox dl.cntt dd input.w250+span{float: left; font-size: 16px; color: #333333; padding: 0 10px;}
-.counWBox dl.cntt dd input.w250n{width: 233px; float: left;}
 .counWBox dl.cntt dd .calendar{padding-left: 27px; background: url(/images/common/calendar_ico.gif) no-repeat 0 center; float: left;}
 .counWBox dl.cntt dd .calendar input{width: 150px; border: none; background-color: transparent;}
 .counWBox dl.cnpw dt{height: 100px;}
@@ -2631,16 +2620,7 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
       border-top: 3px solid #000000;
       text-align: center;
     }
-    .campusSelectBox {
-      position: relative;
-      width: 410px;
-      height: 46px;
-      border: 1px solid #d0d0d0;
-      color: #333333;
-      font-size: 14px;
-      background: #ededed url(/images/common/select_arrow.png) 92% center no-repeat;
-      margin: 0 auto 40px;
-    }
+    select{ background-color: #f3f3f3;}
   }
   .classRadioBox {
     border-top: 1px solid #c3c3c3;
@@ -2654,13 +2634,11 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
     margin: 10px 0 65px;
   }
   .userWriteBox{border-top: 1px solid #c3c3c3; margin-bottom: 60px;}
-  .userWriteBox dl dt {float: left; width: 162px; height: 50px; line-height: 50px; margin-right: 50px; padding-left: 20px; margin-right: 50px; border-bottom: 1px solid #d4d4d4; font-size: 16px; color: #333333;}
-  .userWriteBox dl dd {float: left; width: 808px; height: 50px; line-height: 50px; padding-left: 10px; border-bottom: 1px solid #d4d4d4; margin-bottom: 0; font-size: 16px; color: #333333;}
-  .userWriteBox dl dd input[type="text"] {display: block; width: 168px; border: 1px solid #dbdbdb; height: 28px; margin: 10px 0; font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; color: #333333; background-color: #f3f3f3; text-indent: 10px;}
-  .userWriteBox dl dd .phoneBox{position: relative; width: 168px; height: 28px; color: #333333; font-size: 14px; background: url(/images/common/select_arrow.png) 98% center no-repeat; float: left; margin: 10px 0; border: 1px solid #dbdbdb; background-color: #f3f3f3;}
-  .userWriteBox dl dd .phoneBox label {position: absolute; font-size: 16px; color: #333333; top: 0; left: 12px; letter-spacing: 1px; line-height: 28px;}
-  .userWriteBox dl dd .phoneBox .nsbox {display: block; width: 100%; height: 28px; min-height: 28px; line-height: 28px; opacity: 0; filter: alpha(opacity=0);}
+  .userWriteBox dl dt {float: left; width: 142px; height: 40px; line-height: 40px; margin-right: 50px; padding:10px 0 10px 10px; border-bottom: 1px solid #d4d4d4; font-size: 16px; color: #333333;}
+  .userWriteBox dl dd {float: left; width: 798px; height: 40px; line-height: 40px; padding: 10px; border-bottom: 1px solid #d4d4d4; margin-bottom: 0; font-size: 16px; color: #333333; }
+  .userWriteBox dl dd input[type="text"] {display: block; width: 168px; border: 1px solid #dbdbdb; height: 38px; font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; color: #333333; background-color: #f3f3f3; text-indent: 10px; }
   .userWriteBox dl dd span{font-size: 14px; color: #999999;}
+  .userWriteBox dl dd select { background-color: #f3f3f3;}
   .userWriteBox dl dd input.w170{width: 170px; float: left; text-align: center; text-indent: 0;}
   .userWriteBox dl dd input.w170+span, .userWriteBox dl dd .phoneBox+span{float: left; font-size: 16px; font-weight: bold; color: #333333; padding: 0 10px;}
   .userWriteBox .fl{float: left; margin-right: 60px;}
@@ -3225,6 +3203,11 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
         text-align: center;
         letter-spacing: -1.5px;
         line-height: 1;
+        > i {
+          position:absolute;
+          right:17px;
+          top:17px;
+        }
       }
     }
     .tab-content-box01 {
@@ -4596,76 +4579,11 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
 #counSelBox > p {text-align:center; font-size:14px; color:#8b8b8b;}
 #counSelBox > table {border-top:2px solid #000; border-bottom:2px solid #000; border-collapse:collapse; margin-top:72px }
 #counSelBox > table th {padding:18px 0 18px 31px; text-align:left; background:#f7f7f7; font-size:17px; color:#191919; border-bottom:1px solid #bcbcbc; border-right:1px solid #bcbcbc}
-#counSelBox > table td {line-height:50px; background:#ffffff;border-bottom:1px solid #bcbcbc; padding-left:31px}
-#counSelBox > table td .campusSelectBox {
-  position: relative;
-  width: 250px;
-  height: 28px;
-  color: #333333;
-  font-size: 17px;
-  background: url(/images/common/select_arrow.png) 98% center no-repeat;
-  margin: 10px 0;
-  border: 1px solid #dbdbdb;
-  background-color: #ffffff;
-}
-#counSelBox > table td > .campusSelectBox label {
-  position: absolute;
-  font-size: 17px;
-  color: #707070;
-  top: -11px;
-  left: 12px;
-  letter-spacing: 1px;
-}
-#counSelBox > table td  > input[type="text"] {
-  display: block;
-  width: 778px;
-  border: none;
-  height: 28px;
-  margin: 10px 0;
-  font-family: 'Noto Sans Korean', sans-serif;
-  font-size: 16px;
-  border: 1px solid #dbdbdb;
-  text-indent: 10px;
-  color:#707070;
-}
-
+#counSelBox > table td { background:#ffffff;border-bottom:1px solid #bcbcbc; padding-left:31px; margin:10px 0;}
+#counSelBox > table td .select-wrap { width: 250px;  }
+#counSelBox > table td  > input[type="text"] { display: block; width: 778px; height: 38px; font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; border: 1px solid #dbdbdb; text-indent: 10px; color:#707070; }
 #counSelBox > table td  > input.name{width:250px;}
-#counSelBox > table td  > .phoneBox label {
-  position: absolute;
-  font-size: 16px;
-  color: #333333;
-  top: 0;
-  left: 12px;
-  letter-spacing: 1px;
-  line-height: 28px;
-}
-#counSelBox > table td  > .phoneBox {
-  position: relative;
-  width: 168px;
-  height: 28px;
-  color: #333333;
-  font-size: 14px;
-  background: url(/images/common/select_arrow.png) 98% center no-repeat;
-  float: left;
-  margin: 10px 0;
-  border: 1px solid #dbdbdb;
-  background-color: #fff;
-}
-#counSelBox > table td > .phoneBox .nsbox {
-  display: block;
-  width: 100%;
-  height: 28px;
-  min-height: 28px;
-  line-height: 28px;
-  opacity: 0;
-  filter: alpha(opacity=0);
-}
-#counSelBox > table td input.w170 {
-  width: 168px;
-  float: left;
-  text-align: center;
-  text-indent: 0;
-}
+#counSelBox > table td .w170 { width: 168px; float: left; text-align: center; text-indent: 0; }
 #club_make .counWBox dl.cntt dd input.w170+span, .counWBox dl.cntt dd .phoneBox+span, #counSelBox > table td span{
   float: left;
   font-size: 16px;
@@ -4903,14 +4821,14 @@ a.cbtn > img {vertical-align:middle;}
 .franChiseIntroContents table {border-top:2px solid #464646; border-collapse:collapse; margin-top:62px;}
 .franChiseIntroContents table th {background:#f2f2f2; text-align:left; font-size:17px; padding:17px 0 22px 32px; border-bottom:1px solid #bcbcbc;border-right:1px solid #bcbcbc;}
 .franChiseIntroContents table td { font-size:17px; border-bottom:1px solid #bcbcbc; padding-left:30px; line-height: 50px;}
-.franChiseIntroContents table td  input[type="text"] {display: block; width: 590px; border: none; height: 28px; margin: 10px 0; font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; border: 1px solid #dbdbdb; text-indent: 10px; color: #707070;}
+.franChiseIntroContents table td  input[type="text"] {display: block; width: 590px; border: none; height: 38px; font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; border: 1px solid #dbdbdb; text-indent: 10px; color: #707070;}
 .franChiseIntroContents table td .phoneBox {position: relative; width: 168px; height: 28px; color: #333333; font-size: 14px;	background: url(/images/common/select_arrow.png) 98% center no-repeat; float: left;	margin: 10px 0;	border: 1px solid #dbdbdb; background-color: #fff;}
 .franChiseIntroContents table td .phoneBox label {position: absolute;	font-size: 16px; color: #333333; top: 0; left: 12px; letter-spacing: 1px; line-height: 28px;}
 .franChiseIntroContents table td .phoneBox .nsbox {display: block; width: 100%; height: 28px; min-height: 28px; line-height: 28px; opacity: 0; filter: alpha(opacity=0);}
 .franChiseIntroContents table td span.hyphen {float: left; font-size: 16px; font-weight: bold; color: #333333; padding: 0 10px;}
 .franChiseIntroContents table td input.w184 {width:184px; float: left; text-align: center; text-indent: 0;}
-.franChiseIntroContents table td.rl  {line-height:23px;}
-.franChiseIntroContents table td.rl2 {line-height:40px;}
+.franChiseIntroContents table td.rl  {line-height:23px; padding-top:5px; padding-bottom:5px;}
+.franChiseIntroContents table td.rl2 {line-height:60px;}
 .franChiseIntroContents table td span {color:#707070;}
 .franChiseIntroContents table td span.position {margin-left:66px; color:#707070;}
 .franChiseIntroContents table td span input[type="text"] {display:inline-block; margin:0 5px;}
@@ -4920,7 +4838,7 @@ a.cbtn > img {vertical-align:middle;}
 .franChiseIntroContents table td input[type="radio"]+label {padding-left: 25px; background: url(/images/common/radio_off.gif) no-repeat 0 center;}
 .franChiseIntroContents table td input[type="radio"]+label.on {background: url(/images/common/radio_on.gif) no-repeat 0 center;}
 .sign_wrap {font-weight:bold; text-align:center; font-size:20px; letter-spacing:-2px; margin-top:77px;}
-.sign_wrap input[type="text"] {border: none; height: 28px; margin: 10px 0; font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; border: 1px solid #dbdbdb; text-indent: 10px; color: #707070;}
+.sign_wrap input[type="text"] {border: none; height: 38px; margin: 10px 0; font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; border: 1px solid #dbdbdb; text-indent: 10px; color: #707070;}
 .sign_wrap span {font-size:17px; font-weight:normal; color:#191919;}
 .sign_wrap > .fran_btn_wrap {margin-top:42px;}
 
@@ -5015,12 +4933,8 @@ a.cbtn > img {vertical-align:middle;}
 #gallery_n1 {margin-top:90px; width:1051px; padding:32px 0 59px 0;background:url('/images/intro/review_bg2.jpg')no-repeat; position:relative;}
 .companyLectureContents table {border-top:2px solid #464646; border-collapse:collapse; margin-top:62px;}
 .companyLectureContents table th {background:#f2f2f2; text-align:left; font-size:17px; padding:17px 0 22px 32px; border-bottom:1px solid #bcbcbc;border-right:1px solid #bcbcbc;}
-.companyLectureContents table td { font-size:17px; border-bottom:1px solid #bcbcbc; padding-left:30px; line-height: 50px;}
-.companyLectureContents table td  input[type="text"] {display: block; width: 590px; border: none; height: 28px; margin: 10px 0; font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; border: 1px solid #dbdbdb; text-indent: 10px; color: #707070;}
-.companyLectureContents table td .phoneBox {position: relative; width: 168px; height: 28px; color: #333333; font-size: 14px;	background: url(/images/common/select_arrow.png) 98% center no-repeat; float: left;	margin: 10px 0;	border: 1px solid #dbdbdb; background-color: #fff;}
-.companyLectureContents table td .phoneBox label {position: absolute;	font-size: 16px; color: #333333; top: 0; left: 12px; letter-spacing: 1px; line-height: 28px;}
-.companyLectureContents table td .phoneBox .nsbox {display: block; width: 100%; height: 28px; min-height: 28px; line-height: 28px; opacity: 0; filter: alpha(opacity=0);}
-.companyLectureContents table td span.hyphen {float: left; font-size: 16px; font-weight: bold; color: #333333; padding: 0 10px;}
+.companyLectureContents table td { font-size:17px; border-bottom:1px solid #bcbcbc; padding-left:30px;}
+.companyLectureContents table td  input[type="text"] {display: block; width: 590px; border: none; height: 38px; font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; border: 1px solid #dbdbdb; text-indent: 10px; color: #707070;}
 .companyLectureContents table td input.w184 {width:184px; float: left; text-align: center; text-indent: 0;}
 .companyLectureContents table td.rl  {line-height:23px;}
 .companyLectureContents table td.rl2 {line-height:40px; position:relative;}
@@ -5033,7 +4947,7 @@ a.cbtn > img {vertical-align:middle;}
 .companyLectureContents table td input[type="radio"]+label {padding-left: 25px; background: url(/images/common/radio_off.gif) no-repeat 0 center;}
 .companyLectureContents table td input[type="radio"]+label.on {background: url(/images/common/radio_on.gif) no-repeat 0 center;}
 .companyLectureContents table td > textarea {width:90%; height:90px; border:1px solid #ccc;}
-.zipcode_btn {position:absolute; top:16px; right:10px;}
+.zipcode_btn {position:absolute; top:19px; right:10px;}
 .w289 {width:289px !important}
 .teacher2 {background:url('/images/campus/teacher_b_bg2.png')no-repeat 85% bottom,url(/images/campus/teacher_cont4_bg.jpg) no-repeat center center,url(/images/campus/teacher_cont4_bg2.jpg) repeat !important;}
 
@@ -5051,7 +4965,7 @@ a.cbtn > img {vertical-align:middle;}
 .reCruitTab > ul > li > a {font-size:24px; color:#767676;}
 .reCruitTab > ul > li.active > a {font-weight:bold; color:#343434;}
 .reCruitIntroContents {width:1050px; margin:0 auto; padding-bottom:169px;}
-.reCruitIntroContents h3{font-family:'Rix Gothic'; font-size:29px; font-weight:bold; letter-spacing:-3px; color:#343434;}
+.reCruitIntroContents h3{ font-size:29px; font-weight:bold; letter-spacing:-3px; color:#343434;}
 .reCruitIntroContents h3.second > img {margin-left:25px;}
 .reCruitIntroContents h3 > img {margin-left:21px; vertical-align:middle;}
 .paddingBox {padding-left:35px;}
@@ -5065,11 +4979,9 @@ a.cbtn > img {vertical-align:middle;}
 .reCruitTableTeacher .fwb{font-weight:bold; color:#000;}
 table.recruit_teacher {border-top:2px solid #464646; border-collapse:collapse; margin-top:10px;}
 table.recruit_teacher th {background:#f2f2f2; text-align:left; font-size:17px; padding:17px 0 22px 32px; border-bottom:1px solid #bcbcbc;border-right:1px solid #bcbcbc;}
-table.recruit_teacher td { font-size:17px; border-bottom:1px solid #bcbcbc; padding-left:30px; line-height: 50px;}
-table.recruit_teacher td  input[type="text"] {display: block; width: 590px; border: none; height: 28px; margin: 10px 0; font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; border: 1px solid #dbdbdb; text-indent: 10px; color: #707070;}
-table.recruit_teacher td .phoneBox {position: relative; width: 168px; height: 28px; color: #333333; font-size: 14px;	background: url(/images/common/select_arrow.png) 98% center no-repeat; float: left;	margin: 10px 0;	border: 1px solid #dbdbdb; background-color: #fff;}
-table.recruit_teacher td .phoneBox label {position: absolute;	font-size: 16px; color: #333333; top: 0; left: 12px; letter-spacing: 1px; line-height: 28px;}
-table.recruit_teacher td .phoneBox .nsbox {display: block; width: 100%; height: 28px; min-height: 28px; line-height: 28px; opacity: 0; filter: alpha(opacity=0);}
+table.recruit_teacher td { font-size:17px; border-bottom:1px solid #bcbcbc; padding-left:30px; }
+table.recruit_teacher td  input[type="text"] {display: block; width: 590px; border: none; height: 38px; font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; border: 1px solid #dbdbdb; text-indent: 10px; color: #707070;}
+table.recruit_teacher td .select-wrap.campus-select{width:589px;}
 
 table.recruit_teacher td span.hyphen {float: left; font-size: 16px; font-weight: bold; color: #333333; padding: 0 10px;}
 table.recruit_teacher td input.w184 {width:184px; float: left; text-align: center; text-indent: 0;}
@@ -5097,10 +5009,10 @@ table.recruit_teacher td .filebox1 input[type="file"] {
 table.recruit_teacher td .filebox1 label {
   display: inline-block;
   padding: 0 32px;
-  height: 30px;
+  height: 34px;
   color: #ffffff;
   font-size: 14px;
-  line-height: 30px;
+  line-height: 34px;
   vertical-align: middle;
   background-color: #999999;
   cursor: pointer;
@@ -5109,7 +5021,7 @@ table.recruit_teacher td .filebox1 label {
 }
 table.recruit_teacher td .filebox1 .upload-name1 {
   display: inline-block;
-  height: 30px;
+  height: 38px;
   width: 444px;
   font-size: 14px;
   font-family: inherit;
@@ -5117,6 +5029,7 @@ table.recruit_teacher td .filebox1 .upload-name1 {
   vertical-align: middle;
   background-color: #ffffff;
   border: 1px solid #dbdbdb;
+  text-indent:10px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -5133,23 +5046,17 @@ table.recruit_teacher td .selectBox {position: relative; width: 589px; height: 2
 table.recruit_teacher td .selectBox label {position: absolute;	font-size: 16px; color: #333333; top: 0; left: 12px; letter-spacing: 1px; line-height: 28px;}
 table.recruit_teacher td .selectBox .nsbox {display: block; width: 100%; height: 28px; min-height: 28px; line-height: 28px; opacity: 0; filter: alpha(opacity=0);}
 
-#cusTomerList .campusSelectBox {position: relative; width: 1050px; height: 46px; border: 1px solid #c3c3c3; color: #333333; font-size: 14px; background: url(/images/common/select_arrow.png) 98% center no-repeat; margin-bottom: 40px; }
-.campusSelectBox label {position: absolute; font-size: 14px; color: #333333; top: 13px; left: 12px; letter-spacing: 1px;}
-.campusSelectBox .nsbox {width: 100%; height: 46px; min-height: 46px; line-height: 46px; opacity: 0; filter: alpha(opacity=0); }
+#cusTomerList .select-wrap.campus-select,
+#cusTomerWrite .select-wrap.campus-select{ width: 1050px; height: 46px; border: 1px solid #c3c3c3; color: #333333; font-size: 14px; margin-bottom: 40px; }
+#cusTomerList .select-wrap.campus-select > select,
+#cusTomerWrite .select-wrap.campus-select > select{ height:46px;}
+#cusTomerList .select-wrap.campus-select .fa ,
+#cusTomerWrite .select-wrap.campus-select .fa{ line-height:44px;width:36px; height:44px; }
 .qnalistBox table.ntcTable {width: 1050px; text-align: center; color: #666666; font-size: 14px;  border-spacing: 0px; padding: 0; border: 0; border-collapse: collapse;}
 
-#cusTomerList, #cusTomerWrite, #cusTomerView{
-  width: 1050px;
-  padding: 105px 0 80px;
-  margin: 0 auto;
-}
-#cusTomerList .noticeTitle > h2, #cusTomerWrite .noticeTitle > h2, #cusTomerView .noticeTitle > h2{
-  background: url(/images/community/customer_title.png) no-repeat;
-}
-
-#cusTomerList .noticeTitle > h2, #cusTomerWrite .noticeTitle > h2, #cusTomerView .noticeTitle > h2{
-  width:444px;
-}
+#cusTomerList, #cusTomerWrite, #cusTomerView{ width: 1050px; padding: 105px 0 80px; margin: 0 auto; }
+#cusTomerList .noticeTitle > h2, #cusTomerWrite .noticeTitle > h2, #cusTomerView .noticeTitle > h2{ background: url(/images/community/customer_title.png) no-repeat; }
+#cusTomerList .noticeTitle > h2, #cusTomerWrite .noticeTitle > h2, #cusTomerView .noticeTitle > h2{ width:444px; }
 
 #cusTomerWrite .qnaWBox {
   width: 1050px;
@@ -5159,6 +5066,7 @@ table.recruit_teacher td .selectBox .nsbox {display: block; width: 100%; height:
   font-size: 16px;
   color: #333333;
 }
+
 #alliance {
   width: 1050px;
   padding: 105px 0 58px;

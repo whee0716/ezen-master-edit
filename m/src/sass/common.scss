@@ -43,9 +43,8 @@ a:active{
 [type="radio"]:not(:checked)+span,
 [type="radio"]:checked+span {
   padding-left: 23px;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.4;
-  height: 19px;
 }
 [type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after {
   border: 1px solid #26a69a;
@@ -1102,7 +1101,8 @@ COMPONENT
   .fa{
     padding: 10px;
     font-size: 28px;
-    top: 35%;
+    top: 50%;
+    margin-top:-39px;
     position: absolute;
     z-index: 30;
     background-color: #fff;
@@ -1315,12 +1315,12 @@ COMPONENT
         padding: 10px 0;
         text-indent: 5px;
         color: #fff;
-
-        background: -webkit-linear-gradient(top, rgb(94, 165, 183) 30%, rgb(49, 159, 182) 100%);
-
+        //background: -webkit-linear-gradient(top, rgb(94, 165, 183) 30%, rgb(49, 159, 182) 100%);
+        background-color:#919191;
         &.goBtn{
           margin: 1px 0;
           position: relative;
+          background-color:#3da5bb;
           > a{
             display: block;
             position: relative;
@@ -2274,7 +2274,7 @@ COMPONENT
   }
   [type="radio"] + span{
     font-size: 13px;
-    line-height: 22px;
+    line-height: 1.4;
     padding-left: 26px;
     color: #666;
   }
@@ -3942,8 +3942,28 @@ COMPONENT
   .count{
     position: absolute;
     left: 68%;
-    top: 16%;
+    top: 15%;
     z-index: 30;
+    .count-inner {
+      position:relative;
+      .prev,
+      .next{
+        position: absolute;
+        top: 0px;
+        z-index: 50;
+        img{
+          display: block;
+          width: 17px;
+          height: 17px;
+        }
+      }
+      .prev{
+        left:-35px;
+      }
+      .next{
+        right:-35px;
+      }
+    }
   }
   .teacher-carousel{
     position: relative;
@@ -3952,23 +3972,7 @@ COMPONENT
       width: 100%;
     }
   }
-  .prev,
-  .next{
-    position: absolute;
-    top: 105px;
-    z-index: 50;
-    img{
-      display: block;
-      width: 17px;
-      height: 17px;
-    }
-  }
-  .prev{
-    left: 47%;
-  }
-  .next{
-    right: 4%;
-  }
+
 }
 #teacherInfoContent2 {
   background: url('//ezenac.co.kr/m/images/teacher2_bg.png') no-repeat center top;
@@ -5694,8 +5698,9 @@ COMPONENT
       margin-bottom: 15px;
       & > tbody {
         & > tr {
+          border-bottom:0;
           & > td {
-            padding: 5px 10px;
+            padding: 3px 10px 3px 0;
             position: relative;
             background-color: #e5e5e5;
             display: -webkit-flex;
@@ -5705,8 +5710,8 @@ COMPONENT
               -webkit-flex:3;
               > .item-radio{
                 display:inline-block;
-                margin:10px 7px;
-                span { font-size:14px;}
+                margin:8px 7px 8px 0;
+                span { font-size:13px;}
               }
             }
             .flex-wrap {
@@ -5715,7 +5720,6 @@ COMPONENT
             }
             & > label {
               display: inline-block;
-              margin-right: 10px;
               font-size: 13px;
               font-weight: bold;
               background-color: #e5e5e5;
@@ -5735,6 +5739,7 @@ COMPONENT
               -webkit-box-sizing: border-box;
               box-sizing: border-box;
               color: #666;
+              font-size:13px;
               flex:3;
               -webkit-flex:3;
             }
@@ -5765,7 +5770,7 @@ COMPONENT
                   right: 6px;
                   top: 10px;
                   font-family: 'FontAwesome';
-                  font-size: 16px;
+                  font-size: 14px;
                   color:#333;
                 }
               }
@@ -5774,6 +5779,7 @@ COMPONENT
           &:last-child {
             & > td {
               border-bottom: none;
+              padding-bottom:8px;
             }
           }
         }
@@ -5786,6 +5792,7 @@ COMPONENT
         width:70%;
         margin:0;
         background-color:#fff;
+        font-size:13px;
         > .fa {
           z-index:1;
         }
