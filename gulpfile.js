@@ -34,19 +34,17 @@ var pkg = require('./package.json'),
     concat = require('gulp-concat'),
     cleanCSS = require('gulp-clean-css'),
     inquirer = require('inquirer');
-
+    uglify = require('gulp-uglify');
 
 // 리뉴얼 frontJS
 gulp.task('compress-pc-js', function() {
     console.log('~~~ js run');
     gulp.src('./ftp/common/js/site/ui.js')
-        .pipe(minify({
-            ext:{
-                src:'-debug.js',
-                min:'.min.js'
-            },
-            exclude: ['tasks'],
-            ignoreFiles: ['.combo.js', '-min.js']
+        .pipe(concat('ui.js'))
+        .pipe(gulp.dest('./ftp/common/js/site/minify/'))
+        .pipe(concat('ui.min.js'))
+        .pipe(uglify({
+            ie8:true
         }))
         .pipe(gulp.dest('./ftp/common/js/site/minify/'));
 
@@ -167,7 +165,7 @@ gulp.task('mobile', function(){
                     min:'.js'
                 },
                 exclude: ['tasks'],
-                ignoreFiles: ['.combo.js', '-min.js']
+                ignoreFiles: ['.combo.js', '-min.js'],
             }))
             .pipe($.size({ gzip: true, showFiles: true }))
             .pipe($.sourcemaps.write('./'))

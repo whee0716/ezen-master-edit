@@ -1,4 +1,43 @@
+var trident = navigator.userAgent.match(/Trident\/(\d.\d)/i);
 var seasonNotiSwiper = null;
+// 수강
+seasonNotiSwiper = new Swiper('.previewT-wrap.swiper-container', {
+    direction: 'vertical',
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+    },
+});
+
+function toggleEvent(e){
+    e.preventDefault();
+    try {
+        var target = $(this).find('a').next();
+        var isVisible = target.is(':visible');
+
+        if(isVisible) {
+            target.hide();
+            target.parent().removeAttr('style');
+
+        } else {
+            $(".telBoxS").removeAttr('style');
+            $(".telBoxSS").hide();
+            target.parent().css({ 'z-index' : '100' });
+            target.show();
+        }
+    } catch(e) {
+        console.log(e)
+    }
+}
+
+
+// swiper slider 랜덤
+function returnIndex(slidElement){
+    //console.log("랜덤");
+    var randomIndex = Math.floor(Math.random()*($(slidElement+' .swiper-slide:not(.swiper-slide-duplicate)').length));
+    return parseInt(randomIndex);
+}
+
 $(document).ready(function(){
     (function () {
         var tab = $('.cm-tab'),
@@ -6,11 +45,11 @@ $(document).ready(function(){
 
         if(tab.length > 0) {
             tab.click(function() {
-               var getID = $(this).find('a').attr('href'),
-                   idx = tab.index(this);
+                var getID = $(this).find('a').attr('href'),
+                    idx = tab.index(this);
 
                 tabcon.hide();
-               $(getID).show();
+                $(getID).show();
                 tab.removeClass('on').eq(idx).addClass('on');
 
                 return false;
@@ -26,7 +65,7 @@ $(document).ready(function(){
         });
 
         $('.hasImg').click(function(){
-           var idx = $('.hasImg').index(this);
+            var idx = $('.hasImg').index(this);
 
             tab.eq(idx).trigger('click');
         });
@@ -49,7 +88,11 @@ $(document).ready(function(){
 
             // 스크롤 중일때 자동롤링 모두 정지
             if(!isResize) {
-                seasonNotiSwiper.autoplay.stop();
+                if((trident != null && trident[1] == "4.0") || (trident != null && trident[1] == "5.0")){
+                    seasonNotiSwiper.stopAutoplay();
+                } else{
+                    seasonNotiSwiper.autoplay.stop();
+                }
                 isResize = true;
             }
 
@@ -68,7 +111,12 @@ $(document).ready(function(){
                     floatFootBanner.removeClass('close');
                 }
 
-                seasonNotiSwiper.autoplay.start();
+
+                if((trident != null && trident[1] == "4.0") || (trident != null && trident[1] == "5.0")){
+                    seasonNotiSwiper.startAutoplay();
+                } else{
+                    seasonNotiSwiper.autoplay.start();
+                }
                 isResize = false;
             }, 100);
         });
@@ -138,7 +186,12 @@ $(document).ready(function(){
 
             // 스크롤 중일때 자동롤링 모두 정지
             if(!isScroll) {
-                seasonNotiSwiper.autoplay.stop();
+                if((trident != null && trident[1] == "4.0") || (trident != null && trident[1] == "5.0")){
+                    seasonNotiSwiper.stopAutoplay();
+                } else{
+                    seasonNotiSwiper.autoplay.stop();
+                }
+
                 isScroll = true;
             }
 
@@ -179,7 +232,13 @@ $(document).ready(function(){
 
             //  0.3s후 스크롤 종료 자동롤링 시작
             scrollTimer = setTimeout(function () {
-                seasonNotiSwiper.autoplay.start();
+
+                if((trident != null && trident[1] == "4.0") || (trident != null && trident[1] == "5.0")){
+                    seasonNotiSwiper.startAutoplay();
+                } else{
+                    seasonNotiSwiper.autoplay.start();
+                }
+
                 isScroll = false;
             }, 300)
         });
@@ -228,16 +287,6 @@ $(document).ready(function(){
         }
     })();
 
-    // 수강
-    seasonNotiSwiper = new Swiper('.previewT-wrap.swiper-container', {
-        direction: 'vertical',
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
-    });
-
-
     //2depth
     (function () {
         var gnb = $('#nav');
@@ -283,7 +332,7 @@ $(document).ready(function(){
         $(this).siblings('label').text(selectName);
     });
 
-	/* photostory2 img롤링 */
+    /* photostory2 img롤링 */
     var current =0;
     var imgs = $('.imgBox >img');
 
@@ -335,35 +384,14 @@ $(document).ready(function(){
 
     var observer = lozad('.lozad', {
         loaded: function(el) {
-            el.classList.add('fade')
+            if( typeof el !='undefined' && el ) {
+                $(el).addClass('fade');
+            }
         }
     });
 
     observer.observe();
 });
-
-
-function toggleEvent(e){
-    e.preventDefault();
-    try {
-        var target = $(this).find('a').next();
-        var isVisible = target.is(':visible');
-
-        if(isVisible) {
-            target.hide();
-            target.parent().removeAttr('style');
-
-        } else {
-            $(".telBoxS").removeAttr('style');
-            $(".telBoxSS").hide();
-            target.parent().css({ 'z-index' : '100' });
-            target.show();
-        }
-    } catch(e) {
-        console.log(e)
-    }
-}
-
 
 
 $(document).ready(function(){
@@ -372,20 +400,29 @@ $(document).ready(function(){
         console.log('stop autoplay');
         var swiperTarget = $(this).attr('data-function');
         eval("target = " + swiperTarget);
-        target.autoplay.stop();
+
+        if( typeof swiperTarget !='undefined' && swiperTarget ) {
+            if((trident != null && trident[1] == "4.0") || (trident != null && trident[1] == "5.0")){
+                swiperTarget.stopAutoplay();
+            } else{
+                swiperTarget.autoplay.stop();
+            }
+        }
+
+
+
     });
     //swiper slider 마우스 오버시 자동 슬라이드 시작
     $('[data-role="swiper-slider"]').on('mouseleave', function(e){
         console.log('start autoplay');
         var swiperTarget = $(this).attr('data-function');
         eval("target = " + swiperTarget);
-        target.autoplay.start();
+        if( typeof swiperTarget !='undefined' && swiperTarget ) {
+            if((trident != null && trident[1] == "4.0") || (trident != null && trident[1] == "5.0")){
+                swiperTarget.startAutoplay();
+            } else{
+                swiperTarget.autoplay.start();
+            }
+        }
     });
 });
-
-// swiper slider 랜덤
-function returnIndex(slidElement){
-    console.log("랜덤");
-    var randomIndex = Math.floor(Math.random()*($(slidElement+' .swiper-slide:not(.swiper-slide-duplicate)').length));
-    return parseInt(randomIndex);
-}
