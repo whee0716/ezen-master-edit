@@ -41,12 +41,10 @@ gulp.task('compress-pc-js', function() {
     console.log('~~~ js run');
     gulp.src('./ftp/common/js/site/ui.js')
         .pipe(concat('ui.js'))
-        .pipe(gulp.dest('./ftp/common/js/site/minify/'))
-        .pipe(concat('ui.min.js'))
-        .pipe(uglify({
-            ie8:true
-        }))
+        .pipe(minify({ext: {min : '.min.js'}}))
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./ftp/common/js/site/minify/'));
+
 
 
     gulp.watch([

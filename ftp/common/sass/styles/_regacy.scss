@@ -27,6 +27,7 @@
   font-family: 'Rix Gothic', sans-serif;
 }
 *{margin: 0; padding: 0;}
+
 body{font-size: 0.75em; -webkit-text-size-adjust:none; position:relative;}
 li{list-style: none;}
 a{text-decoration: none;}
@@ -39,6 +40,79 @@ img{border: none;}
 caption{
   display: none;
 }
+
+#pop-ie-alert{
+  &.pop-layer{
+    display:none;
+    position:fixed;
+    z-index:210;
+    top:0;
+    width:0;
+    height:100%;
+
+    .bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width:0;
+      height: 100%;
+      background: #000;
+      opacity: .8;
+      filter: alpha(opacity=80);
+    }
+    .pop-layer-innner-position {
+      position:relative;
+      width:100%;
+      height:100%;
+      .pop-layer-innner {
+        position:absolute;
+        width:0;
+        height:350px;
+        top:50%;
+        margin-left:-160px;
+        left:50%;
+        margin-top:-175px;
+        overflow:hidden;
+
+        .pop-content{
+          position:relative;
+        }
+        .close-btn {
+          position:absolute;
+          right:10px;
+          top:10px;
+          color:#fff;
+          font-size:30px;
+        }
+        .ie-down-btn {
+          position:absolute;
+          display:block;
+          width:150px;
+          left:20px;
+          bottom:35px;
+          color:transparent;
+          text-align:center;
+          padding:10px 0;
+          background-color:transparent;
+        }
+        .chrome-down-btn {
+          position:absolute;
+          display:block;
+          width:150px;
+          left:180px;
+          bottom:35px;
+          color:transparent;
+          text-align:center;
+          padding:10px 0;
+          background-color:transparent;
+        }
+      }
+    }
+
+  }
+
+}
+
 
 .req::after {content: '*'; color: #e86a53; }
 /* eventB */
@@ -163,16 +237,39 @@ caption{
 }
 .campus{
   height: 26px; background-color: #27272e; position: absolute; width: 100%;top: 0; left: 0;
+  padding: 6px 0;
   ul{width:1050px; margin:0 auto;}
-  li{float: left;}
+  li{float: left;  margin:0 2px;}
   li a img {vertical-align:middle;}
-  li a:hover, li.on {
-    color: #ececec;
-    background-color: #34343d;
+  li a:hover,
+  li.on {
+    color: #fff;
+    background-color: #3da4ba;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    -webkit-transition: all 0.3s 0s ease;
+    -o-transition: all 0.3s 0s ease;
+    transition: all 0.3s 0s ease;
+    > a {
+      color:#fff;
+    }
   }
   li a{
-    display: block; font-family: dotum; font-size: 12px; color: #969698;
-    height: 26px; line-height: 26px; padding: 0 16px; text-transform: uppercase;
+    display: block;
+    font-family: MalgunGothic,"Apple SD Gothic Neo",sans-serif;
+    font-size: 13px;
+    color: #969698;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 12px;
+    text-transform: uppercase;
+    > i{
+      font-size:17px;
+      vertical-align:top;
+      margin-top:4px;
+      line-height:1;
+    }
   }
 }
 
@@ -180,9 +277,10 @@ caption{
 
 
 .memBox{
-  position: absolute; top: 24px; right: 0;
-  a{font-size: 13px; font-family: 'dotum'; color: #bdbdbd; padding: 0 8px;}
-  a + a{border-left: 1px solid #999999;}
+  position: absolute; top: 50px; right: 0;
+  a{font-size: 13px; font-family: MalgunGothic,"Apple SD Gothic Neo",sans-serif; color: #bdbdbd; padding: 0 8px; position:relative; }
+  a + a:after{ content:"|"; position:absolute; left:-4px; font-weight:normal; }
+  a + a:hover:after{ font-weight:normal; }
   a:hover{color: #e7e7e7;font-weight:bold;}
 }
 
@@ -190,30 +288,47 @@ caption{
 #header-logo{
   overflow: hidden;
   height: 63px;position: relative;border-bottom: 1px solid #27272e;padding-bottom: 19px;
+
+  .authentication-emblem{
+    @include ir($authentication-emblem);
+    position:absolute;
+    left:0;
+    top:18px;
+  }
   h1{
     width: 315px;
-    margin: 12px auto 0;
+    margin: 20px auto 0;
     a{@include ir($logo);}
   }
   .previewT-wrap{
     position: absolute;
-    left: 0;
+    right: 0;
     top: 20px;
-    width: 200px;
+    padding:0 8px;
     overflow: hidden;
-    height: 31px;
+    height: 25px;
+    width:180px;
   }
   .previewT{
+    width:180px;
     p{
-      color: #7dd3dd;
-      font-size: 24px;
-      font-weight:500;
+      color: #e97965;
+      font-size: 18px;
+      font-weight:bold;
       line-height: 1.3;
       background-color: #34343d;
+      font-family: MalgunGothic,"Apple SD Gothic Neo",sans-serif;
+      text-align:right;
+      width:180px;
+      overflow:hidden;
+      margin-right:10px;
     }
-    span{font-size: 14px; color: #e1e1e1;
+    span{font-size: 12px;
+      color: #e1e1e1;
       margin-right: 5px;
-      font-weight: normal;}
+      font-weight: normal;
+      font-family: MalgunGothic,"Apple SD Gothic Neo",sans-serif;
+    }
   }
 }
 
@@ -227,11 +342,11 @@ caption{
   > ul {
     float:left;width: 100%;
     > li{
-      float: left; margin-left: 33px;
+      float: left; margin-left: 30px;
     }
     > li > a {
-      display: block; height: 37px;
-      padding-top: 8px; font-size: 15px; color: #fefefe; letter-spacing: -0.05em;
+      display: block;
+      padding: 8px 2px 0 2px; font-size: 15px; color: #fefefe; letter-spacing: -0.05em;
       height: 38px;position:relative;overflow: hidden;
       box-sizing: border-box;
       &::before{
@@ -256,16 +371,7 @@ caption{
       & + li + li + li + li{
         //margin-left: 42px;
       }
-      & + li + li + li + li + li + li + li{
-        .sNav{
-          height: 410px;
-        }
-      }
-      & + li + li + li + li + li {
-        .sNav{
-          height: 378px;
-        }
-      }
+
     }
   }
   > ul > li > a.on{
@@ -289,19 +395,37 @@ caption{
   position: absolute;
   top: 148px; left: 0;
   width: 100%;
-  background-color: #ffffff; display: none;
-  height: 303px;
-  z-index: 500; box-shadow: 0 1px 3px #292627;
-  overflow: hidden;
+  display: none;
+  background-color: #ffffff;
+  z-index: 500;
+  -webkit-box-shadow: 0px 1px 3px #292627;
+  -moz-box-shadow: 0px 1px 3px #292627;
+  box-shadow: 0px 1px 3px #292627;
 }
+
 /* #nav > ul > li:hover > .sNav{display: block;} */
-.sNav > div{width: 1050px; margin: 0 auto; padding: 30px 0 50px; /* display: none; */}
-.sNav ul{float: left; width: 504px; padding-right: 20px; border-right: 1px solid #e4e4e4;}
+.sNav > div{width: 1050px; display:block; margin: 0 auto; /*display: none;*/; background-color: #fff;  }
+.sNav ul{float: left; width: 504px; padding-right: 20px; }
 .sNav ul+ul{width: 505px; padding-left: 20px; padding-right: 0; border-right: 0;}
-.sNav strong{display: block; font-size: 22px; color: #333333; font-weight: 500; margin-bottom: 15px; letter-spacing: -0.6px;}
-.sNav li{float: left; width: 50%; margin-bottom: 5px;}
-.sNav li a{font-size: 14px; color: #666666; letter-spacing: -0.6px;}
+.sNav strong{display: block; font-size: 16px; color: #333333; font-weight: 500; margin-bottom: 15px; letter-spacing: -0.6px;}
+.sNav strong > i { font-size:22px; margin-right:3px; }
+.sNav li{ display:inline-block; margin-right: 20px; width: 230px; margin-bottom: 3px;}
+.sNav li a{font-size: 14px; color: #666666; letter-spacing: -0.6px; font-family:MalgunGothic,"Apple SD Gothic Neo",sans-serif;}
 .sNav li a:hover{color: #5bc4d0; text-decoration: underline;}
+
+.sNav1 {
+  position:relative;
+  padding: 30px 0 30px 0 ;
+  > a {
+    margin:0 0 30px 0;
+    display:block;
+    > img {
+      margin:0 0 30px 0;
+      display:block;
+    }
+  }
+}
+
 
 .leftOpen{
   position: fixed; top: 94px; left: 0;
@@ -357,14 +481,14 @@ caption{
 .leftTopBox > a{display: block; font-family: 'Open Sans', sans-serif; font-size: 13px; color: #333333; font-weight: bold; margin-left: 20px; padding-left: 12px; margin-bottom: 8px;}
 // 좌측로고
 .leftTopBox .lLogo{
-  padding-top: 24px;
+  padding-top: 25px;
   text-align: center;
   .ezen{
     @include ir($left-logo2);
   }
   .brand-banner{
-    margin: 36px 0;
-    @include ir($left_banner)
+    margin: 17px 0;
+    @include ir($left-emblem)
   }
   .left_text_box {
     position: relative;font-family:'dotum'; font-size:11px; color:#b5b5b5;
@@ -394,7 +518,8 @@ caption{
 }
 
 .leftNav > ul > li{border-top: 1px solid #393943; background-color: #464650;}
-.leftNav > ul > li.clpink > a {color:#e5745f; transition: all 0.3s;}
+.leftNav > ul > li.clpink > a {color:#e5745f; transition: all 0.3s; padding: 9px 5px 9px 17px; white-space: nowrap; letter-spacing: -0.5px;}
+.leftNav > ul > li.clpink > a > i { margin-right:3px;}
 .leftNav > ul > li.clpink > a:hover {color:#fff;}
 .leftNav > ul > li:nth-child(4){
   &.on{
@@ -427,7 +552,7 @@ caption{
     }
   }
   > a {
-    display: block; font-size: 14px; color: #c6c6ce; padding: 9px 20px;
+    display: block; font-size: 14px; color: #c6c6ce; padding: 9px 17px;
     transition: all 0.3s;
     position: relative;
     &:hover {color:#fff;}
@@ -621,7 +746,6 @@ caption{
 
 /* content */
 #content1{width: 100%; height: 523px; position: relative; z-index: 10;
-  overflow:hidden;
   //.visualNum{}
   //.visulSNum{}
   //.vNum{display: block; float: left; margin: 0; width: 60px; height: 40px; cursor: pointer; position: relative;}
@@ -638,9 +762,9 @@ caption{
 .visualR+.visualR{display: none;}
 .visualR > a{display: block; width: 1050px; margin: 0 auto;}
 .visualR img{display: block; margin: 0 auto;}
-.cont1BotBg{position: absolute; left: 0; bottom: -1px; width: 100%; height: 60px; overflow: hidden;}
+.cont1BotBg{position: absolute; left: 0; bottom: -1px; width: 100%; height: 60px; overflow: hidden; z-index:1;}
 .cont1BotSBg{width: 1050px; height: 60px; margin: 0 auto; position: relative;}
-.cont1Bot{position: absolute; left: 0; bottom: -1px; width: 100%; height: 60px; /* overflow: hidden; */}
+.cont1Bot{position: absolute; left: 0; bottom: -1px; width: 100%; height: 60px; /* overflow: hidden; */ z-index:1;}
 .cont1BotS{width: 1050px; height: 60px; margin: 0 auto; position: relative;}
 .cont1BotS > div{float: left;}
 /*.cont1BotBox{border-left: 1px solid #6abdcf; background: url(/images/common/cont1_bot_bg.png) repeat;}
@@ -942,26 +1066,301 @@ caption{
   .tMNum.active span{display: inline-block;}
 }
 
+#content8 {background:#aaaaaa; padding:52px 0 64px 0; width:100%; display:inline-block; *display:inline;}
+
+
+#new-special-course {
+  width:100%;
+  padding:60px 0 70px 0;
+  display: inline-block;
+  .header{
+    width:1050px; margin:0 auto 5px auto;
+    > h3 {
+      color:#000;
+      font-size:25px;
+    }
+  }
+
+  .slider-content-btn-wrap {
+    width:100%;
+    border-bottom:1px solid #e8e8e8;
+    margin-bottom:30px;
+    .slider-content-btn  {
+      text-align:center;
+      overflow:hidden;
+      width:1050px;
+      margin:0 auto;
+      position:relative;
+      > li.swiper-pagination-bullet {
+        float:left;
+        margin-right:64px;
+        width: auto;
+        height: auto;
+        display: block;
+        opacity:1;
+      }
+    }
+  }
+
+  .slider-content-btn  {
+    > li.swiper-pagination-bullet{
+      > button{
+        position:relative;
+        border:none;
+        background-color:#fff;
+        color:#666666;
+        font-size:18px;
+        text-align:center;
+        padding:10px 0;
+        cursor:pointer;
+        font-weight:300;
+        font-family: 'Noto Sans Korean','Noto Sans KR', sans-serif;
+        &:before{
+          content: '';
+          position: absolute;
+          width: 0;
+          height: 4px;
+          background: #000;
+          left: 0;
+          bottom: 0;
+          -webkit-transform: translate3d(-110%, 0, 0);
+          transform: translate3d(-110%, 0, 0);
+          -webkit-transition: all 0.3s 0s ease;
+          -o-transition: all 0.3s 0s ease;
+          transition: all 0.3s 0s ease;
+        }
+        &:active,
+        &:focus{
+          outline:none;
+          border: 0px;
+        }
+      }
+      &.swiper-pagination-bullet-active {
+        > button{
+          font-weight:600;
+          color:#000;
+          font-size:18px;
+          padding:10px 0 10px 0;
+          &:before {
+            width: 100%;
+            background: #000;
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+          }
+          &:active,
+          &:focus{
+            outline:none;
+          }
+        }
+      }
+      &:last-child{
+        margin-right:0;
+      }
+    }
+  }
+
+  .swiper-container {
+    overflow: inherit;
+    padding: 0;
+    width:1125px;
+    .swiper-slide {
+      opacity:0.2;
+      opacity:1 \0/IE8+9;
+      &.swiper-slide-active {
+        opacity:1;
+        .grid {
+          &:hover {
+            .text-wrap {
+              background: rgba(0,0,0,0);
+            }
+            .effect-text {
+              h4{
+                color:#000;
+                >span.bg{
+                  &:before{
+                    -webkit-transform: translate3d(0,0,0);
+                    transform: translate3d(0,0,0);
+
+                    &:first-child {
+                      -webkit-transition-delay: 0s;
+                      transition-delay: 0s;
+                    }
+                    &:nth-of-type(2) {
+                      -webkit-transition-delay: 0.05s;
+                      transition-delay: 0.05s;
+                    }
+                    &:nth-of-type(3) {
+                      -webkit-transition-delay: 0.1s;
+                      transition-delay: 0.1s;
+                    }
+                  }
+                  &:first-child {
+                    -webkit-transition-delay: 0.15s;
+                    transition-delay: 0.15s;
+                  }
+                  &:nth-of-type(2) {
+                    -webkit-transition-delay: 0.1s;
+                    transition-delay: 0.1s;
+                  }
+                  &:nth-of-type(3) {
+                    -webkit-transition-delay: 0.05s;
+                    transition-delay: 0.05s;
+                  }
+                  >span.text{
+                    color:#000;
+                    -webkit-transition: color 0.35s;
+                    transition: color 0.35s;
+                  }
+                }
+
+              }
+            }
+            img {
+              opacity: 0.4;
+              -webkit-transform: scale3d(1.1,1.1,1);
+              transform: scale3d(1.1,1.1,1);
+            }
+          }
+        }
+      }
+      .grid {
+        position: relative;
+        list-style: none;
+        overflow:hidden;
+        float:left;
+        margin-right: 20px;
+        width:260px;
+        height:353px;
+        background-color:#000;
+        a {
+          color:inherit;
+          display:block;
+          figure {
+            position: relative;
+            float: left;
+            overflow: hidden;
+            cursor: pointer;
+            img {
+              max-width: none;
+              -webkit-transition: opacity 1s, -webkit-transform 1s;
+              transition: opacity 1s, transform 1s;
+            }
+            figcaption {
+              display:none;
+            }
+          }
+          .text-wrap{
+            padding: 10px;
+            color: #fff;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            text-align: left;
+            position:absolute;
+            top:0;
+            width:100%;
+            background-color:#000;
+            opacity:0.35 \0/IE8+9;
+            -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=35) \0/IE8+9;
+            filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=35)\0/IE8+9;
+            background:rgba(0,0,0,0.35);
+            h5 {
+              position:relative;
+              padding:0 0 5px 0;
+              font-size:14px;
+              font-weight:200;
+              color:#fff;
+              font-family: 'Noto Sans Korean','Noto Sans KR', sans-serif;
+            }
+            &:before,
+            &:after {
+              pointer-events: none;
+            }
+            .effect-text {
+              h4 {
+                display: inline-block;
+                margin: 0 0 3px 0;
+                font-weight:400;
+                padding:2px;
+                text-transform: none;
+                letter-spacing:-1px;
+                font-size:21px;
+                line-height:1;
+                z-index:1;
+                font-family: 'Noto Sans Korean','Noto Sans KR', sans-serif;
+                > span.bg {
+                  position:relative;
+                  display:inline-block;
+                  margin-bottom:5px;
+                  padding:2px 0;
+                  &:before{
+                    position:absolute;
+                    content:"";
+                    background-color:#fff;
+                    background-color:transparent \0/IE8+9;
+                    left:0;
+                    top:0;
+                    width:100%;
+                    height:100%;
+                    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+                    transition: opacity 0.35s, transform 0.35s;
+                    -webkit-transform: translate3d(-360px,0,0);
+                    transform: translate3d(-360px,0,0);
+                    z-index:1;
+                  }
+                  &:first-child {
+                    &:before {
+                      -webkit-transition-delay: 0.15s;
+                      transition-delay: 0.15s;
+                    }
+                  }
+                  &:nth-of-type(2) {
+                    &:before {
+                      -webkit-transition-delay: 0.1s;
+                      transition-delay: 0.1s;
+                    }
+                  }
+                  &:nth-of-type(3) {
+                    &:before {
+                      -webkit-transition-delay: 0.05s;
+                      transition-delay: 0.05s;
+                    }
+                  }
+                  > span.text{
+                    display:block;
+                    position:relative;
+                    z-index:2;
+                    color:#fff;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 
 
 
 
-#content8 {background:#aaaaaa; padding:52px 0 64px 0;}
+}
+
 #courseM {
   width: 1050px;
   margin: 0 auto;
   position: relative;
   height:470px;
 }
-#courseTab > ul > li {float:left; text-align:center; margin-right:22px; line-height:14px; letter-spacing:-0.25px; padding:13px 0; width:131px;}
+#courseTab > ul > li {float:left; text-align:center; margin-left:19px; line-height:14px; letter-spacing:-0.25px; padding:13px 0; width:131px;}
 #courseTab ul li.on {background:url('/images/main/course_li_bg.jpg')repeat; border-radius:7px;}
 #courseTab ul li.on a {color:#fff; font-weight:500;}
-#courseTab ul li:last-child {margin-right:0;}
+#courseTab ul li:first-child {margin-left:0;}
 #courseTab ul li a {text-transform:uppercase; color:#666666; font-size:17px; font-weight:500;}
 #courseTab ul li ul {display:none;}
 #courseTab ul li.on ul {display:block; position:absolute; width:1050px; left:0; margin-top:30px;}
-#courseTab ul li.on ul li {float:left; margin-right:18px;}
-#courseTab ul li.on ul li:last-child {margin-right:0;}
+#courseTab ul li.on ul li {float:left; margin-left:18px;}
+#courseTab ul li.on ul li:first-child {margin-left:0;}
 #courseTab ul li.on ul li a img {box-shadow: 4px 4px 2px #5d5d5d;}
 #courseContent {margin-top:33px;}
 
@@ -1041,7 +1440,7 @@ caption{
 #contentBox7 ul {
   margin-top:60px;
   li {float:left;margin-right:32px;}
-  li:last-child{margin-right:0;}
+  li.n2{margin-right:0;}
   .n1 a{@include ir($unemployed-btn)}
   .n2 a{@include ir($employed-btn);}
 }
@@ -1775,7 +2174,6 @@ table.ntcTable td.tdate {font-size: 12px; color: #a9a9a9;font-family: 'Open Sans
 .nSearch > a {float: left; display: inline-block; color:#5b5b5b; margin:14px;}
 .nSearch > a > i { font-size:24px; width:24px;}
 
-
   /* qna2 */
 #qnaView {width: 1050px; padding: 105px 0 80px; margin: 0 auto; }
 #qnaView .noticeTitle > h2 {background: url(/images/community/qna_title.png) no-repeat;}
@@ -1858,6 +2256,7 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
 #epilogueWrite .epiWBox {width: 1050px; margin-bottom: 40px; border-top: 1px solid #c3c3c3; border-bottom: 1px solid #c3c3c3; font-size: 16px; color: #333333;}
 .epiWBox dl.eptt dt {float: left; width: 180px; height: 50px; line-height: 50px; text-indent: 30px; margin-right: 50px; border-bottom: 1px solid #d4d4d4;}
 .epiWBox dl.eptt dd {float: left; width: 800px; height: 50px; line-height: 50px; padding-left: 20px; border-bottom: 1px solid #d4d4d4;}
+.epiWBox dl.eptt dd .select-wrap { width:250px; margin-top:5px;}
 .epiWBox dl.eptt dd input[type="text"] {display: block; width: 778px; border: 1px solid #dbdbdb; height: 38px; margin: 5px 0; font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; background-color: #f3f3f3; text-indent: 10px;}
 .epiWBox dl.eptt dd .categorySelectBox{ width:298px; margin:5px 0;}
 .epiWBox dl.eptt dd .categorySelectBox > select{ background-color: #f3f3f3;}
@@ -2608,9 +3007,11 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
   .userWriteBox dl dd {float: left; width: 798px; height: 40px; line-height: 40px; padding: 10px; border-bottom: 1px solid #d4d4d4; margin-bottom: 0; font-size: 16px; color: #333333; }
   .userWriteBox dl dd input[type="text"] {display: block; width: 168px; border: 1px solid #dbdbdb; height: 38px; font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; color: #333333; background-color: #f3f3f3; text-indent: 10px; }
   .userWriteBox dl dd span{font-size: 14px; color: #999999;}
+  .userWriteBox dl dd span.phone-hyphen{ color: #333333;}
   .userWriteBox dl dd select { background-color: #f3f3f3;}
   .userWriteBox dl dd input.w170{width: 170px; float: left; text-align: center; text-indent: 0;}
-  .userWriteBox dl dd input.w170+span, .userWriteBox dl dd .phoneBox+span{float: left; font-size: 16px; font-weight: bold; color: #333333; padding: 0 10px;}
+  .userWriteBox dl dd input.w170+span,
+  .userWriteBox dl dd .phoneBox+span{float: left; font-size: 16px; font-weight: bold; color: #333333; padding: 0 10px;}
   .userWriteBox .fl{float: left; margin-right: 60px;}
   .userWriteBox input[type="radio"] {display: none;}
   .userWriteBox input[type="radio"]+label{padding-left: 25px; background: url(/images/common/radio_off.gif) no-repeat 3px 5px;}
@@ -2749,11 +3150,6 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
         color: #666666;
         line-height: 1.66;
         letter-spacing: -1px;
-        &:before {
-          content: "-";
-          position: absolute;
-          left: -15px;
-        }
       }
     }
   }
@@ -3190,37 +3586,48 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
     }
   }
   .tap{
-    .tab-content-box01 ul {
-      width: 535px;
-      height: 205px;
-      margin: 35px 0 0 175px;
-      background-image: url('//ezenac.co.kr/images/curriculum/employed/employed_conter.jpg');
-      background-repeat: no-repeat;
-      li {
-        position: relative;
-        width: 207px;
-        height: 220px;
-        margin-top: 73px;
-        float: left;
-        text-align: center;
+    .tab-content-box01 {
+      .content-text {
+        background-color: #fff;
+        padding: 20px 130px;
+        border-radius: 30px;
+        display: inline-block;
+        font-size: 21px;
         color: #333333;
-        &:first-child {margin-right: 120px;}
+        margin: -35px 0 0 83px;
       }
-      span {
-        display: block;
-        font-size: 21px;
-        line-height: 1.25;
-      }
-      p {
-        font-size: 36px;
-        font-weight: bold;
-        line-height: 1.2;
-      }
-      h5 {
-        position: absolute;
-        font-size: 21px;
-        line-height: 1.1;
-        bottom: 0
+      ul {
+        width: 535px;
+        height: 205px;
+        margin: 35px 0 0 175px;
+        background-image: url('//ezenac.co.kr/images/curriculum/employed/employed_conter.jpg');
+        background-repeat: no-repeat;
+        li {
+          position: relative;
+          width: 207px;
+          height: 220px;
+          margin-top: 73px;
+          float: left;
+          text-align: center;
+          color: #333333;
+          &:first-child {margin-right: 120px;}
+        }
+        span {
+          display: block;
+          font-size: 21px;
+          line-height: 1.25;
+        }
+        p {
+          font-size: 36px;
+          font-weight: bold;
+          line-height: 1.2;
+        }
+        h5 {
+          position: absolute;
+          font-size: 21px;
+          line-height: 1.1;
+          bottom: 0
+        }
       }
     }
 
@@ -3407,16 +3814,11 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
 .empAppliBox1 .employedWriteForm1 dl dd{float: right; width: 803px; height: 50px; line-height: 50px; padding-left: 10px;  margin-bottom: 0; font-size: 16px; color: #333333;}
 .empAppliBox1 .employedWriteForm1 dl+dl dt{border-top: 1px solid #d4d4d4;}
 .empAppliBox1 .employedWriteForm1 dl+dl dd{border-top: 1px solid #d4d4d4;}
-.empAppliBox1 .employedWriteForm1 dl dd .campusSelectBox{position: relative; width: 188px; height: 28px; color: #333333; font-size: 14px; background: url(/images/common/select_arrow.png) 95% center no-repeat; margin: 10px 0; border: 1px solid #dbdbdb; background-color: #f3f3f3;}
-.empAppliBox1 .employedWriteForm1 dl dd .campusSelectBox.fl{float: left;}
-.empAppliBox1 .employedWriteForm1 dl dd .campusSelectBox label{position: absolute; font-size: 16px; color: #333333; top: 0; left: 12px; letter-spacing: 0; line-height: 28px;}
-.empAppliBox1 .employedWriteForm1 dl dd .campusSelectBox .nsbox{display: block; width: 100%; height: 28px; min-height: 28px; line-height: 28px; opacity: 0; filter: alpha(opacity=0); }
+.empAppliBox1 .employedWriteForm1 dl dd .select-wrap{ width: 188px; color: #333333; font-size: 14px; margin: 5px 0; border: 1px solid #dbdbdb; background-color: #f3f3f3;}
+.empAppliBox1 .employedWriteForm1 dl dd .select-wrap > select { background-color:#f3f3f3;}
 .empAppliBox1 .employedWriteForm1 dl dd .formDL{float: left; display: block; width: 126px; height: 26px; border: none; background: url(/images/curriculum/download_bg.jpg) no-repeat 0 0; color: #d0d0d0; line-height: 26px; text-align: left; text-indent: 25px; font-size: 11px; font-family: Dotum; cursor: pointer; margin-left: 70px; margin-top: 12px;}
-.empAppliBox1 .employedWriteForm1 dl dd input[type="text"]{display: block; width: 781px; border: 1px solid #dbdbdb; height: 28px; margin: 10px 0; font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; color: #333333; background-color: #f3f3f3; padding-left: 10px;}
+.empAppliBox1 .employedWriteForm1 dl dd input[type="text"]{display: block; width: 781px; border: 1px solid #dbdbdb; height: 38px; margin: 5px 0; font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; color: #333333; background-color: #f3f3f3; padding-left: 10px;}
 .empAppliBox1 .employedWriteForm1 dl dd input.name{width: 178px;}
-.empAppliBox1 .employedWriteForm1 dl dd .phoneBox{position: relative; width: 188px; height: 28px; color: #333333; font-size: 14px; background: url(/images/common/select_arrow.png) 95% center no-repeat; float: left; margin: 10px 0; border: 1px solid #dbdbdb; background-color: #f3f3f3;}
-.empAppliBox1 .employedWriteForm1 dl dd .phoneBox label{position: absolute; font-size: 16px; color: #333333; top: 0; left: 12px; letter-spacing: 1px; line-height: 28px;}
-.empAppliBox1 .employedWriteForm1 dl dd .phoneBox .nsbox{display: block; width: 100%; height: 28px; min-height: 28px; line-height: 28px; opacity: 0; filter: alpha(opacity=0);}
 .empAppliBox1 .employedWriteForm1 dl dd input.w160{width: 138px; float: left; text-align: center; padding-right: 10px;}
 .empAppliBox1 .employedWriteForm1 dl dd input.w160+span, .empAppliBox1 .employedWriteForm1 dl dd .phoneBox+span{float: left; font-size: 16px; font-weight: bold; color: #333333; padding: 0 10px;}
 .empAppliBox1 .employedWriteForm1 dl dd .emailBox{position: relative; width: 258px; height: 28px; color: #333333; font-size: 14px; background: url(/images/common/select_arrow.png) 98% center no-repeat; float: left; margin: 10px 0 10px 15px; border: 1px solid #dbdbdb; background-color: #f3f3f3;}
@@ -3524,17 +3926,17 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
 .onlinePayBox .onlinePayWriteForm dl dd{float: right; width: 808px; height: 50px; line-height: 50px; padding-left: 10px;  margin-bottom: 0; font-size: 16px; color: #333333;}
 .onlinePayBox .onlinePayWriteForm dl+dl dt{border-top: 1px solid #d4d4d4;}
 .onlinePayBox .onlinePayWriteForm dl+dl dd{border-top: 1px solid #d4d4d4;}
-.onlinePayBox .onlinePayWriteForm dl dd .campusSelectBox{position: relative; width: 468px; height: 28px; color: #333333; font-size: 14px; background: url(/images/common/select_arrow.png) 95% center no-repeat; margin: 10px 0; border: 1px solid #dbdbdb; background-color: #f3f3f3;}
-.onlinePayBox .onlinePayWriteForm dl dd .campusSelectBox.fl{float: left;}
-.onlinePayBox .onlinePayWriteForm dl dd .campusSelectBox label{position: absolute; font-size: 16px; color: #333333; top: 0; left: 12px; letter-spacing: 0; line-height: 28px;}
-.onlinePayBox .onlinePayWriteForm dl dd .campusSelectBox .nsbox{display: block; width: 100%; height: 28px; min-height: 28px; line-height: 28px; opacity: 0; filter: alpha(opacity=0); }
-.onlinePayBox .onlinePayWriteForm dl dd input[type="text"]{display: block; width: 458px; border: 1px solid #dbdbdb; height: 28px; margin: 10px 0; font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; color: #333333; background-color: #f3f3f3; padding-left: 10px;}
+.onlinePayBox .onlinePayWriteForm dl dd .select-wrap { width: 468px; color: #333333; font-size: 14px; margin: 5px 0; border: 1px solid #dbdbdb; }
+.onlinePayBox .onlinePayWriteForm dl dd .phone-number-wrap .select-wrap { width:136px;}
+.onlinePayBox .onlinePayWriteForm dl dd .select-wrap > select{background-color: #f3f3f3;}
+.onlinePayBox .onlinePayWriteForm dl dd input[type="text"]{display: block; width: 458px; border: 1px solid #dbdbdb; height: 38px; margin: 5px 0; font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; color: #333333; background-color: #f3f3f3; padding-left: 10px;}
 .onlinePayBox .onlinePayWriteForm dl dd input.name{width: 458px;}
 .onlinePayBox .onlinePayWriteForm dl dd .phoneBox{position: relative; width: 138px; height: 28px; color: #333333; font-size: 14px; background: url(/images/common/select_arrow.png) 95% center no-repeat; float: left; margin: 10px 0; border: 1px solid #dbdbdb; background-color: #f3f3f3;}
 .onlinePayBox .onlinePayWriteForm dl dd .phoneBox label{position: absolute; font-size: 16px; color: #333333; top: 0; left: 12px; letter-spacing: 1px; line-height: 28px;}
 .onlinePayBox .onlinePayWriteForm dl dd .phoneBox .nsbox{display: block; width: 100%; height: 28px; min-height: 28px; line-height: 28px; opacity: 0; filter: alpha(opacity=0);}
 .onlinePayBox .onlinePayWriteForm dl dd input.w140{width: 118px; float: left; text-align: center; padding-right: 10px;}
-.onlinePayBox .onlinePayWriteForm dl dd input.w140+span, .onlinePayBox .onlinePayWriteForm dl dd .phoneBox+span{float: left; font-size: 16px; font-weight: bold; color: #333333; padding: 0 10px;}
+.onlinePayBox .onlinePayWriteForm dl dd input.w140+span,
+.onlinePayBox .onlinePayWriteForm dl dd .phoneBox+span{float: left; font-size: 16px; font-weight: bold; color: #333333; padding: 0 10px;}
 .onlinePayBox .onlinePayWriteForm dl dd .emailBox{position: relative; width: 168px; height: 28px; color: #333333; font-size: 14px; background: url(/images/common/select_arrow.png) 95% center no-repeat; float: left; margin: 10px 0 10px 15px; border: 1px solid #dbdbdb; background-color: #f3f3f3;}
 .onlinePayBox .onlinePayWriteForm dl dd .emailBox label {position: absolute; font-size: 16px; color: #333333; top: 0; left: 12px; letter-spacing: 1px; line-height: 28px;}
 .onlinePayBox .onlinePayWriteForm dl dd .emailBox .nsbox {display: block; width: 100%; height: 28px; min-height: 28px; line-height: 28px; opacity: 0; filter: alpha(opacity=0); }
@@ -4002,28 +4404,28 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
 #joinWrite .joinykBox .jykText table {color: #666666; font-size: 14px; width: 100%;  border-spacing: 0px; padding: 0; border: 1px solid #d6d6d6; border-collapse: collapse;}
 #joinWrite .joinykBox .jykText table.table1 th, .table1 td {border: 1px solid #d6d6d6; width: 25%; text-align: center; padding: 10px 0;}
 #joinWrite .joinBox {margin-top:34px;width: 978px; border: 1px solid #cccccc; padding: 15px 35px 5px 35px;}
-#joinWrite .joinBox dl.cntt dt {letter-spacing:-1px;float: left; width: 180px; height: 54px; line-height: 54px; text-indent: 28px; margin-right: 50px; border-bottom: 1px solid #ededed; color: #333333; font-size: 16px;}
+#joinWrite .joinBox dl.cntt dt {letter-spacing:-1px;float: left; width: 180px; height: 68px; line-height: 66px; text-indent: 28px; margin-right: 50px; border-bottom: 1px solid #ededed; color: #333333; font-size: 16px;}
 #joinWrite .joinBox dl.cntt dt.bbn {border-bottom:none;}
-#joinWrite .joinBox dl.cntt dd {letter-spacing:-.75px;float: left; width: 710px; height: 54px; line-height: 54px; padding-left: 20px; border-bottom: 1px solid #ededed; font-size: 16px;}
+#joinWrite .joinBox dl.cntt dd {letter-spacing:-.75px;float: left; width: 710px; height: 68px; line-height: 66px; padding-left: 20px; border-bottom: 1px solid #ededed; font-size: 16px;}
 #joinWrite .joinBox dl.cntt dd.bbn {border-bottom:none;}
 #joinWrite .joinBox dl.cntt dd.padd {position:relative;}
 #joinWrite .joinBox dl.cntt dd.padd span.paspan {position:absolute; left:-70px;}
 #joinWrite .joinBox dl.cntt dd span.jred {color: #fb4848; font-size: 14px; position:absolute;bottom:11px; left:30px;}
-#joinWrite .joinBox dl.cntt dd span.jgray {color: #7d7c7c; font-size: 14px; position:absolute;bottom:11px; left:30px;}
+#joinWrite .joinBox dl.cntt dd span.jgray {color: #7d7c7c; font-size: 14px; position: absolute; bottom: 12px; left: 25px;}
 
-#joinWrite .joinBox dl.cntt .thumb_check {height:0px;position:absolute;}
+#joinWrite .joinBox dl.cntt .thumb_check { width:0; height:0px;position:absolute;}
 #joinWrite .joinBox dl.cntt .thumb_click {padding:0px 0px 0 0px;vertical-align:middle;}
 #joinWrite .joinBox dl.cntt .jyk3 label {display:inline-block;letter-spacing:0;vertical-align:middle;padding:0 17px 0 8px;}
-#joinWrite .joinBox dl.cntt dd p.t1 {position:absolute;color:#999999;font-size:12px;top:52px;letter-spacing:-0.02em;line-height:12px;}
+#joinWrite .joinBox dl.cntt dd p.t1 {position:absolute;color:#999999;font-size:12px;top:55px;letter-spacing:-0.02em;line-height:12px;}
 #joinWrite .joinBox dl.cntt dd p.t1 span {color:#f33c3c}
 #joinWrite .joinBox dl.cntt dd p.t2 {position:absolute;color:#f33c3c;font-size:14px; letter-spacing:-0.02em;line-height:14px;}
 #joinWrite .joinBox dl.cntt1 dt {height: 74px;}
 #joinWrite .joinBox dl.cntt1 dd {height: 74px;position:relative;}
 
 #joinWrite .joinBox dl.cntt dd label {color:#666;}
-#joinWrite .joinBox dl.cntt dd input[type="text"] {display: inline-block;  border: 1px solid #dbdbdb; background-color: #f3f3f3; height: 28px;  font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; padding-left: 10px; color: #666;border-radius:0; -webkit-appearance:none; -moz-appearance:none; appearance:none;width:142px;}
-#joinWrite .joinBox dl.cntt dd input[type="text"]#email {display: inline-block;  border: 1px solid #dbdbdb; background-color: #f3f3f3; height: 28px;  font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; padding-left: 10px; color: #666;border-radius:0; -webkit-appearance:none; -moz-appearance:none; appearance:none;width:456px;}
-#joinWrite .joinBox dl.cntt dd.ipwds input[type="text"] {display: inline-block;  border: 1px solid #dbdbdb; background-color: #f3f3f3; height: 28px;  font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; padding-left: 10px; color: #666;border-radius:0; -webkit-appearance:none; -moz-appearance:none; appearance:none;width:500px;}
+#joinWrite .joinBox dl.cntt dd input[type="text"] {display: inline-block;  border: 1px solid #dbdbdb; background-color: #f3f3f3; height: 38px;  font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; padding-left: 10px; color: #666;border-radius:0; -webkit-appearance:none; -moz-appearance:none; appearance:none;width:142px;}
+#joinWrite .joinBox dl.cntt dd input[type="text"]#email {display: inline-block;  border: 1px solid #dbdbdb; background-color: #f3f3f3; height: 38px;  font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; padding-left: 10px; color: #666;border-radius:0; -webkit-appearance:none; -moz-appearance:none; appearance:none;width:456px;}
+#joinWrite .joinBox dl.cntt dd.ipwds input[type="text"] {display: inline-block;  border: 1px solid #dbdbdb; background-color: #f3f3f3; height: 38px;  font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; padding-left: 10px; color: #666;border-radius:0; -webkit-appearance:none; -moz-appearance:none; appearance:none;width:500px;}
 #joinWrite .joinBox dl.cntt dd input[type="text"]:focus {outline:solid 2px #a5c7fe; }
 #joinWrite .joinBox dl.cntt dd input[type="password"]:focus {outline:solid 2px #a5c7fe; }
 #joinWrite .joinBox dl.cntt dd.lhn {line-height:0; position:relative;}
@@ -4036,28 +4438,16 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
   }
 }
 
-#joinWrite .joinBox dl.cntt dd input[type="password"] {display: block; border: 1px solid #dbdbdb; background-color: #f3f3f3; height: 28px; margin: 10px 0; font-family: 'Noto Sans Korean', sans-serif;   padding-left: 10px;border-radius:0; -webkit-appearance:none; -moz-appearance:none; appearance:none;width:142px;}
-#joinWrite .joinBox dl.cntt dd.ps2Check label {position:absolute;color: #7d7d7d; font-size:16px; top:11px; left:29px; letter-spacing:1px; line-height:28px; }
+#joinWrite .joinBox dl.cntt dd input[type="password"] {display: block; border: 1px solid #dbdbdb; background-color: #f3f3f3; height: 38px; margin: 10px 0; font-family: 'Noto Sans Korean', sans-serif;   padding-left: 10px;border-radius:0; -webkit-appearance:none; -moz-appearance:none; appearance:none;width:142px;}
+#joinWrite .joinBox dl.cntt dd.ps2Check label {position:absolute;color: #7d7d7d; font-size:16px; top:15px; left:29px; letter-spacing:1px; line-height:28px; }
 #joinWrite .joinBox dl.cntt dd input.w250{width: 180px; float: left; margin:12px 0;}
 #joinWrite .joinBox dl.cntt dd input.w165{width: 142px; float: left; margin:12px 0; margin-right:8px;}
 #joinWrite .joinBox dl.cntt dd input.fcgray{color: #999999; width: 220px; margin-left:0px;margin-right:38px;}
 #joinWrite .joinBox dl.cntt dd input.w160{width: 120px; float: left;margin:12px 0px; text-align:center;padding:0;}
 #joinWrite .joinBox dl.cntt dd input.w160+span{float: left; font-size: 16px; color: #333333; padding: 0 10px;}
 #joinWrite .joinBox dl.cntt dd input.w165+span{float: left; font-size: 16px; color: #666; padding: 0 10px 0 4px;}
-#joinWrite .joinBox dl.cntt dd input.w250+span{float: left; font-size: 14px; color: #333333; padding: 0 10px;}
 #joinWrite .joinBox dl.cntt dd .emailBox{position: relative; width: 140px; height: 28px; color: #333333; font-size: 14px; background: url(/images/common/select_arrow.png) 95% center no-repeat; float: left; margin: 12px 0; border: 1px solid #dbdbdb;background-color: #f3f3f3; }
 #joinWrite .joinBox dl.cntt dd .emailBox2{margin-left:20px;}
-#joinWrite .joinBox dl.cntt dd .emailBox label {position: absolute; font-size: 16px; color: #333333; top: 0; left: 10px;  line-height: 28px;letter-spacing: -.75px;}
-#joinWrite .joinBox dl.cntt dd .emailBox .nsbox {display: block; width: 100%; height: 28px; min-height: 28px; line-height: 28px; opacity: 0; filter: alpha(opacity=0);}
-#joinWrite .joinBox dl.cntt dd .birthBox1 {position: relative; width: 140px;  height: 28px; color: #333333; font-size: 14px; background: url(/images/common/select_arrow.png) 95% center no-repeat; float: left; margin: 12px 0; border: 1px solid #dbdbdb;background-color: #f3f3f3;  padding-right:0px;}
-#joinWrite .joinBox dl.cntt dd .birthBox1 label {position: absolute; font-size: 16px; color: #333333; top: 0; left: 10px; letter-spacing: 1px; line-height: 28px;}
-#joinWrite .joinBox dl.cntt dd .birthBox1 .nsbox {display: block; width: 100%; height: 28px; min-height: 28px; line-height: 28px; opacity: 0; filter: alpha(opacity=0);}
-#joinWrite .joinBox dl.cntt dd .birthBox2 {position: relative; width: 150px; border: 1px solid #dbdbdb;background-color: #f3f3f3; height: 28px; color: #333333; font-size: 14px; background: url(/images/common/select_arrow.png) 95% center no-repeat; float: left; margin: 12px 0 10px 15px; background-color: #f3f3f3; padding-right:0px;}
-#joinWrite .joinBox dl.cntt dd .birthBox2 label {position: absolute; font-size: 16px; color: #333333; top: 0; left: 10px; line-height: 28px;}
-#joinWrite .joinBox dl.cntt dd .birthBox2 .nsbox {display: block; width: 100%; height: 28px; min-height: 28px; line-height: 28px; opacity: 0; filter: alpha(opacity=0);}
-#joinWrite .joinBox dl.cntt dd .birthBox3 {position: relative; width: 140px; height: 28px; color: #333333; font-size: 14px; background: url(/images/common/select_arrow.png) 95% center no-repeat; float: left; margin: 12px 0 10px 17px; border: 1px solid #dbdbdb;background-color: #f3f3f3;}
-#joinWrite .joinBox dl.cntt dd .birthBox3 label {position: absolute; font-size: 16px; color: #333333; top: 0; left: 10px; line-height: 28px;}
-#joinWrite .joinBox dl.cntt dd .birthBox3 .nsbox {display: block; width: 100%; height: 28px; min-height: 28px; line-height: 28px; opacity: 0; filter: alpha(opacity=0);}
 #joinWrite .joinBox dl.cntt dd input[type="radio"] {display: none;}
 #joinWrite .joinBox dl.cntt dd input[type="radio"]+label{margin-right: 50px; padding-left: 30px; background: url(/images/common/radio_off.gif) no-repeat 0 5px;}
 #joinWrite .joinBox dl.cntt dd input[type="radio"]+label.on{background: url(/images/common/radio_on.gif) no-repeat 0 5px;}
@@ -4065,16 +4455,14 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
 #joinWrite .joinBox dl.cntt dd .areaBox{position: relative; width: 140px; height: 28px; color: #333333; font-size: 14px; background: url(/images/common/select_arrow.png) 95% center no-repeat; float: left; margin: 12px 0 10px 103px; border: 1px solid #dbdbdb;background-color: #f3f3f3;}
 #joinWrite .joinBox dl.cntt dd .areaBox label {position: absolute; font-size: 16px; color: #333333; top: 0; left: 10px; letter-spacing: 1px; line-height: 28px;letter-spacing: -.75px;}
 #joinWrite .joinBox dl.cntt dd .areaBox .nsbox {display: block; width: 100%; height: 28px; min-height: 28px; line-height: 28px; opacity: 0; filter: alpha(opacity=0);}
-#joinWrite .joinBox dl.cntt dd .phoneBox{position: relative; width: 140px; height: 28px; color: #333333; font-size: 14px; background: url(/images/common/select_arrow.png) 98% center no-repeat; float: left; margin: 12px 0;margin-right:0px;border: 1px solid #dbdbdb;background-color: #f3f3f3;}
-#joinWrite .joinBox dl.cntt dd .phoneBox label {position: absolute; font-size: 16px; color: #333333; top: 0; left: 10px; letter-spacing: 1px; line-height: 28px;}
-#joinWrite .joinBox dl.cntt dd .phoneBox .nsbox {display: block; width: 100%; height: 28px; min-height: 28px; line-height: 28px; opacity: 0; filter: alpha(opacity=0); }
-#joinWrite .joinBox dl.cntt dd .phoneBox+span{float: left; font-size: 16px; font-weight: bold; color: #333333; padding: 0 10px;}
+#joinWrite .joinBox dl.cntt dd .select-wrap{width: 140px; color: #333333; font-size: 14px; margin: 12px 15px 12px 0; border: 1px solid #dbdbdb;background-color: #f3f3f3;}
+#joinWrite .joinBox dl.cntt dd .phone-number-wrap .select-wrap { margin:12px 0;}
+#joinWrite .joinBox dl.cntt dd .select-wrap > select{background-color: #f3f3f3;}
+#joinWrite .joinBox span.phone-hyphen { margin:12px 0;}
 
-#joinWrite .joinBox dl.cntt dd .signbtn1 {background:#707070;width: 87px; height: 30px; border-radius:4px; border: 1px solid #cccccc; color: #ffffff; font-size: 14px; text-align:center; line-height:30px; display: inline-block;
-  position: relative;
-  top: 2px;}
+
+#joinWrite .joinBox dl.cntt dd .signbtn1 {background:#707070;width: 87px; height: 38px; border-radius:4px; border: 1px solid #cccccc; color: #ffffff; font-size: 14px; text-align:center; line-height:36px; display: inline-block; position: relative; top: 3px;}
 #joinWrite .joinBox dl.cntt dd .signbtn1:hover {background-color: #616161; color: #ffffff; }
-
 
 
 #joinWrite .joinBox dl.cntt dd .signbtn {width: 87px; height: 36px; border-radius:4px; border: 1px solid #cccccc; color: #0191a5; font-size: 16px; text-align:center; line-height:36px; display: inline-block;}
@@ -4145,7 +4533,6 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
 #myinfo1Write .joinBox dl.cntt dd input[type="password"]:focus {outline:solid 2px #a5c7fe; }
 #myinfo1Write .joinBox dl.cntt dd input[type="text"] {display: inline-block; width: 500px;  height: 28px;  font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; padding-left: 10px; border-radius:0; -webkit-appearance:none; -moz-appearance:none; appearance:none;border: 1px solid #dbdbdb;background-color: #f3f3f3;}
 #myinfo1Write .joinBox dl.cntt dd.ipwdt input[type="text"] {width: 180px;}
-
 #myinfo1Write .joinBox dl.cntt dd.ipwdt1 input[type="text"] {width: 130px; }
 
 #myinfo1Write .joinBox dl.cntt dd.lhn {line-height:0; position:relative;}
@@ -4245,9 +4632,9 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
 #myinfo2Write .joinBox dl.cntt .thumb_check {height:0px;position:absolute;}
 #myinfo2Write .joinBox dl.cntt .thumb_click {padding:0px 0px 0 0px;vertical-align:middle;}
 #myinfo2Write .joinBox dl.cntt .jyk3 label {display:inline-block;letter-spacing:0;vertical-align:middle;padding:0 22px 0 8px;}
-#myinfo2Write .joinBox dl.cntt dd p.t1 {position:absolute;color:#999999;font-size:12px;top:52px;letter-spacing:-0.02em;line-height:12px;}
+#myinfo2Write .joinBox dl.cntt dd p.t1 {position:absolute;color:#999999;font-size:12px;top:56px;letter-spacing:-0.02em;line-height:12px;}
 #myinfo2Write .joinBox dl.cntt dd p.t1 span {color:#f33c3c}
-#myinfo2Write .joinBox dl.cntt dd p.t2 {position:absolute;color:#f33c3c;font-size:14px;top:52px;letter-spacing:-0.02em;line-height:14px;}
+#myinfo2Write .joinBox dl.cntt dd p.t2 {position:absolute;color:#f33c3c;font-size:14px;top:56px;letter-spacing:-0.02em;line-height:14px;}
 #myinfo2Write .joinBox dl.cntt1 dt {height: 74px;}
 #myinfo2Write .joinBox dl.cntt1 dd {height: 74px;position:relative;}
 
@@ -5116,6 +5503,7 @@ cpation{
   width:286px;
   margin-right:30px;
   float:left;
+  max-height:230px;
   > a{
     display: block;
     position: relative;
@@ -5430,6 +5818,7 @@ cpation{
 //main
 #content-new1 {
   overflow:hidden;
+  width: 100%; height:465px;
   .swiper-container {
     width: 100%; height: 100%;
   }
@@ -5461,7 +5850,6 @@ cpation{
 }
 //main-teacher
 #content3 {
-  overflow:hidden;
   .teacherSSMNum .tMNum:focus {
     outline: none;
   }
@@ -5507,6 +5895,8 @@ cpation{
 //curriculum-epilogue
 #sub1ContentBox4 {
   position:relative;
+  max-height:533px;
+  overflow:hidden;
   .reViewSlider-wrap {
     margin: 65px auto 0;
     max-width:920px;
@@ -5528,6 +5918,23 @@ cpation{
     }
     &:focus{
       outline:none;
+    }
+  }
+}
+
+
+.vod-box-player {
+  position: relative;
+  cursor: pointer;
+  .play-btn {
+    position: absolute;
+    left: 50%;
+    margin-left: -34px;
+    top: 50%;
+    margin-top: -24px;
+    > img {
+      width: 68px;
+      height: 48px;
     }
   }
 }

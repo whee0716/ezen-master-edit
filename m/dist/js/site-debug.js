@@ -284,4 +284,52 @@ function test(e){
         e.stopPropagation();
     }
 }
+
+
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/player_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+var player;
+
+function onYouTubeIframeAPIReady(num) {
+    var vod_code = $("#video" + num).attr('data-code');
+    //var vod_width = $("#video" + num).attr('data-video-width');
+    //var vod_height = $("#video" + num).attr('data-video-height');
+
+    player = new YT.Player("video" + num , {
+        //height: vod_height,
+        //width:  vod_width,
+        videoId: vod_code,
+        playerVars: { 'origin':'http://ezenac.co.kr/', 'autoplay': 1, 'controls': 1, 'php5': 1, 'wmode':'opaque', 'rel' : 0,'showinfo' : 0},
+        events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+        }
+    });
+}
+
+// 4. The API will call this function when the video player is ready.
+function onPlayerReady(event) {
+    event.target.playVideo();
+}
+
+// 5. The API calls this function when the player's state changes.
+//    The function indicates that when playing a video (state=1),
+//    the player should play for six seconds and then stop.
+var playDone = false;
+function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.PLAYING && !playDone) {
+        //setTimeout(stopVideo, 6000);
+        playDone = true;
+        //console.log("재생");
+    }else {
+        playDone = false;
+    }
+}
+function stopVideo() {
+    player.stopVideo();
+}
+
 //# sourceMappingURL=site-debug.js.map

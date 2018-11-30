@@ -1,13 +1,9 @@
-var trident = navigator.userAgent.match(/Trident\/(\d.\d)/i);
+
+ie_8 = ( $.browser.msie && $.browser.version == 8 );
+ie_9 = ( $.browser.msie && $.browser.version == 9 );
+
+
 var seasonNotiSwiper = null;
-// 수강
-seasonNotiSwiper = new Swiper('.previewT-wrap.swiper-container', {
-    direction: 'vertical',
-    autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-    },
-});
 
 function toggleEvent(e){
     e.preventDefault();
@@ -33,12 +29,84 @@ function toggleEvent(e){
 
 // swiper slider 랜덤
 function returnIndex(slidElement){
-    //console.log("랜덤");
+    //console.log("random");
     var randomIndex = Math.floor(Math.random()*($(slidElement+' .swiper-slide:not(.swiper-slide-duplicate)').length));
     return parseInt(randomIndex);
 }
 
+function swiperAutoplayStop(el){
+
+    if(ie_8 || ie_9) el.stopAutoplay();
+    else el.autoplay.stop();
+
+}
+
+function swiperAutoplayStart(el){
+
+    if(ie_8 || ie_9) el.startAutoplay();
+    else el.autoplay.start();
+
+}
+
 $(document).ready(function(){
+
+
+    seasonNotiSwiper = new Swiper('.previewT-wrap.swiper-container', {
+        direction: 'vertical',
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+    });
+
+    if(ie_8 || ie_9){
+        $( "#pop-ie-alert" ).fadeIn('fast');
+        $( "#pop-ie-alert, #pop-ie-alert .bg" ).animate({
+            "width":"100%",
+        },600);
+
+        $( "#pop-ie-alert .pop-layer-innner" ).animate({
+            "width":"350px",
+        },600);
+
+        $(".close-btn").click(function(e){
+            e.preventDefault();
+            $( "#pop-ie-alert, #pop-ie-alert .bg, #pop-ie-alert .pop-layer-innner" ).animate({
+                "width":"0",
+            },600);
+
+            $( "#pop-ie-alert" ).fadeOut('fast');
+
+        });
+    }
+
+
+    if (!(ie_8 || ie_9)){
+
+        //swiper slider 마우스 오버시 자동 슬라이드 멈춤
+        $('[data-role="swiper-slider"]').on('mouseenter', function(e){
+            //console.log('stop autoplay');
+
+            var swiperTarget = $(this).attr('data-function');
+
+            if( typeof swiperTarget !='undefined' && swiperTarget ) {
+                eval("target = " + swiperTarget);
+                swiperAutoplayStop(target);
+            }
+
+        });
+        //swiper slider 마우스 오버시 자동 슬라이드 시작
+        $('[data-role="swiper-slider"]').on('mouseleave', function(e){
+            //console.log('start autoplay');
+            var swiperTarget = $(this).attr('data-function');
+
+            if( typeof swiperTarget !='undefined' && swiperTarget ) {
+                eval("target = " + swiperTarget);
+                swiperAutoplayStart(target);
+            }
+        });
+    }
+
     (function () {
         var tab = $('.cm-tab'),
             tabcon = $('.tab-con');
@@ -87,12 +155,8 @@ $(document).ready(function(){
             }
 
             // 스크롤 중일때 자동롤링 모두 정지
-            if(!isResize) {
-                if((trident != null && trident[1] == "4.0") || (trident != null && trident[1] == "5.0")){
-                    seasonNotiSwiper.stopAutoplay();
-                } else{
-                    seasonNotiSwiper.autoplay.stop();
-                }
+            if(!isResize &&  seasonNotiSwiper != null) {
+                swiperAutoplayStop(seasonNotiSwiper);
                 isResize = true;
             }
 
@@ -110,13 +174,7 @@ $(document).ready(function(){
                     mainTopBanner.removeClass('close');
                     floatFootBanner.removeClass('close');
                 }
-
-
-                if((trident != null && trident[1] == "4.0") || (trident != null && trident[1] == "5.0")){
-                    seasonNotiSwiper.startAutoplay();
-                } else{
-                    seasonNotiSwiper.autoplay.start();
-                }
+                swiperAutoplayStart(seasonNotiSwiper);
                 isResize = false;
             }, 100);
         });
@@ -176,7 +234,8 @@ $(document).ready(function(){
                 clearTimeout(scrollTimer);
             }
 
-            if (scrolltop >= content.offset().top) {
+            //if (scrolltop >= content.offset().top) {
+            if (scrolltop >= 105) {
                 header.addClass('fixed');
                 lnb.addClass('fixed');
 
@@ -186,15 +245,9 @@ $(document).ready(function(){
 
             // 스크롤 중일때 자동롤링 모두 정지
             if(!isScroll) {
-                if((trident != null && trident[1] == "4.0") || (trident != null && trident[1] == "5.0")){
-                    seasonNotiSwiper.stopAutoplay();
-                } else{
-                    seasonNotiSwiper.autoplay.stop();
-                }
-
+                seasonNotiSwiper.autoplay.stop();
                 isScroll = true;
             }
-
 
             // COMMON - QUICK MENU
             if (quickMenu.length > 0) {
@@ -232,13 +285,7 @@ $(document).ready(function(){
 
             //  0.3s후 스크롤 종료 자동롤링 시작
             scrollTimer = setTimeout(function () {
-
-                if((trident != null && trident[1] == "4.0") || (trident != null && trident[1] == "5.0")){
-                    seasonNotiSwiper.startAutoplay();
-                } else{
-                    seasonNotiSwiper.autoplay.start();
-                }
-
+                swiperAutoplayStart(seasonNotiSwiper);
                 isScroll = false;
             }, 300)
         });
@@ -292,13 +339,19 @@ $(document).ready(function(){
         var gnb = $('#nav');
 
         gnb.find(' > ul > li').mouseenter(function () {
+
             $('.sNav').hide();
             $(this).find('.sNav').show();
+
         });
 
         gnb.find('> ul').mouseleave(function(){
-            $('.sNav').hide();
+            $('.sNav').stop().slideUp(300);
         });
+
+
+
+
     })();
 
     //왼쪽 메뉴 보이기 숨기기
@@ -394,35 +447,50 @@ $(document).ready(function(){
 });
 
 
-$(document).ready(function(){
-    //swiper slider 마우스 오버시 자동 슬라이드 멈춤
-    $('[data-role="swiper-slider"]').on('mouseenter', function(e){
-        console.log('stop autoplay');
-        var swiperTarget = $(this).attr('data-function');
-        eval("target = " + swiperTarget);
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/player_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-        if( typeof swiperTarget !='undefined' && swiperTarget ) {
-            if((trident != null && trident[1] == "4.0") || (trident != null && trident[1] == "5.0")){
-                swiperTarget.stopAutoplay();
-            } else{
-                swiperTarget.autoplay.stop();
-            }
-        }
+var player;
 
+function onYouTubeIframeAPIReady(num) {
+    var vod_code = $("#video" + num).attr('data-code');
+    var vod_width = $("#video" + num).attr('data-video-width');
+    var vod_height = $("#video" + num).attr('data-video-height');
 
-
-    });
-    //swiper slider 마우스 오버시 자동 슬라이드 시작
-    $('[data-role="swiper-slider"]').on('mouseleave', function(e){
-        console.log('start autoplay');
-        var swiperTarget = $(this).attr('data-function');
-        eval("target = " + swiperTarget);
-        if( typeof swiperTarget !='undefined' && swiperTarget ) {
-            if((trident != null && trident[1] == "4.0") || (trident != null && trident[1] == "5.0")){
-                swiperTarget.startAutoplay();
-            } else{
-                swiperTarget.autoplay.start();
-            }
+    player = new YT.Player("video" + num , {
+        height: vod_height,
+        width:  vod_width,
+        videoId: vod_code,
+        playerVars: { 'origin':'http://ezenac.co.kr/', 'autoplay': 1, 'controls': 1, 'php5': 1, 'wmode':'opaque', 'rel' : 0,'showinfo' : 0},
+        events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
         }
     });
-});
+}
+
+// 4. The API will call this function when the video player is ready.
+function onPlayerReady(event) {
+    event.target.playVideo();
+}
+
+// 5. The API calls this function when the player's state changes.
+//    The function indicates that when playing a video (state=1),
+//    the player should play for six seconds and then stop.
+var playDone = false;
+function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.PLAYING && !playDone) {
+        //setTimeout(stopVideo, 6000);
+        playDone = true;
+        //console.log("재생");
+    }else {
+        playDone = false;
+    }
+}
+function stopVideo() {
+    player.stopVideo();
+}
+
+
