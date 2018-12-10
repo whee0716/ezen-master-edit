@@ -45,13 +45,10 @@ gulp.task('compress-pc-js', function() {
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./ftp/common/js/site/minify/'));
 
-
-
     gulp.watch([
         './ftp/common/js/site/ui.js'
     ], ['compress-pc-js']);
 });
-
 
 // 리뉴얼 SASS
 function loadSass() {
@@ -134,7 +131,6 @@ gulp.task('choiceSprites', function () {
     });
 });
 
-
 gulp.task('mobile', function(){
     var target = pkg.paths.m;
     $ = require('gulp-load-plugins')({
@@ -190,3 +186,5 @@ gulp.task('mobile', function(){
 
     gulp.start(['trigger']);
 });
+
+gulp.task('default', ['compress-pc-js', 'sass2','mobile']);
