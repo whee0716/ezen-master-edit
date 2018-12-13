@@ -464,6 +464,8 @@ nav{
         &.camp{@include ir2($l-menu-img4);}
         &.kigan{@include ir2($l-menu-img5);}
         &.hrd-search{@include ir2($l-menu-img7);}
+        &.apply_online_seminars_left{@include ir2($l-menu-img8);}
+        &.vacation-winter2018{@include ir2($l-vacation-winter2018);}
       }
     }
   }
@@ -793,6 +795,11 @@ nav{
 // hrd 과정 검색 타이틀
 .tit--hrd_search{
   @include ir2($hrd-search-title);
+}
+
+// 디자인 세미나 온라인 참가신청
+.tit-apply_online_seminars{
+  @include ir2($tit-apply-online-seminars)
 }
 
 // @@stit
@@ -6159,3 +6166,6 @@ COMPONENT
 #pp_video_bg .vod-box-player { padding:5px 15px; }
 
 
+.isloading-wrapper.isloading-right{margin-left:10px;}
+.isloading-overlay{position:relative;text-align:center;}.isloading-overlay .isloading-wrapper{background:#FFFFFF;-webkit-border-radius:7px;-webkit-background-clip:padding-box;-moz-border-radius:7px;-moz-background-clip:padding;border-radius:7px;background-clip:padding-box;display:inline-block;margin:0 auto;padding:10px 20px;top:10%;z-index:9000;}
+.isloading-overlay img{padding-right:10px; vertical-align:middle}

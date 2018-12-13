@@ -88,7 +88,7 @@ gulp.task('choiceSprites', function () {
             type: 'rawlist',
             name: 'theme',
             message: 'choice sprite folder',
-            choices: ['common','home','curriculum','hrd'] // 이미지 폴더 생성하고 이름 같게 추가...
+            choices: ['common','home','curriculum','hrd','apply_online_seminars'] // 이미지 폴더 생성하고 이름 같게 추가...
         }
     ]).then(function (task) {
         var task = task.theme;

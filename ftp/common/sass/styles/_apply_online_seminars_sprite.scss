@@ -1,0 +1,134 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$apply-online-seminars-back-name: 'apply_online_seminars_back';
+$apply-online-seminars-back-x: 0px;
+$apply-online-seminars-back-y: 0px;
+$apply-online-seminars-back-offset-x: 0px;
+$apply-online-seminars-back-offset-y: 0px;
+$apply-online-seminars-back-width: 1899px;
+$apply-online-seminars-back-height: 276px;
+$apply-online-seminars-back-total-width: 1899px;
+$apply-online-seminars-back-total-height: 647px;
+$apply-online-seminars-back-image: '/images/sprites/apply_online_seminars/sprite.png';
+$apply-online-seminars-back: (0px, 0px, 0px, 0px, 1899px, 276px, 1899px, 647px, '/images/sprites/apply_online_seminars/sprite.png', 'apply_online_seminars_back', );
+$apply-online-seminars-logo-name: 'apply_online_seminars_logo';
+$apply-online-seminars-logo-x: 847px;
+$apply-online-seminars-logo-y: 296px;
+$apply-online-seminars-logo-offset-x: -847px;
+$apply-online-seminars-logo-offset-y: -296px;
+$apply-online-seminars-logo-width: 417px;
+$apply-online-seminars-logo-height: 49px;
+$apply-online-seminars-logo-total-width: 1899px;
+$apply-online-seminars-logo-total-height: 647px;
+$apply-online-seminars-logo-image: '/images/sprites/apply_online_seminars/sprite.png';
+$apply-online-seminars-logo: (847px, 296px, -847px, -296px, 417px, 49px, 1899px, 647px, '/images/sprites/apply_online_seminars/sprite.png', 'apply_online_seminars_logo', );
+$apply-online-seminars-quickmenu-name: 'apply_online_seminars_quickmenu';
+$apply-online-seminars-quickmenu-x: 463px;
+$apply-online-seminars-quickmenu-y: 395px;
+$apply-online-seminars-quickmenu-offset-x: -463px;
+$apply-online-seminars-quickmenu-offset-y: -395px;
+$apply-online-seminars-quickmenu-width: 125px;
+$apply-online-seminars-quickmenu-height: 116px;
+$apply-online-seminars-quickmenu-total-width: 1899px;
+$apply-online-seminars-quickmenu-total-height: 647px;
+$apply-online-seminars-quickmenu-image: '/images/sprites/apply_online_seminars/sprite.png';
+$apply-online-seminars-quickmenu: (463px, 395px, -463px, -395px, 125px, 116px, 1899px, 647px, '/images/sprites/apply_online_seminars/sprite.png', 'apply_online_seminars_quickmenu', );
+$apply-online-seminars-teacher-name: 'apply_online_seminars_teacher';
+$apply-online-seminars-teacher-x: 0px;
+$apply-online-seminars-teacher-y: 296px;
+$apply-online-seminars-teacher-offset-x: 0px;
+$apply-online-seminars-teacher-offset-y: -296px;
+$apply-online-seminars-teacher-width: 443px;
+$apply-online-seminars-teacher-height: 351px;
+$apply-online-seminars-teacher-total-width: 1899px;
+$apply-online-seminars-teacher-total-height: 647px;
+$apply-online-seminars-teacher-image: '/images/sprites/apply_online_seminars/sprite.png';
+$apply-online-seminars-teacher: (0px, 296px, 0px, -296px, 443px, 351px, 1899px, 647px, '/images/sprites/apply_online_seminars/sprite.png', 'apply_online_seminars_teacher', );
+$apply-online-seminars-title-name: 'apply_online_seminars_title';
+$apply-online-seminars-title-x: 463px;
+$apply-online-seminars-title-y: 296px;
+$apply-online-seminars-title-offset-x: -463px;
+$apply-online-seminars-title-offset-y: -296px;
+$apply-online-seminars-title-width: 364px;
+$apply-online-seminars-title-height: 79px;
+$apply-online-seminars-title-total-width: 1899px;
+$apply-online-seminars-title-total-height: 647px;
+$apply-online-seminars-title-image: '/images/sprites/apply_online_seminars/sprite.png';
+$apply-online-seminars-title: (463px, 296px, -463px, -296px, 364px, 79px, 1899px, 647px, '/images/sprites/apply_online_seminars/sprite.png', 'apply_online_seminars_title', );
+$spritesheet-width: 1899px;
+$spritesheet-height: 647px;
+$spritesheet-image: '/images/sprites/apply_online_seminars/sprite.png';
+$spritesheet-sprites: ($apply-online-seminars-back, $apply-online-seminars-logo, $apply-online-seminars-quickmenu, $apply-online-seminars-teacher, $apply-online-seminars-title, );
+$spritesheet: (1899px, 647px, '/images/sprites/apply_online_seminars/sprite.png', $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

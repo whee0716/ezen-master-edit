@@ -166,12 +166,14 @@ $(document).ready(function(){
                     sideBtn.addClass('open');
                     pop.addClass('extend');
                     floatFootBanner.addClass('close');
+                    $("body").addClass('close');
                 } else {
                     topBanner.removeClass('close');
                     side.removeClass('close');
                     sideBtn.removeClass('open');
                     pop.removeClass('extend');
                     floatFootBanner.removeClass('close');
+                    $("body").removeClass('close');
                 }
                 swiperAutoplayStart(seasonNotiSwiper);
                 isResize = false;
@@ -373,15 +375,17 @@ $(document).ready(function(){
         var sideOpen = $('.leftOpen'),
             sideClose = $('.lMclose'),
             sideBar = $('#leftMenu');
-            topBanner = $('#TopBanner > div'),
+        topBanner = $('#TopBanner > div'),
 
-        sideClose.click(function () {
-            sideBar.addClass('close');
-            sideOpen.addClass('open');
-            $('.pop-container').addClass('extend');
-            topBanner.addClass('close');
-            $('.fixed-bottom-banner').addClass('close');
-        });
+            sideClose.click(function () {
+                sideBar.addClass('close');
+                sideOpen.addClass('open');
+                $('.pop-container').addClass('extend');
+                topBanner.addClass('close');
+                $('.fixed-bottom-banner').addClass('close');
+                $("body").addClass('close');
+
+            });
 
         sideOpen.click(function () {
             sideBar.removeClass('close');
@@ -389,6 +393,7 @@ $(document).ready(function(){
             $('.pop-container').removeClass('extend');
             topBanner.removeClass('close');
             $('.fixed-bottom-banner').removeClass('close');
+            $("body").removeClass('close');
         });
     }());
 

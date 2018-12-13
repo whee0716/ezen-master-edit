@@ -120,20 +120,18 @@ caption{
 .eventBS{width: 1380px; margin: 0 auto; position: relative;}
 .eventBanner {
   position: fixed;
-  /* top: 131px; */
-  margin-top:70px;
+  margin-top:90px;
   top: 450px;
   left: 50%;
-  width: 1050px;
-  height: 210px;
   z-index: 100;
   animation: upndown 2s ease-in-out 0s infinite;
-  margin-left: 525px;
+  -webkit-transition: all 0.4s 0s ease;
+  -o-transition: all 0.4s 0s ease;
+  transition: all 0.4s 0s ease;
+  margin-left: 600px;
 }
-@keyframes upndown{
-  0%{top:250px;}
-  75%{top:255px;}
-  100%{top:250px;}
+body.close .eventBanner{
+  margin-left: 525px;
 }
 
 /* eventB */
@@ -152,7 +150,7 @@ caption{
   margin-left: 525px;
 }
 @keyframes upndown{
-  0%{top:250px;}
+  0%{top:250px; }
   75%{top:255px;}
   100%{top:250px;}
 }
@@ -198,6 +196,12 @@ caption{
 .close + #header + .cm-quick + #content,
 .close + #header + .cm-quick + #content  + #footerGnb,
 .close + #header + .cm-quick + #content  + #footerGnb +#footer {
+  transform: translate3d(0, 0, 0);
+  transition: all 0.4s 0s ease;
+}
+body.close #content,
+body.close #footer,
+body.close #footerGnb{
   transform: translate3d(0, 0, 0);
   transition: all 0.4s 0s ease;
 }
@@ -355,7 +359,7 @@ caption{
   > ul {
     float:left;width: 100%;
     > li{
-      float: left; margin-left: 30px;
+      float: left; margin-left: 26px;
     }
     > li > a {
       display: block;
@@ -613,6 +617,41 @@ caption{
     top: 160px;
   }
 }
+
+#webQuickMenu,
+#academyRightQuick{
+  .quick-banner-float {
+    > a{
+      background-color: transparent;
+      border: none;
+      display: block;
+      > img {
+        margin-left:-25px;
+        -webkit-animation: upndownMargin 2s ease-in-out 0s infinite;
+        animation: upndownMargin 2s ease-in-out 0s infinite;
+        -webkit-transition: all 0.4s 0s ease;
+        -o-transition: all 0.4s 0s ease;
+        transition: all 0.4s 0s ease;
+      }
+    }
+  }
+  .webQuick-inner {
+    border: 2px solid #dedede;
+    background-color:#fff;
+    .tel{
+      >img { width:87px;}
+    }
+  }
+}
+
+
+
+@keyframes upndownMargin{
+  0%{ margin-top:0; }
+  75%{margin-top:5px;}
+  100%{margin-top:0;}
+}
+
 //http://www.eduncs.co.kr/ezen/curriculum/employed_edu.asp
 #employed-edu{
   #webQuickMenu[data-start-point] {
@@ -725,7 +764,6 @@ caption{
   /* right: -113px; */
   z-index: 80;
   width: 90px;
-  border: 2px solid #dedede;
   text-align: center;
   margin-left: 545px;
   left: 50%;
@@ -1179,7 +1217,6 @@ caption{
     width:1125px;
     .swiper-slide {
       opacity:0.2;
-      opacity:1 \0/IE8+9;
       &.swiper-slide-active {
         opacity:1;
         .grid {
@@ -1275,7 +1312,6 @@ caption{
             top:0;
             width:100%;
             background-color:#000;
-            opacity:0.35 \0/IE8+9;
             -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=35) \0/IE8+9;
             filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=35)\0/IE8+9;
             background:rgba(0,0,0,0.35);
@@ -5887,6 +5923,12 @@ cpation{
     -webkit-align-items: center;
     align-items: center;
     background-position:center center;
+    display:block;
+    z-index:1;
+    &.swiper-slide-active {
+      z-index:3;
+      position:relative;
+    }
   }
   .slider-inner{
     width:1900px;
@@ -5919,6 +5961,14 @@ cpation{
   }
   .swiper-container {
     overflow: inherit;
+    .swiper-slide {
+      position:relative;
+      z-index:1;
+      &.swiper-slide-active{
+        position:relative;
+        z-index:3;
+      }
+    }
   }
   .swiper-container-horizontal > .swiper-pagination-bullets {
     width: 66px;
