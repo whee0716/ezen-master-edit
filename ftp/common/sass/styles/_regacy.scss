@@ -603,7 +603,7 @@ body.close #footerGnb{
   .nth1 a{ @include ir($left_banner_03) }
   .nth2 a{ @include ir($left_banner_02) }
 }
-//http://www.eduncs.co.kr/ezen/curriculum/it_index.asp
+// ezen/curriculum/it_index.asp
 .it-index{
   #academyRightQuick[data-start-point] {
     top: 747px;
@@ -652,7 +652,7 @@ body.close #footerGnb{
   100%{margin-top:0;}
 }
 
-//http://www.eduncs.co.kr/ezen/curriculum/employed_edu.asp
+// ezen/curriculum/employed_edu.asp
 #employed-edu{
   #webQuickMenu[data-start-point] {
     top: 461px;
@@ -667,7 +667,7 @@ body.close #footerGnb{
   }
 }
 
-//http://www.eduncs.co.kr/ezen/curriculum/web_index.asp
+// ezen/curriculum/web_index.asp
 .curriculum-index{
   #webQuickMenu[data-start-point] {
     top: 468px;
@@ -678,7 +678,7 @@ body.close #footerGnb{
 }
 .account-index{
   .cm-quick[data-start-point] {
-    top: 1185px;
+    top: 1000px;
   }
   .fixed + .cm-quick[data-start-point] {
     top: 1185px;
@@ -686,7 +686,7 @@ body.close #footerGnb{
 }
 
 
-// http://www.eduncs.co.kr/ezen/curriculum/?pi=1&ci=939#
+// ezen/curriculum/?pi=1&ci=939#
 .curriculum{
   #quickMenu[data-start-point] {
     top: 712px;
@@ -730,23 +730,23 @@ body.close #footerGnb{
   position: absolute;
   top: 160px;
   /* right: -113px; */
-  z-index: 80;
+  z-index: 10;
   width: 90px;
   text-align: center;
   margin-left: 425px;
   left: 50%;
 }
-.cm-quick-wrap.stop{
+.cm-quick-wrap.stop .webQuick-inner{
   opacity: 0;
   z-index: -1;
   transition: all 0.1s 0s ease;
 }
 
-.quick li{border-right:1px solid #c3c3c3; border-left:1px solid #c3c3c3;}
-.quick li+li{border-top: 1px solid #c3c3c3;}
-.quick a{display: block; font-family: 'Open Sans', sans-serif; color: #333333; background-color: #ffffff; height:60px; line-height:60px;}
-.quick li a:hover{background-color: #303030; color: #d0d0d0;}
-.quick li.on a{background-color: #303030; color: #d0d0d0;}
+.quick span{ display:block; border-right:1px solid #c3c3c3; border-left:1px solid #c3c3c3;}
+.quick span+span{border-top: 1px solid #c3c3c3;}
+.quick a{display: block; font-family: 'Open Sans', sans-serif; color: #333333; background-color: #ffffff; line-height:60px;}
+.quick span a:hover{background-color: #303030; color: #d0d0d0;}
+.quick span.on a{background-color: #303030; color: #d0d0d0;}
 .quick img{display: block;}
 .quick div.banner {position:absolute;right:-37px;top:205px;}
 .quick div.banner_close {position:absolute;right:-30px;top:213px;cursor:pointer;}
@@ -1626,8 +1626,8 @@ body.close #footerGnb{
 /* sub */
 #sub1Content1{width: 100%; background-color: #2c2c2c; /*padding-top: 94px;*/}
 #sub1ContentBox1{width: 1050px; padding: 0 25px; margin: 0 auto;}
-#sub1ContentBox1 h1{text-align: center; color: #ffffff; font-size: 32px; font-weight: normal; padding-top: 45px; padding-bottom: 45px; border-bottom: 1px solid #3d3d3d;}
-.subIntroBox{width: 1050px; padding-top: 60px; padding-bottom: 80px;}
+#sub1ContentBox1 h1{text-align: center; color: #ffffff; font-size: 32px; font-weight: normal; padding-top: 45px; padding-bottom: 45px;}
+.subIntroBox{width: 1050px; padding-bottom: 60px;}
 .subIntroBox .leftBox{float: left; width: 364px; height: 300px;}
 .subIntroBox .centerBox{float: left; width: 325px; margin-left: 44px;}
 .subIntroBox .centerBox li{padding: 10px 0 10px 15px; font-size: 15px; color: #ffffff; border-top: 1px solid #3d3d3d; background: url(/images/common/list_bullet.gif) no-repeat 3px 22px; letter-spacing: -0.5px;}
@@ -3657,7 +3657,7 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
         width: 535px;
         height: 205px;
         margin: 35px 0 0 175px;
-        background-image: url('//ezenac.co.kr/images/curriculum/employed/employed_conter.jpg');
+        background-image: url('/images/curriculum/employed/employed_conter.jpg');
         background-repeat: no-repeat;
         li {
           position: relative;
@@ -3694,7 +3694,7 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
     margin: 0 auto;
   }
   .tab-content-box03 {
-    background-image: url(/images/curriculum/employed/unemployed_support_step_back.jpg);
+    background-image: url('/images/curriculum/employed/unemployed_support_step_back.jpg');
     background-repeat: repeat-x;
     padding: 57px 0;
     h4 {
@@ -3718,7 +3718,7 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
     }
     .step-list {
       height: 277px;
-      background-image: url(/images/curriculum/employed/employed_support_step6.png);
+      background-image: url('/images/curriculum/employed/employed_support_step6.png');
       background-repeat: no-repeat;
       background-size: 1050px 277px;
 
@@ -3812,8 +3812,8 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
 
 /* privacy_policy*/
 #privacyPolicy {width: 1050px; padding: 105px 0 80px; margin: 0 auto;}
-#privacyPolicy .noticeTitle > h2 {background: url(/images/member/privacyp_title.png) no-repeat;}
-.pPolicyBox > strong{display: block; font-size: 24px; padding-top: 5px; background: url(/images/common/ues_t_bg.gif) no-repeat 0 0; font-weight: 400; margin-bottom: 30px;}
+#privacyPolicy .noticeTitle > h2 {background: url('/images/member/privacyp_title.png') no-repeat;}
+.pPolicyBox > strong{display: block; font-size: 24px; padding-top: 5px; background: url('/images/common/ues_t_bg.gif') no-repeat 0 0; font-weight: 400; margin-bottom: 30px;}
 .pPolicyIndex {margin:30px 0 60px 0; width: 968px; padding: 40px; background: #eeeeee; border: 1px solid #d6d6d6;}
 .pPolicyBox p.pt16 {letter-spacing: -0.25px;font-size: 16px; color: #666666; line-height: 24px; }
 .pPolicyIndex > ul {float: left; margin-top: 40px;  width:484px; letter-spacing: -0.25px; }
@@ -3835,8 +3835,8 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
 
 
 #termsConditions {width: 1050px; padding: 105px 0 80px; margin: 0 auto;}
-#termsConditions .noticeTitle > h2 {background: url(/images/member/termsconditions_title.png) no-repeat; width: 388px;}
-.termsConBox > strong{display: block; font-size: 24px; padding-top: 5px; background: url(/images/common/ues_t_bg.gif) no-repeat 0 0; font-weight: 400; margin-bottom: 30px;}
+#termsConditions .noticeTitle > h2 {background: url('/images/member/termsconditions_title.png') no-repeat; width: 388px;}
+.termsConBox > strong{display: block; font-size: 24px; padding-top: 5px; background: url('/images/common/ues_t_bg.gif') no-repeat 0 0; font-weight: 400; margin-bottom: 30px;}
 .termsConBox p.pt16 {letter-spacing: -0.25px;font-size: 16px; color: #666666; line-height: 24px;  }
 .termsConIndex {margin:30px 0 60px 0; width: 968px; padding: 40px; background: #eeeeee; border: 1px solid #d6d6d6;}
 .termsConIndex > ul {float: left; width:484px; letter-spacing: -0.25px; }
@@ -3849,8 +3849,8 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
 
 
 #collectingREmail {width: 1050px; padding: 105px 0 200px; margin: 0 auto;}
-#collectingREmail .noticeTitle > h2 {background: url(/images/common/collecting_title.png) no-repeat; width: 440px; }
-.crEmailBox > strong{display: block; font-size: 24px; padding-top: 5px; background: url(/images/common/ues_t_bg.gif) no-repeat 0 0; font-weight: 400; margin-bottom: 30px;}
+#collectingREmail .noticeTitle > h2 {background: url('/images/common/collecting_title.png') no-repeat; width: 440px; }
+.crEmailBox > strong{display: block; font-size: 24px; padding-top: 5px; background: url('/images/common/ues_t_bg.gif') no-repeat 0 0; font-weight: 400; margin-bottom: 30px;}
 .crEmailBox .creCon {width: 968px; padding: 40px; background: #eeeeee; border: 1px solid #d6d6d6;}
 .creCon > img {float: left; padding: 6px 76px 20px 56px; display: inline-block; border-right: 1px solid #d6d6d6; }
 .cceText {float: left; padding-left: 65px; font-size: 16px; line-height: 27px; color: #666666; letter-spacing: -0.25px;}
@@ -3858,7 +3858,7 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
 
 
 #empApplication {width: 1050px; padding: 105px 0 80px; margin: 0 auto;}
-#empApplication .noticeTitle > h2 {background: url(/images/curriculum/employed_title2.png) no-repeat;}
+#empApplication .noticeTitle > h2 {background: url('/images/curriculum/employed_title2.png') no-repeat;}
 .empAppliBox1{width: 1050px; border-top: 4px solid #000000; margin-bottom: 80px;}
 .empAppliBox1 > span{display: block; font-size: 18px; color: #333333; letter-spacing: -0.7px; text-align: center; padding-top: 55px;}
 .empAppliBox1 > strong{display: block; font-size: 26px; color: #333333; letter-spacing: -0.7px; text-align: center; margin-bottom: 25px;}
@@ -3873,12 +3873,12 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
 .empAppliBox1 .employedWriteForm1 dl+dl dd{border-top: 1px solid #d4d4d4;}
 .empAppliBox1 .employedWriteForm1 dl dd .select-wrap{ width: 188px; color: #333333; font-size: 14px; margin: 5px 0; border: 1px solid #dbdbdb; background-color: #f3f3f3;}
 .empAppliBox1 .employedWriteForm1 dl dd .select-wrap > select { background-color:#f3f3f3;}
-.empAppliBox1 .employedWriteForm1 dl dd .formDL{float: left; display: block; width: 126px; height: 26px; border: none; background: url(/images/curriculum/download_bg.jpg) no-repeat 0 0; color: #d0d0d0; line-height: 26px; text-align: left; text-indent: 25px; font-size: 11px; font-family: Dotum; cursor: pointer; margin-left: 70px; margin-top: 12px;}
+.empAppliBox1 .employedWriteForm1 dl dd .formDL{float: left; display: block; width: 126px; height: 26px; border: none; background: url('/images/curriculum/download_bg.jpg') no-repeat 0 0; color: #d0d0d0; line-height: 26px; text-align: left; text-indent: 25px; font-size: 11px; font-family: Dotum; cursor: pointer; margin-left: 70px; margin-top: 12px;}
 .empAppliBox1 .employedWriteForm1 dl dd input[type="text"]{display: block; width: 781px; border: 1px solid #dbdbdb; height: 38px; margin: 5px 0; font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; color: #333333; background-color: #f3f3f3; padding-left: 10px;}
 .empAppliBox1 .employedWriteForm1 dl dd input.name{width: 178px;}
 .empAppliBox1 .employedWriteForm1 dl dd input.w160{width: 138px; float: left; text-align: center; padding-right: 10px;}
 .empAppliBox1 .employedWriteForm1 dl dd input.w160+span, .empAppliBox1 .employedWriteForm1 dl dd .phoneBox+span{float: left; font-size: 16px; font-weight: bold; color: #333333; padding: 0 10px;}
-.empAppliBox1 .employedWriteForm1 dl dd .emailBox{position: relative; width: 258px; height: 28px; color: #333333; font-size: 14px; background: url(/images/common/select_arrow.png) 98% center no-repeat; float: left; margin: 10px 0 10px 15px; border: 1px solid #dbdbdb; background-color: #f3f3f3;}
+.empAppliBox1 .employedWriteForm1 dl dd .emailBox{position: relative; width: 258px; height: 28px; color: #333333; font-size: 14px; background: url('/images/common/select_arrow.png') 98% center no-repeat; float: left; margin: 10px 0 10px 15px; border: 1px solid #dbdbdb; background-color: #f3f3f3;}
 .empAppliBox1 .employedWriteForm1 dl dd .emailBox label {position: absolute; font-size: 16px; color: #333333; top: 0; left: 12px; letter-spacing: 1px; line-height: 28px;}
 .empAppliBox1 .employedWriteForm1 dl dd .emailBox .nsbox {display: block; width: 100%; height: 28px; min-height: 28px; line-height: 28px; opacity: 0; filter: alpha(opacity=0); }
 .empAppliBox1 .employedWriteForm1 dl dd input.w250{width: 228px; float: left;}
@@ -3889,8 +3889,8 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
 .empAppliBox1 .employedWriteForm1 dl dd input.w140{float: left; width: 601px;}
 .empAppliBox1 .employedWriteForm1 dl dd input.w140+input[type="button"]{float: left; display: block; width: 69px; height: 24px; line-height: 24px; border: 1px solid #848484; margin: 13px 0 0 20px; text-align: center; background-color: #e4e4e4; font-size: 11px; font-family: Dotum; color: #1d1d1d; vertical-align: top; cursor: pointer;}
 .empAppliBox1 .employedWriteForm1 dl dd input[type="radio"] {display: none;}
-.empAppliBox1 .employedWriteForm1 dl dd input[type="radio"]+label{padding-left: 25px; background: url(/images/common/radio_off.gif) no-repeat 0 center;}
-.empAppliBox1 .employedWriteForm1 dl dd input[type="radio"]+label.on{background: url(/images/common/radio_on.gif) no-repeat 0 center;}
+.empAppliBox1 .employedWriteForm1 dl dd input[type="radio"]+label{padding-left: 25px; background: url('/images/common/radio_off.gif') no-repeat 0 center;}
+.empAppliBox1 .employedWriteForm1 dl dd input[type="radio"]+label.on{background: url('/images/common/radio_on.gif') no-repeat 0 center;}
 .empAppliBox1 .employedWriteForm1 dl dd label.mgr35{margin-right: 35px;}
 /*20170228*/
 .empAppliBox1 p.t1 {text-align:center;font-size:35px;color:#010101;font-style:italic;font-weight:bold;}
@@ -3909,8 +3909,8 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
 .empAppliBox2 .employedCheck1 dl+dl dt{border-top: 1px solid #d4d4d4;}
 .empAppliBox2 .employedCheck1 dl+dl dd{border-top: 1px solid #d4d4d4;}
 .empAppliBox2 .employedCheck1 dt input[type="checkbox"]{display: none;}
-.empAppliBox2 .employedCheck1 dt label{display: block; padding-left: 30px; width: 192px; background: url(/images/common/checkbox_off3.jpg) no-repeat 8px center;}
-.empAppliBox2 .employedCheck1 dt label.on{background: url(/images/common/checkbox_on2.jpg) no-repeat 8px center;}
+.empAppliBox2 .employedCheck1 dt label{display: block; padding-left: 30px; width: 192px; background: url('/images/common/checkbox_off3.jpg') no-repeat 8px center;}
+.empAppliBox2 .employedCheck1 dt label.on{background: url('/images/common/checkbox_on2.jpg') no-repeat 8px center;}
 .empAppliBox2 .employedCheck1 dd span.w60{float: left; display: block; width: 60px; color: #666666;}
 .empAppliBox2 .employedCheck1 dd p.w488{float: left; width: 484px; padding: 0 10px; color: #666666;}
 .empAppliBox2 .employedCheck1 dd span.w100{float: left; display: block; width: 87px; padding-right: 15px; text-align: right; color: #333333;position:relative}
@@ -3928,8 +3928,8 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
 .empAppliBox3 .employedCheck2 dl+dl dt{border-top: 1px solid #d4d4d4;}
 .empAppliBox3 .employedCheck2 dl+dl dd{border-top: 1px solid #d4d4d4;}
 .empAppliBox3 .employedCheck2 dt input[type="checkbox"]{display: none;}
-.empAppliBox3 .employedCheck2 dt label{display: block; padding-left: 30px; width: 192px; background: url(/images/common/checkbox_off3.jpg) no-repeat 8px center;}
-.empAppliBox3 .employedCheck2 dt label.on{background: url(/images/common/checkbox_on2.jpg) no-repeat 8px center;}
+.empAppliBox3 .employedCheck2 dt label{display: block; padding-left: 30px; width: 192px; background: url('/images/common/checkbox_off3.jpg') no-repeat 8px center;}
+.empAppliBox3 .employedCheck2 dt label.on{background: url('/images/common/checkbox_on2.jpg') no-repeat 8px center;}
 .empAppliBox3 .employedCheck2 dd span.w60{float: left; display: block; width: 60px; color: #666666;}
 .empAppliBox3 .employedCheck2 dd p.w488{float: left; width: 484px; padding: 0 10px; color: #666666;}
 .empAppliBox3 .employedCheck2 dd span.w100{float: left; display: block; width: 87px; padding-right: 15px; text-align: right; color: #333333;position:relative}
@@ -3946,8 +3946,8 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
 .empAppliBox4 .employedWriteForm2 dl+dl dd{border-top: 1px solid #d4d4d4;}
 .empAppliBox4 .employedWriteForm2 dl dd input[type="text"]{display: block; width: 783px; border: 1px solid #dbdbdb; height: 28px; margin: 10px 0; font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; color: #333333; padding-left: 10px; background-color: #f3f3f3;}
 .empAppliBox4 .employedWriteForm2 dl dd input[type="radio"] {display: none;}
-.empAppliBox4 .employedWriteForm2 dl dd input[type="radio"]+label{padding-left: 20px; background: url(/images/common/radio_off.gif) no-repeat 0 center;}
-.empAppliBox4 .employedWriteForm2 dl dd input[type="radio"]+label.on{background: url(/images/common/radio_on.gif) no-repeat 0 center;}
+.empAppliBox4 .employedWriteForm2 dl dd input[type="radio"]+label{padding-left: 20px; background: url('/images/common/radio_off.gif') no-repeat 0 center;}
+.empAppliBox4 .employedWriteForm2 dl dd input[type="radio"]+label.on{background: url('/images/common/radio_on.gif') no-repeat 0 center;}
 .empAppliBox4 .employedWriteForm2 dl dd label.mgr20{margin-right: 20px;}
 .empAppliBox4 .employedWriteForm2 dl dd.hauto{height: auto; line-height: 1.6; padding: 13px 0;}
 .empAppliBox4 .employedWriteForm2 dl dd.totalP{font-weight: 600;}
@@ -3956,8 +3956,8 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
 #empApplication .privacyPolicy{padding-top: 0; margin-bottom: 50px;}
 .agPP{margin-top: 10px; font-size: 14px; color: #666666; position: relative;}
 .agPP input[type="checkbox"]{opacity: 0; filter: alpha(opacity=0); position: absolute; top: 0; left: 0; z-index: -100;}
-.agPP label{display: block; padding-left: 25px; font-weight: 300; letter-spacing: -0.5px; background: url(/images/common/checkbox_off3.jpg) no-repeat 0 center;}
-.agPP input[type="checkbox"]:checked + label{background: url(/images/common/checkbox_on2.jpg) no-repeat 0 center;}
+.agPP label{display: block; padding-left: 25px; font-weight: 300; letter-spacing: -0.5px; background: url('/images/common/checkbox_off3.jpg') no-repeat 0 center;}
+.agPP input[type="checkbox"]:checked + label{background: url('/images/common/checkbox_on2.jpg') no-repeat 0 center;}
 
 #empApplication .agreement{padding-top: 20px; margin-bottom: 50px;}
 #empApplication .agreement strong{font-size: 18px; color: #333333; font-weight: 600; letter-spacing: -0.5px; display: block; margin-bottom: 10px;}
@@ -3969,13 +3969,13 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
 .eaBBtn .eaBC{width: 260px; background-color: #41b0bd; color: #ffffff;}
 .eaBBtn .eaBR{background-color: #333333; color: #ffffff; margin-left: 5px;}
 
-.importantQ strong{display: block; font-size: 18px; letter-spacing: -0.5px; color: #333333; padding-top: 5px; background: url(/images/curriculum/iq_title_bg.gif) no-repeat 1px 0; margin-bottom: 10px;}
+.importantQ strong{display: block; font-size: 18px; letter-spacing: -0.5px; color: #333333; padding-top: 5px; background: url('/images/curriculum/iq_title_bg.gif') no-repeat 1px 0; margin-bottom: 10px;}
 .importantQ p{font-size: 16px; color: #666666; letter-spacing: -0.7px; font-weight: 300; line-height: 1.8;}
 .importantQ p span{color: #e86a53; font-weight: 500;}
 
 /* online_payment */
 #onlinePayment{width: 1050px; padding: 105px 0 80px; margin: 0 auto;}
-#onlinePayment .noticeTitle > h2 {background: url(/images/payment/online_payment_title.png) no-repeat;}
+#onlinePayment .noticeTitle > h2 {background: url('/images/payment/online_payment_title.png') no-repeat;}
 .onlinePayBox{width: 1050px; margin-bottom: 50px;}
 .onlinePayBox .onlinePayWriteForm{border-top: 1px solid #333333; border-bottom: 1px solid #d4d4d4;}
 .onlinePayBox .onlinePayWriteForm dl dt{float: left; width: 162px; height: 50px; line-height: 50px; margin-right: 50px; padding-left: 20px; font-size: 16px; color: #333333; letter-spacing: -0.7px;}
@@ -3988,24 +3988,24 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
 .onlinePayBox .onlinePayWriteForm dl dd .select-wrap > select{background-color: #f3f3f3;}
 .onlinePayBox .onlinePayWriteForm dl dd input[type="text"]{display: block; width: 458px; border: 1px solid #dbdbdb; height: 38px; margin: 5px 0; font-family: 'Noto Sans Korean', sans-serif; font-size: 16px; color: #333333; background-color: #f3f3f3; padding-left: 10px;}
 .onlinePayBox .onlinePayWriteForm dl dd input.name{width: 458px;}
-.onlinePayBox .onlinePayWriteForm dl dd .phoneBox{position: relative; width: 138px; height: 28px; color: #333333; font-size: 14px; background: url(/images/common/select_arrow.png) 95% center no-repeat; float: left; margin: 10px 0; border: 1px solid #dbdbdb; background-color: #f3f3f3;}
+.onlinePayBox .onlinePayWriteForm dl dd .phoneBox{position: relative; width: 138px; height: 28px; color: #333333; font-size: 14px; background: url('/images/common/select_arrow.png') 95% center no-repeat; float: left; margin: 10px 0; border: 1px solid #dbdbdb; background-color: #f3f3f3;}
 .onlinePayBox .onlinePayWriteForm dl dd .phoneBox label{position: absolute; font-size: 16px; color: #333333; top: 0; left: 12px; letter-spacing: 1px; line-height: 28px;}
 .onlinePayBox .onlinePayWriteForm dl dd .phoneBox .nsbox{display: block; width: 100%; height: 28px; min-height: 28px; line-height: 28px; opacity: 0; filter: alpha(opacity=0);}
 .onlinePayBox .onlinePayWriteForm dl dd input.w140{width: 118px; float: left; text-align: center; padding-right: 10px;}
 .onlinePayBox .onlinePayWriteForm dl dd input.w140+span,
 .onlinePayBox .onlinePayWriteForm dl dd .phoneBox+span{float: left; font-size: 16px; font-weight: bold; color: #333333; padding: 0 10px;}
-.onlinePayBox .onlinePayWriteForm dl dd .emailBox{position: relative; width: 168px; height: 28px; color: #333333; font-size: 14px; background: url(/images/common/select_arrow.png) 95% center no-repeat; float: left; margin: 10px 0 10px 15px; border: 1px solid #dbdbdb; background-color: #f3f3f3;}
+.onlinePayBox .onlinePayWriteForm dl dd .emailBox{position: relative; width: 168px; height: 28px; color: #333333; font-size: 14px; background: url('/images/common/select_arrow.png') 95% center no-repeat; float: left; margin: 10px 0 10px 15px; border: 1px solid #dbdbdb; background-color: #f3f3f3;}
 .onlinePayBox .onlinePayWriteForm dl dd .emailBox label {position: absolute; font-size: 16px; color: #333333; top: 0; left: 12px; letter-spacing: 1px; line-height: 28px;}
 .onlinePayBox .onlinePayWriteForm dl dd .emailBox .nsbox {display: block; width: 100%; height: 28px; min-height: 28px; line-height: 28px; opacity: 0; filter: alpha(opacity=0); }
 .onlinePayBox .onlinePayWriteForm dl dd input.w124{width: 112px; float: left;}
 .onlinePayBox .onlinePayWriteForm dl dd input.w124+span{float: left; font-size: 16px; color: #333333; padding: 0 6px;}
 .onlinePayBox .onlinePayWriteForm dl dd input.w134n{width: 122px; padding-left: 10px; float: left;}
-.onlinePayBox .onlinePayWriteForm dl dd .paymentSelectBox{position: relative; width: 468px; height: 28px; color: #333333; font-size: 14px; background: url(/images/common/select_arrow.png) 95% center no-repeat; margin: 10px 0; border: 1px solid #dbdbdb; background-color: #f3f3f3;}
+.onlinePayBox .onlinePayWriteForm dl dd .paymentSelectBox{position: relative; width: 468px; height: 28px; color: #333333; font-size: 14px; background: url('/images/common/select_arrow.png') 95% center no-repeat; margin: 10px 0; border: 1px solid #dbdbdb; background-color: #f3f3f3;}
 .onlinePayBox .onlinePayWriteForm dl dd .paymentSelectBox.fl{float: left;}
 .onlinePayBox .onlinePayWriteForm dl dd .paymentSelectBox label{position: absolute; font-size: 16px; color: #333333; top: 0; left: 12px; letter-spacing: 0; line-height: 28px;}
 .onlinePayBox .onlinePayWriteForm dl dd .paymentSelectBox .nsbox{display: block; width: 100%; height: 28px; min-height: 28px; line-height: 28px; opacity: 0; filter: alpha(opacity=0);}
 .onlinePayBox .onlinePayWriteForm dl dd.totalP input{color: #e86a53;}
-.importantQ2 strong{display: block; font-size: 18px; letter-spacing: -0.5px; color: #333333; padding-top: 5px; background: url(/images/curriculum/iq_title_bg.gif) no-repeat 1px 0; margin-bottom: 15px;}
+.importantQ2 strong{display: block; font-size: 18px; letter-spacing: -0.5px; color: #333333; padding-top: 5px; background: url('/images/curriculum/iq_title_bg.gif') no-repeat 1px 0; margin-bottom: 15px;}
 .importantQ2 p{font-size: 14px; color: #666666; letter-spacing: -0.7px; font-weight: 300; line-height: 1.6; margin-bottom: 5px;}
 .importantQ2 p span{font-weight: 500;}
 .importantQ2 p span.color{color: #e86a53; }
@@ -4020,8 +4020,8 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
 #onlinePayment .pvcPlc a{text-decoration: underline;}
 #onlinePayment .agPP{margin-top: 10px; font-size: 14px; color: #333333; position: relative;}
 #onlinePayment .agPP input[type="checkbox"]{opacity: 0; filter: alpha(opacity=0); position: absolute; top: 0; left: 0; z-index: -100;}
-#onlinePayment .agPP label{padding-left: 30px; background: url(/images/common/checkbox_off2.jpg) no-repeat 8px center;}
-#onlinePayment .agPP label.on{background: url(/images/common/checkbox_on2.jpg) no-repeat 8px center;}
+#onlinePayment .agPP label{padding-left: 30px; background: url('/images/common/checkbox_off2.jpg') no-repeat 8px center;}
+#onlinePayment .agPP label.on{background: url('/images/common/checkbox_on2.jpg') no-repeat 8px center;}
 .opBBtn{margin: 50px 0 80px; text-align: center;}
 .opBBtn a{display: inline-block; width: 130px; height: 50px; line-height: 50px; font-size: 16px;}
 .opBBtn .opBC{width: 232px; background-color: #41b0bd; color: #ffffff;}
@@ -5563,7 +5563,7 @@ img.lozad.fade{
 }
 
 
-// http://www.eduncs.co.kr/ezen/curriculum/web_index.asp
+// ezen/curriculum/web_index.asp
 cpation{
   display: none;
 }
@@ -5577,7 +5577,7 @@ cpation{
   }
 }
 
-// http://www.eduncs.co.kr/ezen/curriculum/index.asp
+// ezen/curriculum/index.asp
 .reViewSlider li {
   border:2px solid #dddddd;
   background-color: #fff;
