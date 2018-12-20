@@ -211,6 +211,15 @@ nav{
       top: 12px;
     }
   }
+  &.insta{
+    background-color: #fff;
+    .insta_ico{
+      @include ir2($ico-insta);
+      position: relative;
+      left: 0;
+      top: 7px;
+    }
+  }
 }
 
 
@@ -466,6 +475,7 @@ nav{
         &.hrd-search{@include ir2($l-menu-img7);}
         &.apply_online_seminars_left{@include ir2($l-menu-img8);}
         &.vacation-winter2018{@include ir2($l-vacation-winter2018);}
+        &.edu{@include ir2($left-menu-edu);}
       }
     }
   }
@@ -478,10 +488,10 @@ nav{
     width: 100%;
     background-color: #000;
     color: #fff;
-    font-size: 30px;
+    font-size: 25px;
     text-align: center;
-    line-height: 50px;
-    height: 50px;
+    line-height: 32px;
+    height: 30px;
     position: absolute;
     left: 0;
     bottom: 52px;
@@ -574,7 +584,6 @@ nav{
   background-color: #3e3e3e;
   text-align: center;
   overflow: hidden;
-  margin-bottom:50px;
   .logo{
     margin: 20px 0;
     @include ir2($m-footer-logo2)

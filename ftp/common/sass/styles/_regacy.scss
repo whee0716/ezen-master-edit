@@ -1536,6 +1536,9 @@ body.close #footerGnb{
   .yt{
     @include ir($icon-youtube)
   }
+  .insta{
+    @include ir($icon-insta)
+  }
 }
 
 #footerGnb {
@@ -1545,7 +1548,7 @@ body.close #footerGnb{
   width:1050px; margin:0 auto;
   position: relative;
   > .cf {
-    > li {float:left; padding:0 32px;
+    > li {float:left; padding:0 24px;
       position:relative;
       &::after{
         content: '';
