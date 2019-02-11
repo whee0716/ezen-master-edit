@@ -476,6 +476,8 @@ nav{
         &.apply_online_seminars_left{@include ir2($l-menu-img8);}
         &.vacation-winter2018{@include ir2($l-vacation-winter2018);}
         &.edu{@include ir2($left-menu-edu);}
+        &.employed{@include ir2($l-menu-employed);}
+        &.unemployed{@include ir2($l-menu-unemployed);}
       }
     }
   }

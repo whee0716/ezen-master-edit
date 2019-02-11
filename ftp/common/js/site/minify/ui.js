@@ -50,7 +50,6 @@ function swiperAutoplayStart(el){
 
 $(document).ready(function(){
 
-
     seasonNotiSwiper = new Swiper('.previewT-wrap.swiper-container', {
         direction: 'vertical',
         autoplay: {
@@ -338,34 +337,37 @@ $(document).ready(function(){
     //2depth
     (function () {
         var gnb = $('#nav');
-        var count = 0;
-        var is_animate = false;
 
-        gnb.find(' > ul > li').mouseenter(function () {
-            if(is_animate) return;
-            is_animate = true;
-
-            $('.sNav').hide();
-
-            count++;
-
-            if( count == 1 ){
-                $(this).find('.sNav').stop().slideDown(300, function(){
-                    is_animate= false;
-                });
-            } else {
-                $(this).find('.sNav').show();
-                is_animate= false;
+        gnb.find('>ul').hover(
+            function(){
+                $(this).addClass('open');
+            },
+            function() {
+                $(this).removeClass('open');
             }
+        );
+
+        gnb.find('>ul>li').hover(
+            function() {
+                $('.sNav').hide();
+
+                if( $(this).parents('ul').hasClass('open') ) {
+                    $('.sNav', $(this)).show();
+                } else {
+                    $('.sNav', $(this)).stop().slideDown(200);
+                }
 
 
-        });
+            },
+            function() {
 
-        gnb.find('> ul').mouseleave(function(){
-            $('.sNav').stop().slideUp(300);
-            count = 0;
-            is_animate = false;
-        });
+                if( $(this).parents('ul').hasClass('open') ) {
+                    $('.sNav').hide();
+                } else {
+                    $('.sNav').stop().slideUp(200);
+                }
+            }
+        );
 
 
     })();
@@ -375,7 +377,7 @@ $(document).ready(function(){
         var sideOpen = $('.leftOpen'),
             sideClose = $('.lMclose'),
             sideBar = $('#leftMenu');
-        topBanner = $('#TopBanner > div'),
+            topBanner = $('#TopBanner > div'),
 
             sideClose.click(function () {
                 sideBar.addClass('close');
