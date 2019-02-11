@@ -359,7 +359,7 @@ body.close #footerGnb{
   > ul {
     float:left;width: 100%;
     > li{
-      float: left; margin-left: 26px;
+      float: left; padding-left: 26px;
     }
     > li > a {
       display: block;
@@ -379,7 +379,7 @@ body.close #footerGnb{
       }
     }
     > li:first-child {
-      margin-left: 0;
+      padding-left: 0;
       & + li{
         //margin-left: 42px;
       }
@@ -544,7 +544,9 @@ body.close #footerGnb{
     background-color: #28292e;
   }
 }
+/*
 .leftNav > ul > li+li+li+li+li+li+li+li+li+li+li+li{background-color: #f1f1f1;}
+*/
 .leftNav > ul > li {
   .on{background-color: #28292e}
   &.item.on{
