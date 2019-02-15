@@ -354,18 +354,18 @@ $(document).ready(function(){
                 if( $(this).parents('ul').hasClass('open') ) {
                     $('.sNav', $(this)).show();
                 } else {
-                    $('.sNav', $(this)).stop().slideDown(200);
+                    $('.sNav', $(this)).stop(true, true).slideDown(300);
                 }
-
-
+                return false;
             },
             function() {
 
                 if( $(this).parents('ul').hasClass('open') ) {
                     $('.sNav').hide();
                 } else {
-                    $('.sNav').stop().slideUp(200);
+                    $('.sNav').stop(true, true).slideUp(300);
                 }
+                return false;
             }
         );
 
