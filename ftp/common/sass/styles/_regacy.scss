@@ -2553,6 +2553,8 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
 .pvcPlc p{letter-spacing: -0.5px; line-height: 1.4; margin-bottom: 30px;}
 .pvcPlc p.mgbn{margin-bottom: 0;}
 .pvcPlc table{width: 600px; border-collapse: collapse; margin: 5px 0; text-align: center;}
+.pvcPlc .agreement-inner-table { width:100%; }
+.pvcPlc .agreement-inner-table td > span.point{ color: #e2735f;}
 .pvcPlc td{width: 150px; border: 1px solid #aaaaaa; padding: 5px 0;}
 .pvcPlc a{text-decoration: underline;}
 
@@ -3876,6 +3878,8 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
 
 #empApplication {width: 1050px; padding: 105px 0 80px; margin: 0 auto;}
 #empApplication .noticeTitle > h2 {background: url('/images/curriculum/employed_title2.png') no-repeat;}
+#empApplication .noticeTitle>h2.other {background: url("/images/curriculum/employed_title3.jpg") no-repeat;}
+
 .empAppliBox1{width: 1050px; border-top: 4px solid #000000; margin-bottom: 80px;}
 .empAppliBox1 > span{display: block; font-size: 18px; color: #333333; letter-spacing: -0.7px; text-align: center; padding-top: 55px;}
 .empAppliBox1 > strong{display: block; font-size: 26px; color: #333333; letter-spacing: -0.7px; text-align: center; margin-bottom: 25px;}
