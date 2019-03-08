@@ -469,10 +469,8 @@ nav{
         display: block;
         float:left;
         &.contact{@include ir2($l-menu-img3);}
-        &.join{@include ir2($l-menu-img6);}
         &.camp{@include ir2($l-menu-img4);}
         &.kigan{@include ir2($l-menu-img5);}
-        //&.hrd-search{@include ir2($l-menu-img7);}
         &.apply_online_seminars_left{@include ir2($l-menu-img8);}
         //&.vacation-winter2018{@include ir2($l-vacation-winter2018);}
         &.edu{@include ir2($left-menu-edu);}
