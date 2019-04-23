@@ -438,6 +438,9 @@ nav{
     top: 0;
     background-color: #f4f2f1;
     .ezen{@include ir2($l-menu-img1);}
+    @media screen and (max-width:320px) {
+     .ezen{ display:none;}
+    }
   }
   .side-menu__menulist{
     padding: 10px 0px 90px 82px;
@@ -462,7 +465,6 @@ nav{
   > ul{
     overflow:hidden;
     > li{
-      height:63px;
       overflow:hidden;
       border-top:1px solid #fff;
       > a{
@@ -471,12 +473,11 @@ nav{
         &.contact{@include ir2($l-menu-img3);}
         &.camp{@include ir2($l-menu-img4);}
         &.kigan{@include ir2($l-menu-img5);}
-        &.apply_online_seminars_left{@include ir2($l-menu-img8);}
-        //&.vacation-winter2018{@include ir2($l-vacation-winter2018);}
         &.edu{@include ir2($left-menu-edu);}
         &.employed{@include ir2($l-menu-employed);}
         &.unemployed{@include ir2($l-menu-unemployed);}
         &.reception{@include ir2($l-menu-reception);}
+        &.brochure{@include ir2($l-menu-brochure);}
       }
     }
   }
@@ -821,6 +822,10 @@ nav{
 // 취업준비생 수강신청
 .tit-unemployed-application{
   @include ir2($unemployed-application-title)
+}
+//온라인 브로슈어
+.tit--brochure{
+  @include ir2($title-mobile-brochure);
 }
 
 // @@stit
@@ -1662,7 +1667,6 @@ COMPONENT
         content: '0#{$i}';
       }
     }
-
     dd {
       position: relative;
       padding-left: 10px;
@@ -3822,6 +3826,7 @@ COMPONENT
       line-height: 1.5;
       margin-bottom: 10px;
       letter-spacing:-0.5px;
+      word-break: keep-all;
     }
     li{
       border-left: 1px solid #ccc;
@@ -5953,6 +5958,7 @@ COMPONENT
         padding-top: 15px;
         .img-box {
           padding-right:25px;
+          /*
           .campus-image{
             //강남
             &.campus-200701876{
@@ -6007,6 +6013,7 @@ COMPONENT
               @include ir2($hrd-campus-201001028)
             }
           }
+          */
         }
         .info-box {
         }
