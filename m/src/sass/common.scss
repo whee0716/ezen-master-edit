@@ -439,7 +439,7 @@ nav{
     background-color: #f4f2f1;
     .ezen{@include ir2($l-menu-img1);}
     @media screen and (max-width:320px) {
-     .ezen{ display:none;}
+      .ezen{ display:none;}
     }
   }
   .side-menu__menulist{
