@@ -2215,7 +2215,6 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
 .epWBtn a.epOk {background: #41b0bd; }
 .epWBtn a.epNo {background: #333333; }
 
-
 /* photoStory1 */
 #photoStory1 {width: 1050px; padding: 105px 0 80px; margin: 0 auto;}
 #photoStory1 .noticeTitle > h2 {background: url(/images/community/photo_title.png) no-repeat;}
@@ -4843,23 +4842,25 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
 #club_make .counWBox dl.warea1 dd ul {float: left; margin: 15px 29px 15px 0;}
 #club_make .counWBox dl.warea1 dd ul.last {margin-right:0;}
 #club_make .counWBox dl.warea1 dd li {float:left;height:106px;}
+
+#club_make .counWBox dl.warea1 .thumb_wrap .thumb_pager { padding-top:165px; background: url("/images/club/thumb_pager_bg.png") no-repeat center 177px; }
 .thumb_wrap ul li:first-child , .topImage_wrap ul li:first-child {position:absolute;}
 #club_make p.filebox {font-size: 16px; color: #333333; clear: both; text-align: left; border-bottom: 1px solid #d4d4d4; width: 820px; position: absolute; top: 214px; left: 230px; padding-bottom: 12px; padding-left: 17px;}
 #club_make p.filebox span.t1 {font-size:16px;color:#333333;clear:both;text-align:left;padding-right:15px;line-height:32px;display:inline-block;}
 #club_make p.filebox span.t2 {font-size:16px;color:#333333;clear:both;text-align:left;font-size:14px;margin-left:80px;}
 #club_make .counWBox dl.warea1 .thumb_click,.thumb_click1 {width:26px;height:26px;margin-right:11px;}
 #club_make .counWBox dl.warea1 .thumb_check,.thumb_check1 {position:absolute;height:0px;}
-#club_make .counWBox dl.warea2 {height: 850px; position: relative; border-bottom: 1px solid #d4d4d4;}
+#club_make .counWBox dl.warea2 {height: 1295px; position: relative; border-bottom: 1px solid #d4d4d4;}
 #club_make .counWBox dl.warea2 dt {float: left; width: 180px; height: 390px; margin-right: 50px; text-indent: 30px; padding: 16px 0;}
-#club_make .counWBox dl.warea2 dd {float: left; width: 800px; padding-left: 20px; border-bottom: 1px solid #d4d4d4;	height: 790px;}
+#club_make .counWBox dl.warea2 dd {float: left; width: 800px; padding-left: 20px; height: 1250px;}
 #club_make .counWBox dl.warea2 dd ul {float:left;margin:15px 0px 15px 0; overflow:hidden;}
-#club_make .counWBox dl.warea2 dd li {float:left;height:137px;}
-#club_make .counWBox dl.warea2 .thumb_pager {text-align: center; background: url(/images/club/thumb_pager_bg.png)no-repeat center 680px;display: block;	margin-left:88px; width: 557px; padding-top:150px;}
+#club_make .counWBox dl.warea2 dd li {float:left;}
+#club_make .counWBox dl.warea2 .thumb_pager {text-align: center; background: url(/images/club/thumb_pager_bg.png)no-repeat center bottom;display: block;	margin-left:88px; width: 557px; padding-top:150px;}
 #club_make .counWBox dl.warea3 {height: 79px;position:relative;}
 #club_make .counWBox dl.warea3 dt {float: left; width: 180px; height: 47px; margin-right: 50px; text-indent: 30px; padding: 16px 0; border-bottom: 1px solid #d4d4d4;}
 #club_make .counWBox dl.warea3 dd {float: left; width: 800px; padding: 10px 0 10px 20px; border-bottom: 1px solid #d4d4d4;height:59px;line-height:29px;}
 #club_make .counWBox dl.warea3 dd ul {float:left;margin:15px 0px 15px 0;}
-#club_make .counWBox dl.warea3 dd li {float:left;height:137px;}
+#club_make .counWBox dl.warea3 dd li {float:left;}
 #club_make .counWBox dl.warea3 dd input[type="radio"] {display: none;}
 #club_make .counWBox dl.warea3 dd input[type="radio"]+label{width: 222px; padding-left: 20px; background: url(/images/common/radio_off.gif) no-repeat 0 7px;display:inline-block;}
 #club_make .counWBox dl.warea3 dd input[type="radio"]+label.on{background: url(/images/common/radio_on.gif) no-repeat 0 7px;}
@@ -4868,7 +4869,7 @@ dl.qvt2  {width: 1010px; padding: 40px 20px; border-bottom: 1px solid #c3c3c3; }
 #club_make .filebox input[type="file"] { position: absolute;width: 1px;height: 1px; padding: 0; margin: -1px; overflow: hidden; clip:rect(0,0,0,0); border: 0;}
 #club_make .filebox label {display: inline-block;padding: 0 32px;height:30px;color: #ffffff;font-size:14px;line-height: 30px;vertical-align: middle;background-color: #999999;cursor: pointer;border: 1px solid #dbdbdb;}
 #club_make .filebox .upload-name {display: inline-block; height: 30px; width: 580px; font-size: 14px; font-family: inherit; line-height: normal; vertical-align: middle; background-color: #f3f3f3;	border: 1px solid #dbdbdb; -webkit-appearance: none; -moz-appearance: none;	appearance: none;}
-#club_make p.filebox1 {font-size: 16px; color: #333333; clear: both; text-align: left; width: 820px; position: absolute; top: 770px; left: 230px; padding-bottom: 12px;	padding-left: 17px;}
+#club_make p.filebox1 {font-size: 16px; color: #333333; clear: both; text-align: left; width: 820px; position: absolute; top: 1215px; left: 230px; padding-bottom: 12px;	padding-left: 17px;}
 #club_make p.filebox1 span.t1 {font-size:16px;color:#333333;clear:both;text-align:left;padding-right:15px;line-height:32px;display:inline-block;}
 #club_make p.filebox1 span.t2 {font-size:16px;color:#333333;clear:both;text-align:left;font-size:14px;margin-left:80px;}
 #club_make .filebox1 input[type="file"] { position: absolute;width: 1px;height: 1px; padding: 0; margin: -1px; overflow: hidden; clip:rect(0,0,0,0); border: 0;}
